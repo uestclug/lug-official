@@ -10,19 +10,19 @@
 </template>
 
 <script>
-import AppBar from '@/components/App/AppBar'
-import FloatButton from '@/components/App/FloatButton'
-import Footer from '@/components/App/Footer'
+import AppBar from '@/components/App/AppBar';
+import FloatButton from '@/components/App/FloatButton';
+import Footer from '@/components/App/Footer';
 
 export default {
   name: 'App',
   components: {
     AppBar,
     FloatButton,
-    Footer
+    Footer,
   },
   data: () => ({
     //
-  })
-}
+  }),
+};
 </script>
