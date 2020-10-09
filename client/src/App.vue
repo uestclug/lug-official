@@ -24,5 +24,10 @@ export default {
   data: () => ({
     //
   }),
+  created() {
+    if (this.$DevMode) {
+      console.log('You are now in DevMode, feel free to develop this website!');
+    }
+  },
 };
 </script>

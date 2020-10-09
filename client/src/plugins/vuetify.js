@@ -1,3 +1,4 @@
+import '@fortawesome/fontawesome-free/css/all.css';
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 
@@ -12,5 +13,8 @@ export default new Vuetify({
         accent: '#fbe3e8', // Pinky
       },
     },
+  },
+  icons: {
+    iconfont: 'fa',
   },
 });

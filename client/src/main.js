@@ -8,8 +8,13 @@ import router from '@/router/index';
 import Bus from '@/Bus';
 import Common from '@/common/index';
 
-Vue.prototype.Bus = Bus;
-Vue.prototype.Common = Common;
+Vue.prototype.$Bus = Bus;
+Vue.prototype.$Common = Common;
+if (process.env.NODE_ENV === 'development') {
+  Vue.prototype.$DevMode = 'true';
+} else {
+  Vue.prototype.$DevMode = 'false';
+}
 
 Vue.config.productionTip = false;
 
