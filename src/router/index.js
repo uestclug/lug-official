@@ -16,9 +16,14 @@ const routes = [
     component: () => import('@/views/About.vue'),
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/Login.vue'),
+    path: '/blog',
+    name: 'blog',
+    component: () => import('@/views/Blog.vue'),
+  },
+  {
+    path: '/chat',
+    name: 'chat',
+    component: () => import('@/views/Chat.vue'),
   },
   {
     path: '/_empty',

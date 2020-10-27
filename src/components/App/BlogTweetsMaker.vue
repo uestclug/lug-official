@@ -1,10 +1,10 @@
 <template>
-  <v-footer>
-  </v-footer>
+  <div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Footer',
+  name: 'BlogTweetsMaker',
 };
 </script>

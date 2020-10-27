@@ -1,10 +1,11 @@
 <template>
-  <v-app-bar>
-  </v-app-bar>
+  <div>
+    Projects
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'AppBar',
+  name: 'Projects',
 };
 </script>

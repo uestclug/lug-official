@@ -1,0 +1,59 @@
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial,
+  "PingFang SC", "Hiragino Sans GB", "Heiti SC","Microsoft YaHei",
+  "WenQuanYi Micro Hei", sans-serif;
+}
+
+body {
+  background-color: snow;
+}
+
+.app-bar-content {
+  padding: 0 10%;
+}
+
+.footer-content {
+  padding: 0 10%;
+}
+
+.content {
+  padding: 0 15%;
+}
+
+.content-card {
+  padding: 0 10%;
+}
+
+/**
+ *  code  range
+ *  ----  -------------------
+ *  xs    < 600px
+ *  sm    600px > < 960px
+ *  md    960px > < 1264px*
+ *  lg    1264px* > < 1904px*
+ *  xl    > 1904px*
+ *  ----  -------------------
+ *  * -16px on Desktop
+ *  more info please visit: [https://v2.vuetifyjs.com/zh-Hans/styles/display/]
+ */
+@media screen and (max-width: 960px) {
+  body {
+    background-color: snow;
+  }
+
+  .app-bar-content {
+    padding: 0 0;
+  }
+
+  .footer-content {
+    padding: 0 0;
+  }
+
+  .content {
+    padding: 0 16px;
+  }
+
+  .content-card {
+    padding: 0 16px;
+  }
+}
