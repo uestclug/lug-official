@@ -4,6 +4,16 @@
   "WenQuanYi Micro Hei", sans-serif;
 }
 
+::selection {
+  background: #5cbdb9;
+  color: snow;
+}
+
+::-moz-selection {
+  background: #5cbdb9;
+  color: snow;
+}
+
 body {
   background-color: snow;
 }

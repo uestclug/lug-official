@@ -4,7 +4,7 @@
     <v-main>
       <router-view />
     </v-main>
-    <Footer />
+    <Footer class="mt-3" />
     <FloatButton />
     <BlogTweetsMaker />
     <NewsMaker />

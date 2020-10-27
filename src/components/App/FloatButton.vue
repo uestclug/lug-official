@@ -1,13 +1,13 @@
 <template>
   <v-fab-transition>
     <v-btn
-      absolute
+      fixed
       fab
       dark
       bottom
       right
       color="primary"
-      class="mb-12"
+      class="mb-3"
       v-show="scrollVal > 300"
       @click="backToTop"
     >

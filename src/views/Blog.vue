@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="content" >
+    <v-row class="content">
       <v-col class="d-none d-md-flex">
         <BlogNavigation cols="3" md="3" />
       </v-col>
