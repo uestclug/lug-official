@@ -27,7 +27,7 @@
 
 <script>
 import BlogList from '@/components/Home/BlogList';
-import ContentTitle from '@/components/App/ContentTitle';
+import ContentTitle from '@/components/Modal/ContentTitle';
 import Members from '@/components/Home/Members';
 import NewsList from '@/components/Home/NewsList';
 import Recruitment from '@/components/Home/Recruitment';

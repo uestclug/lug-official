@@ -5,6 +5,6 @@
 
 <script>
 export default {
-  name: 'BlogTweetsMaker',
+  name: 'MakerDialog',
 };
 </script>
