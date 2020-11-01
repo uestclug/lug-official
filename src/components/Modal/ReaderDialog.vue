@@ -5,6 +5,6 @@
 
 <script>
 export default {
-  name: 'TextDialog',
+  name: 'ReaderDialog',
 };
 </script>

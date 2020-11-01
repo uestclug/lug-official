@@ -7,7 +7,7 @@
     <Footer class="mt-3" />
     <FloatButton />
     <MakerDialog />
-    <TextDialog />
+    <ReaderDialog />
   </v-app>
 </template>
 
@@ -16,7 +16,7 @@ import AppBar from '@/components/App/AppBar';
 import FloatButton from '@/components/App/FloatButton';
 import Footer from '@/components/App/Footer';
 import MakerDialog from '@/components/Modal/MakerDialog';
-import TextDialog from '@/components/Modal/TextDialog';
+import ReaderDialog from '@/components/Modal/ReaderDialog';
 
 export default {
   name: 'App',
@@ -25,7 +25,7 @@ export default {
     FloatButton,
     Footer,
     MakerDialog,
-    TextDialog,
+    ReaderDialog,
   },
   data: () => ({
     //
