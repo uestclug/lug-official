@@ -36,6 +36,13 @@ export default {
       console.log('Version: ' + process.env.VUE_APP_VERSION_CODE);
     }
   },
+  mounted() {
+    this.$Bus.$on('routeTo', (path) => {
+      if (this.$route.path != path) {
+        this.$router.push({path: path});
+      }
+    });
+  },
 };
 </script>
 

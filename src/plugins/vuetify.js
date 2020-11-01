@@ -12,8 +12,8 @@ export default new Vuetify({
     themes: {
       light: {
         primary: '#5cbdb9', // Blue Greeny
-        secondary: '#ebf6f5', // Teeny Greeny
-        accent: '#fbe3e8', // Pinky
+        secondary: '#212121', // grey darken-4
+        accent: '#ed738d', // Pinky Red
         error: '#FF5252',
         info: '#2196F3',
         success: '#4CAF50',

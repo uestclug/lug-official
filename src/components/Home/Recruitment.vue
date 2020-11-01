@@ -4,7 +4,7 @@
       WE NEED YOU
     </v-card-title>
     <v-card-text>
-      我们是成立 23 年的学生组织，历经变迁，现隶属于信息中心，参与校内网络基础设施维护工作，提供开源软件镜像等诸多服务。
+      我们是成立{{ existYear }}年的学生组织，历经变迁，现隶属于信息中心，参与校内网络基础设施维护工作，提供开源软件镜像等诸多服务。
     </v-card-text>
     <v-card-title>
       我们要做的事
@@ -27,7 +27,10 @@
       招新方向
     </v-card-title>
     <v-card-text>
-      网络方向 & 前端方向 & DevOps 方向 & 文宣方向
+      <v-chip label color="primary" class="mr-2">网络</v-chip>
+      <v-chip label color="primary" class="mr-2">前端</v-chip>
+      <v-chip label color="primary" class="mr-2">后端</v-chip>
+      <v-chip label color="primary" class="mr-2">文宣</v-chip>
     </v-card-text>
     <v-card-actions>
       <v-btn
@@ -38,7 +41,7 @@
       </v-btn>
       <v-btn
         text
-        class="grey--text text--darken-3"
+        color="secondary"
       >
         了解更多
       </v-btn>
@@ -49,5 +52,12 @@
 <script>
 export default {
   name: 'Recruitment',
+  data: () => ({
+    existYear: '许多',
+  }),
+  created() {
+    // 计算成立时长
+    this.existYear = ' ' + (new Date().getFullYear() - 1997) + ' ';
+  },
 };
 </script>

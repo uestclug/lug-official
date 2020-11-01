@@ -1,3 +1,6 @@
+/**
+ *  Global classes
+ */
 * {
   font-family: "Helvetica Neue", Helvetica, Arial,
   "PingFang SC", "Hiragino Sans GB", "Heiti SC","Microsoft YaHei",
@@ -18,6 +21,16 @@ body {
   background-color: snow;
 }
 
+/**
+ *  Custom classes
+ */
+.clickable {
+  cursor: pointer;
+}
+
+/**
+ *  Classes below are @media screen included.
+ */
 .app-bar-content {
   padding: 0 10%;
 }
@@ -47,10 +60,6 @@ body {
  *  more info please visit: [https://v2.vuetifyjs.com/zh-Hans/styles/display/]
  */
 @media screen and (max-width: 960px) {
-  body {
-    background-color: snow;
-  }
-
   .app-bar-content {
     padding: 0 0;
   }

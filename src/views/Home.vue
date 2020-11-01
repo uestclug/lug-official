@@ -1,7 +1,7 @@
 <template>
   <div>
     <ContentTitle class="content" title="线上服务" icon="fas fa-concierge-bell" />
-    <Projects class="content" />
+    <Serves class="content" />
     <v-row class="content">
       <v-col cols="12" md="6">
         <ContentTitle title="新闻公告" icon="fas fa-bullhorn" />
@@ -30,8 +30,8 @@ import BlogList from '@/components/Home/BlogList';
 import ContentTitle from '@/components/App/ContentTitle';
 import Members from '@/components/Home/Members';
 import NewsList from '@/components/Home/NewsList';
-import Projects from '@/components/Home/Projects';
 import Recruitment from '@/components/Home/Recruitment';
+import Serves from '@/components/Home/Serves';
 
 export default {
   name: 'Home',
@@ -40,8 +40,8 @@ export default {
     ContentTitle,
     Members,
     NewsList,
-    Projects,
     Recruitment,
+    Serves,
   },
 };
 </script>

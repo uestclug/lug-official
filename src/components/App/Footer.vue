@@ -7,7 +7,9 @@
       flat
       tile
       width="100%"
-      class="footer-content grey darken-4 white--text"
+      color="secondary"
+      dark
+      class="footer-content pb-12"
     >
       <v-row class="pt-6 pb-6">
         <v-col cols="12" sm="12" md="4">
@@ -57,12 +59,6 @@
           </v-card-text>
         </v-col>
       </v-row>
-
-      <v-divider class="grey darken-3" />
-
-      <v-card-text class="white--text text-center">
-        <strong>NETUNION</strong> {{ new Date().getFullYear() }}
-      </v-card-text>
     </v-card>
   </v-footer>
 </template>
