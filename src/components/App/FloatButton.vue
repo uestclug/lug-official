@@ -27,7 +27,11 @@ export default {
       this.scrollVal = window.pageYOffset;
     },
     backToTop() {
-      this.$vuetify.goTo(0);
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
     },
   },
   mounted() {
