@@ -8,14 +8,14 @@
       v-bind:key="serve.name"
       class="text-center"
     >
-      <v-icon
-        class="clickable serve-icon pb-4"
-        color="primary"
-      >{{ serve.icon }}</v-icon>
-      <h3
-        class="clickable"
-      >{{ serve.name }}</h3>
-      <small>{{ serve.intro }}</small>
+      <span class="clickable" @click="redirectTo(serve.route, serve.link)">
+        <v-icon
+          class="serve-icon pb-4"
+          color="primary"
+        >{{ serve.icon }}</v-icon>
+        <h3>{{ serve.name }}</h3>
+        <small>{{ serve.intro }}</small>
+      </span>
     </v-col>
   </v-row>
 </template>
@@ -29,40 +29,53 @@ export default {
         name: '开源镜像站',
         icon: 'fas fa-compact-disc',
         intro: '成电开源镜像站',
-        path: '',
+        link: 'http://mirrors.uestc.cn',
       },
       {
         name: 'IPTV 直播',
         icon: 'fas fa-headset',
         intro: 'IPTV，好的 TV',
-        path: '',
+        link: 'https://iptv.uestc.edu.cn',
       },
       {
         name: '宿舍网络报修',
         icon: 'fas fa-tools',
         intro: '您的寝室生活救星',
-        path: '',
+        link: '',
       },
       {
         name: 'CAT ROOM',
         icon: 'fas fa-cat',
         intro: '摸鱼聊天留言板',
-        path: '',
+        route: '/chat',
       },
       {
         name: 'ISSUES',
         icon: 'fas fa-tasks',
         intro: 'Bug 提交/意见反馈',
-        path: '',
+        link: 'https://github.com/uestclug/nu-official/issues',
       },
       {
         name: '',
         icon: '',
         intro: '',
-        path: '',
+        link: '',
       },
     ],
   }),
+  methods: {
+    redirectTo(route, link) {
+      if (route != null && route != '') {
+        this.$router.push(route);
+      } else if (link != null && link != '') {
+        this.$Utils.openExternalLink(link);
+      } else {
+        console.log('此服务未绑定链接！请联系我们吐槽。');
+        return false;
+      }
+      return true;
+    },
+  },
 };
 </script>
 

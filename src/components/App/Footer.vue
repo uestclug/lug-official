@@ -32,8 +32,8 @@
             </div>
             <div class="mb-2">
               <a
-                @click="$Utils.openExternalLink('https://github.com/uestclug')"
                 class="white--text"
+                @click="$Utils.openExternalLink('https://github.com/uestclug')"
               >
                 <v-icon dark left small>fab fa-github</v-icon>Github
               </a>
@@ -43,6 +43,15 @@
                 class="white--text"
               >
                 <v-icon dark left small>fab fa-telegram-plane</v-icon>Telegram
+              </a>
+            </div>
+            <div class="mb-2">
+              <a
+                class="white--text"
+                @click="$Utils.openExternalLink('https://lug.uestc.dev')"
+              >
+                <v-icon dark left small>fab fa-linux</v-icon
+                >UESTC LUG
               </a>
             </div>
           </v-card-text>

@@ -27,6 +27,7 @@
       招新方向
     </v-card-title>
     <v-card-text>
+      <p>我们面向<strong>电子科技大学的全体学生</strong>招新，包括以下四个方向：</p>
       <v-chip label color="primary" class="mr-2">网络</v-chip>
       <v-chip label color="primary" class="mr-2">前端</v-chip>
       <v-chip label color="primary" class="mr-2">后端</v-chip>
