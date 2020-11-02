@@ -43,6 +43,7 @@ export default {
   },
   methods: {
     loadMoreNews() {
+      if (this.isLoading) return;
       console.log('Click load more news');
       this.isLoading = true;
       setTimeout(() => {

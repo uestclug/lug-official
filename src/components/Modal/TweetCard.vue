@@ -16,8 +16,9 @@
               color="secondary"
             >
               <v-btn
-                depressed
-                :disabled="isLoading"
+                rounded
+                :depressed="!isLoading"
+                :text="isLoading"
                 :loading="isLoading"
                 color="secondary"
               >{{ isLoading ? '正在获取中...' : '点击加载更多' }}</v-btn>
