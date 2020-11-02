@@ -8,10 +8,16 @@ Official page of NetUnion.
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for frontend development
 
 ``` yarn
 yarn serve
+```
+
+### Compiles and hot-reloads for full stack development
+
+``` yarn
+yarn fullstack
 ```
 
 ### Compiles and minifies for production

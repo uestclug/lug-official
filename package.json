@@ -2,7 +2,8 @@
   "name": "nu-official-frontend",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "cross-env VUE_APP_DEV_MODE=frontend vue-cli-service serve --open",
+    "fullstack": "cross-env VUE_APP_DEV_MODE=fullstack vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -20,6 +21,7 @@
     "@vue/cli-plugin-eslint": "~4.5.8",
     "@vue/cli-service": "~4.5.8",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-vue": "^6.2.2",
