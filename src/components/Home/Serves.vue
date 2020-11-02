@@ -44,6 +44,12 @@ export default {
         link: '',
       },
       {
+        name: '在线文档',
+        icon: 'fas fa-file-alt',
+        intro: '使用 Markdown 写作与分享',
+        link: 'https://md.uestclug.org',
+      },
+      {
         name: 'CAT ROOM',
         icon: 'fas fa-cat',
         intro: '摸鱼聊天留言板',
@@ -54,12 +60,6 @@ export default {
         icon: 'fas fa-tasks',
         intro: 'Bug 提交/意见反馈',
         link: 'https://github.com/uestclug/nu-official/issues',
-      },
-      {
-        name: '',
-        icon: '',
-        intro: '',
-        link: '',
       },
     ],
   }),

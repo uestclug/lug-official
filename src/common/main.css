@@ -28,6 +28,10 @@ body {
   cursor: pointer;
 }
 
+.cursor-default {
+  cursor: default;
+}
+
 /**
  *  Classes below are @media screen included.
  */
