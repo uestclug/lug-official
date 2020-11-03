@@ -14,10 +14,10 @@ export default new Vuetify({
         primary: '#5cbdb9', // Blue Greeny
         secondary: '#212121', // grey darken-4
         accent: '#ed738d', // Pinky Red
-        error: '#FF5252',
+        error: '#e22828',
         info: '#2196F3',
         success: '#4CAF50',
-        warning: '#FB8C00',
+        warning: '#ef6602',
       },
     },
   },

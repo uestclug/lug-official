@@ -47,9 +47,13 @@ export default {
       console.log('Click load more news');
       this.isLoading = true;
       setTimeout(() => {
-        console.log('More news loaded');
+        this.$Bus.$emit('setSnackbar', {
+          text: '新的新闻已经加载完成！',
+          type: 'success',
+        });
+        // console.log('More news loaded');
         this.isLoading = false;
-      }, 1000);
+      }, 400);
     },
   },
 };

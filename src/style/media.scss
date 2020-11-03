@@ -1,38 +1,4 @@
 /**
- *  Global classes
- */
-* {
-  font-family: "Helvetica Neue", Helvetica, Arial,
-  "PingFang SC", "Hiragino Sans GB", "Heiti SC","Microsoft YaHei",
-  "WenQuanYi Micro Hei", sans-serif;
-}
-
-::selection {
-  background: #5cbdb9;
-  color: snow;
-}
-
-::-moz-selection {
-  background: #5cbdb9;
-  color: snow;
-}
-
-body {
-  background-color: snow;
-}
-
-/**
- *  Custom classes
- */
-.clickable {
-  cursor: pointer;
-}
-
-.cursor-default {
-  cursor: default;
-}
-
-/**
  *  Classes below are @media screen included.
  */
 .app-bar-content {

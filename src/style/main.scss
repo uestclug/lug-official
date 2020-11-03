@@ -1,0 +1,73 @@
+$color-primary: #5cbdb9; // Blue Greeny
+$color-secondary: #212121; // grey darken-4
+$color-accent: #ed738d; // Pinky Red
+$color-error: #e22828;
+$color-info: #2196F3;
+$color-success: #4CAF50;
+$color-warning: #ef6602;
+$color-snow: snow;
+
+/**
+ *  Global classes
+ */
+
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+::selection {
+  background: $color-primary;
+  color: $color-snow;
+}
+
+::-moz-selection {
+  background: $color-primary;
+  color: $color-snow;
+}
+
+body {
+  background-color: $color-snow;
+}
+
+/**
+ *  Cursor classes
+ */
+.clickable {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+/**
+ *  Color classes
+ */
+
+.color-primary {
+  color: $color-primary;
+}
+
+.color-secondary {
+  color: $color-secondary;
+}
+
+.color-accent {
+  color: $color-accent;
+}
+
+.color-error {
+  color: $color-error;
+}
+
+.color-info {
+  color: $color-info;
+}
+
+.color-success {
+  color: $color-success;
+}
+
+.color-warning {
+  color: $color-warning;
+}

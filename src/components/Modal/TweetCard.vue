@@ -14,6 +14,7 @@
               v-if="hover"
               absolute
               color="secondary"
+              z-index="4"
             >
               <v-btn
                 rounded
@@ -26,7 +27,7 @@
           </v-fade-transition>
         </div>
         <div v-else>
-          <v-card-title>{{ tweetTitle }}</v-card-title>
+          <v-card-title class="color-primary">{{ tweetTitle }}</v-card-title>
           <v-card-subtitle>{{ tweetAuthor }}, {{ tweetDate }}</v-card-subtitle>
           <v-card-text>{{ tweetContent }}</v-card-text>
         </div>
