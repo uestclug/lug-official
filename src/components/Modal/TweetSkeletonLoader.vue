@@ -1,0 +1,61 @@
+<template>
+  <v-hover>
+    <template v-slot:default="{ hover }">
+      <v-card
+        :elevation="hover ? 4 : 2"
+        class="rounded-lg transition-swing"
+      >
+        <div class="clickable">
+          <div v-if="loadingType == 'news'">
+            <v-skeleton-loader
+              type="heading, table-cell, paragraph"
+              class="pa-4"
+            />
+          </div>
+          <div v-else-if="loadingType == 'blog'">
+          </div>
+          <v-fade-transition>
+            <v-overlay
+              v-if="hover"
+              absolute
+              color="primary"
+              z-index="4"
+            >
+              <v-btn
+                rounded
+                :depressed="!isLoading"
+                :text="isLoading"
+                :loading="isLoading"
+                color="primary"
+              >点击加载更多</v-btn>
+            </v-overlay>
+          </v-fade-transition>
+        </div>
+      </v-card>
+    </template>
+  </v-hover>
+</template>
+
+<script>
+export default {
+  name: 'TweetCard',
+  data: () => ({
+    //
+  }),
+  props: [
+    'loadingType', // 加载类型 ('news'/'blog')
+    'loadingAbled', // 渲染骨架屏，可以加载更多信息
+    'isLoading', // 设置按钮加载中
+  ],
+  computed: {
+    newsAccentColor() {
+      if (this.newsAccent == 'info' ||
+          this.newsAccent == 'accent' ||
+          this.newsAccent == 'warning' ||
+          this.newsAccent == 'error') {
+        return 'color-' + this.newsAccent;
+      } else return 'color-info';
+    },
+  },
+};
+</script>

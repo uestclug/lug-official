@@ -10,7 +10,7 @@ export default new Vuetify({
   },
   theme: {
     themes: {
-      light: {
+      light: { // 修改时请同步修改 ../style/main.scss 中的变量
         primary: '#5cbdb9', // Blue Greeny
         secondary: '#212121', // grey darken-4
         accent: '#ed738d', // Pinky Red
