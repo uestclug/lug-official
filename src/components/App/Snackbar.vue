@@ -46,6 +46,10 @@ export default {
           break;
         case 'success':
           this.snackbarColor = this.$vuetify.theme.themes.light
+              .success;
+          break;
+        case 'primary':
+          this.snackbarColor = this.$vuetify.theme.themes.light
               .primary;
           break;
         case 'accent':
@@ -60,8 +64,9 @@ export default {
           this.snackbarColor = this.$vuetify.theme.themes.light
               .error;
           break;
-        default: this.snackbarColor = this.$vuetify.theme.themes.light
-            .secondary;
+        default:
+          this.snackbarColor = this.$vuetify.theme.themes.light
+              .secondary;
       }
       this.snackbar = true;
     });

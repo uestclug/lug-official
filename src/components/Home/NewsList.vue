@@ -56,7 +56,7 @@ export default {
         this.newsItems.push(this.$DevData.newsList.newsItems[0]);
         this.$Bus.$emit('setSnackbar', {
           text: '新的新闻已经加载完成！',
-          type: 'success',
+          type: 'primary',
         });
         // console.log('More news loaded');
         this.isLoading = false;
