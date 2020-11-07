@@ -6,13 +6,12 @@
       @click:outside="clickOutsideCloseReaderDialog"
     >
       <v-card
-        class="rounded-lg pt-4 pb-4 cursor-default"
+        class="rounded-lg pt-4 pb-4"
         @dblclick="dblClickCloseReaderDialog"
       >
         <div class="pl-2 pr-2">
           <v-card-title
             :class="accentColorClass"
-            class="font-weight-bold"
           >{{ title }}
           </v-card-title>
           <v-card-subtitle class="pb-0">
@@ -50,7 +49,6 @@
         </div>
         <div class="pl-2 pr-2">
           <v-card-text>
-            <!-- 已知问题：点击标题前面的锚点会添加自动路由，刷新页面会导致进入 404 页面 -->
             <MarkdownItVue :content="content" :options="mdOptions" />
           </v-card-text>
         </div>
@@ -98,10 +96,23 @@ export default {
           icon: 'fas fa-check-circle',
           text: '干得好！你总是可以使用双击关闭此类对话框。',
           type: 'success',
-          timeout: 10000,
+          timeout: 6000,
           verticalPosition: 'bottom',
         });
         localStorage.haveDblClickCloseReaderDialog = true;
+      }
+    },
+    initRoutePath() {
+      const url = window.location.href;
+      const index = url.lastIndexOf('/');
+      window.history.pushState('', '', url.substring(0, index + 1));
+    },
+  },
+  watch: {
+    // 当 ReaderDialog 关闭时，移除路径栏可能出现的锚点值
+    dialog(val) {
+      if (!val) {
+        this.initRoutePath();
       }
     },
   },
@@ -119,7 +130,7 @@ export default {
         case 'accent': this.accentText = '哇喔'; break;
         case 'warning': this.accentText = '奥不'; break;
         case 'error': this.accentText = '天哪'; break;
-        default: this.accentText = '普通';
+        default: this.accentText = '嗯哼';
       }
       this.accentColorClass = msg.accentColorClass;
       this.dialog = true;

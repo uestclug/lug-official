@@ -5,6 +5,7 @@
         :elevation="hover ? 4 : 2"
         class="rounded-lg transition-swing"
       >
+        <!-- 新闻的 tweet 卡片 -->
         <v-alert
           border="left"
           :color="newsAccent ? newsAccent : 'info'"
@@ -17,14 +18,13 @@
           >
             <v-card-title
               :class="newsAccentColorClass"
-              class="font-weight-bold"
             >{{ tweetTitle }}</v-card-title>
             <v-card-subtitle
               class="pb-0"
             >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle>
           </span>
           <v-card-text>
-            {{ tweetContent }}
+            <span class="tweet-card-content-news">{{ tweetContent }}</span>
             <div>
               <v-chip
                 v-if="tweetLocation"
@@ -48,6 +48,7 @@
             </div>
           </v-card-text>
         </v-alert>
+        <!-- 博客的 tweet 卡片 -->
         <div v-else-if="tweetType == 'blog'">
         </div>
       </v-card>
@@ -100,3 +101,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.tweet-card-content-news {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+</style>

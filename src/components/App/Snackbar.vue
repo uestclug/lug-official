@@ -38,6 +38,16 @@ export default {
     verticalPosition: 'top',
     horizontalPosition: '',
   }),
+  methods: {
+    initSnackbar() {
+      this.snackbarColor = '';
+      this.snackbarIcon = '';
+      this.snackbarText = '';
+      this.timeout = 2000;
+      this.verticalPosition = 'top';
+      this.horizontalPosition = '';
+    },
+  },
   created() {
     this.snackbarColor = this.$vuetify.theme.themes.light.secondary;
   },
@@ -100,6 +110,7 @@ export default {
     });
     this.$Bus.$on('closeSnackbar', (msg) => {
       this.snackbar = false;
+      this.initSnackbar();
     });
   },
 };

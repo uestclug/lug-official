@@ -70,7 +70,7 @@ export default {
       } else if (link != null && link != '') {
         this.$Utils.openExternalLink(link);
       } else {
-        console.log('此服务未绑定链接！请联系我们吐槽。');
+        console.log('跳转失败！请联系我们吐槽。');
         return false;
       }
       return true;
