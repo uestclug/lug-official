@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
+import NotFound from '@/views/NotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,11 @@ const routes = [
     component: () => import('@/views/Chat.vue'),
   },
   {
+    path: '/notfound',
+    name: 'notfound',
+    component: NotFound,
+  },
+  {
     path: '/_empty',
     name: '_empty',
   },
@@ -41,6 +47,14 @@ const Router = new VueRouter({
       return {x: 0, y: 0};
     }
   },
+});
+
+Router.beforeEach((to, from, next) => {
+  if (to.matched.length !== 0) {
+    next();
+  } else {
+    next({path: '/notfound'});
+  }
 });
 
 export default Router;
