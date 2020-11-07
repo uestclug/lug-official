@@ -11,15 +11,42 @@
           colored-border
           v-if="tweetType == 'news'"
         >
-          <v-card-title :class="newsAccentColor"
-            >{{ tweetTitle }}</v-card-title
+          <span
+            class="clickable"
+            @click="openReaderDialog"
           >
-          <v-card-subtitle
-            >{{ tweetAuthor }}, {{ tweetDate }}</v-card-subtitle
-          >
-          <v-card-text class="color-secondary"
-            >{{ tweetContent }}</v-card-text
-          >
+            <v-card-title
+              :class="newsAccentColorClass"
+              class="font-weight-bold"
+            >{{ tweetTitle }}</v-card-title>
+            <v-card-subtitle
+              class="pb-0"
+            >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle>
+          </span>
+          <v-card-text>
+            {{ tweetContent }}
+            <div>
+              <v-chip
+                v-if="tweetLocation"
+                class="mt-2 mr-2 rounded-lg"
+                label
+                outlined
+                small
+              ><v-icon left x-small>fas fa-map-marker-alt</v-icon>
+                {{ tweetLocation }}
+              </v-chip>
+              <v-chip
+                v-if="tweetLink"
+                class="mt-2 rounded-lg"
+                @click="$Utils.openExternalLink(tweetLink)"
+                label
+                outlined
+                small
+              ><v-icon left x-small>fas fa-link</v-icon>
+                相关链接
+              </v-chip>
+            </div>
+          </v-card-text>
         </v-alert>
         <div v-else-if="tweetType == 'blog'">
         </div>
@@ -45,10 +72,24 @@ export default {
     'tweetLocation', // 地点
     'tweetLink', // 相关链接
     // 新闻
-    'newsAccent', // 新闻强调颜色 ('info'/'accent'/'warning'/'error')
+    'newsAccent', // 新闻类型 ('info'/'accent'/'warning'/'error')
   ],
+  methods: {
+    openReaderDialog() {
+      this.$Bus.$emit('setReaderDialog', {
+        title: this.tweetTitle,
+        author: this.tweetAuthor,
+        date: this.tweetDate,
+        content: this.tweetContent,
+        location: this.tweetLocation,
+        link: this.tweetLink,
+        accent: this.newsAccent,
+        accentColorClass: this.newsAccentColorClass,
+      });
+    },
+  },
   computed: {
-    newsAccentColor() {
+    newsAccentColorClass() {
       if (this.newsAccent == 'info' ||
           this.newsAccent == 'accent' ||
           this.newsAccent == 'warning' ||

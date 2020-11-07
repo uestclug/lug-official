@@ -11,9 +11,11 @@ module.exports = {
         newsType: 'news',
         newsAccent: 'info',
         newsDate: '2020-10-03',
-        newsContent: '这是一条简单的新闻公告，以及这是所有内容。',
-        newsLocation: '',
-        newsLink: '',
+        newsContent: '## 这是一条简单的新闻公告\n以及这是所有内容。\n喜欢的话为我点个赞吧！'+
+            '\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞'+
+            '\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞',
+        newsLocation: '电子科技大学',
+        newsLink: 'https://github.com/uestclug',
       },
       {
         newsId: '3',

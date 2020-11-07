@@ -47,15 +47,5 @@ export default {
     'loadingAbled', // 渲染骨架屏，可以加载更多信息
     'isLoading', // 设置按钮加载中
   ],
-  computed: {
-    newsAccentColor() {
-      if (this.newsAccent == 'info' ||
-          this.newsAccent == 'accent' ||
-          this.newsAccent == 'warning' ||
-          this.newsAccent == 'error') {
-        return 'color-' + this.newsAccent;
-      } else return 'color-info';
-    },
-  },
 };
 </script>

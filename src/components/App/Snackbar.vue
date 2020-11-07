@@ -5,9 +5,13 @@
     :color="snackbarColor"
     rounded="pill"
     :timeout="timeout"
-    top
+    :top="verticalPosition == 'top' ? true : false"
+    :bottom="verticalPosition == 'bottom' ? true : false"
+    :left="horizontalPosition == 'left' ? true : false"
+    :right="horizontalPosition == 'right' ? true : false"
   >
-    {{ snackbarText }}
+    <v-icon left small>{{ snackbarIcon }}</v-icon>
+    <span>{{ snackbarText }}</span>
     <template v-slot:action="{ attrs }">
       <v-btn
         dark
@@ -28,8 +32,11 @@ export default {
   data: () => ({
     snackbar: false,
     snackbarColor: '',
+    snackbarIcon: '',
     snackbarText: '',
     timeout: 2000,
+    verticalPosition: 'top',
+    horizontalPosition: '',
   }),
   created() {
     this.snackbarColor = this.$vuetify.theme.themes.light.secondary;
@@ -38,6 +45,27 @@ export default {
     this.$Bus.$on('setSnackbar', (msg) => {
       // console.log('msg: ' + msg.text);
       // console.log('type: ' + msg.type);
+      if (msg.timeout != null && msg.timeout != '') {
+        this.timeout = msg.timeout;
+      } else {
+        this.timeout = 2000;
+      }
+      if (msg.icon != null) {
+        this.snackbarIcon = msg.icon;
+      } else {
+        this.snackbarIcon = '';
+      }
+      if (msg.verticalPosition != null && msg.verticalPosition != '') {
+        this.verticalPosition = msg.verticalPosition;
+      } else {
+        this.verticalPosition = 'top';
+      }
+      if (msg.horizontalPosition != null) {
+        this.horizontalPosition = msg.horizontalPosition;
+      } else {
+        this.horizontalPosition = '';
+      }
+
       this.snackbarText = msg.text;
       switch (msg.type) {
         case 'info':
@@ -70,10 +98,12 @@ export default {
       }
       this.snackbar = true;
     });
+    this.$Bus.$on('closeSnackbar', (msg) => {
+      this.snackbar = false;
+    });
   },
 };
 </script>
 
 <style scoped>
-
 </style>
