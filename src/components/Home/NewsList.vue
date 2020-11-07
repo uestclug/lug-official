@@ -7,13 +7,28 @@
       :tweetId="news.newsId"
       :tweetTitle="news.newsTitle"
       :tweetAuthor="news.newsAuthor"
-      :tweetType="news.newsType"
-      :newsAccent="news.newsAccent"
+      tweetType="news"
       :tweetDate="news.newsDate"
       :tweetContent="news.newsContent"
       :tweetLocation="news.newsLocation"
       :tweetLink="news.newsLink"
+      :newsAccent="news.newsAccent"
+      :newsTag="news.newsTag"
     />
+    <div>
+      <v-btn
+        class="mt-2 float-right"
+        color="primary"
+        text
+        @click="loadMoreNews"
+        :disabled="!loadingAbled"
+        :loading="isLoading"
+      >
+        {{ loadingAbled ? '加载更多新闻公告' : '没有更多新闻公告啦' }}
+        <v-icon right small>fas fa-search</v-icon>
+      </v-btn>
+    </div>
+    <!--
     <TweetSkeletonLoader
       class="mt-6"
       v-if="loadingAbled"
@@ -22,18 +37,19 @@
       :loadingAbled="loadingAbled"
       :isLoading="isLoading"
     />
+    -->
   </div>
 </template>
 
 <script>
 import TweetCard from '@/components/Modal/TweetCard';
-import TweetSkeletonLoader from '@/components/Modal/TweetSkeletonLoader';
+// import TweetSkeletonLoader from '@/components/Modal/TweetSkeletonLoader';
 
 export default {
   name: 'NewsList',
   components: {
     TweetCard,
-    TweetSkeletonLoader,
+    // TweetSkeletonLoader,
   },
   data: () => ({
     newsItems: [],
@@ -50,7 +66,6 @@ export default {
     // TODO: 加载更多新闻公告信息
     loadMoreNews() {
       if (this.isLoading) return;
-      console.log('Click load more news');
       this.isLoading = true;
       setTimeout(() => {
         this.newsItems.push(this.$DevData.newsList.newsItems[0]);
@@ -58,7 +73,6 @@ export default {
           text: '新的新闻已经加载完成！',
           type: 'info',
         });
-        // console.log('More news loaded');
         this.isLoading = false;
         if (this.newsItems.length == 7) this.loadingAbled = false;
       }, 400);

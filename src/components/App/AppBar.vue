@@ -106,7 +106,7 @@ export default {
       {name: 'CHAT', path: '/chat'},
     ],
     links: [
-      {name: 'MIRRORS', path: 'https://www.google.com'},
+      {name: 'MIRRORS', path: 'http://mirrors.uestc.cn'},
     ],
   }),
   methods: {

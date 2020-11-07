@@ -22,6 +22,10 @@ const routes = [
     component: () => import('@/views/Blog.vue'),
   },
   {
+    path: '/blog/id/:blogId',
+    component: () => import('@/views/Blog.vue'),
+  },
+  {
     path: '/chat',
     name: 'chat',
     component: () => import('@/views/Chat.vue'),

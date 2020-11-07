@@ -13,7 +13,12 @@
             />
           </div>
           <div v-else-if="loadingType == 'blog'">
+            <v-skeleton-loader
+              type="heading, table-cell, paragraph"
+              class="pa-4"
+            />
           </div>
+          <!--
           <v-fade-transition>
             <v-overlay
               v-if="hover"
@@ -30,6 +35,7 @@
               >点击加载更多</v-btn>
             </v-overlay>
           </v-fade-transition>
+          -->
         </div>
       </v-card>
     </template>
@@ -44,8 +50,7 @@ export default {
   }),
   props: [
     'loadingType', // 加载类型 ('news'/'blog')
-    'loadingAbled', // 渲染骨架屏，可以加载更多信息
-    'isLoading', // 设置按钮加载中
+    'isLoading', // 加载中
   ],
 };
 </script>

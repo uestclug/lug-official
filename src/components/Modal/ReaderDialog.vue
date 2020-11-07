@@ -12,11 +12,18 @@
         <div class="pl-2 pr-2">
           <v-card-title
             :class="accentColorClass"
-          >{{ title }}
+          >
+            <span>{{ title }}</span>
           </v-card-title>
           <v-card-subtitle class="pb-0">
             {{ date }}, {{ author }}
             <div>
+              <v-chip
+                class="mt-2 mr-2 rounded-lg"
+                :color="accent ? accent : 'info'"
+                label
+                small
+              >{{ newsTagText }}</v-chip>
               <v-chip
                 class="mt-2 mr-2 rounded-lg"
                 :color="accent ? accent : 'info'"
@@ -49,7 +56,7 @@
         </div>
         <div class="pl-2 pr-2">
           <v-card-text>
-            <MarkdownItVue :content="content" :options="mdOptions" />
+            <MarkdownIt :content="content" />
           </v-card-text>
         </div>
       </v-card>
@@ -58,13 +65,12 @@
 </template>
 
 <script>
-import MarkdownItVue from 'markdown-it-vue';
-import 'markdown-it-vue/dist/markdown-it-vue.css';
+import MarkdownIt from '@/components/Modal/MarkdownIt';
 
 export default {
   name: 'ReaderDialog',
   components: {
-    MarkdownItVue,
+    MarkdownIt,
   },
   data: () => ({
     dialog: false,
@@ -77,12 +83,8 @@ export default {
     accent: '',
     accentText: '',
     accentColorClass: '',
-    mdOptions: {
-      markdownIt: {
-        breaks: true,
-        typographer: true,
-      },
-    },
+    // 新闻公告
+    newsTagText: '',
   }),
   methods: {
     clickOutsideCloseReaderDialog() {
@@ -125,14 +127,9 @@ export default {
       this.location = msg.location;
       this.link = msg.link;
       this.accent = msg.accent;
-      switch (msg.accent) {
-        case 'info': this.accentText = '嗯哼'; break;
-        case 'accent': this.accentText = '哇喔'; break;
-        case 'warning': this.accentText = '奥不'; break;
-        case 'error': this.accentText = '天哪'; break;
-        default: this.accentText = '嗯哼';
-      }
+      this.accentText = this.$Utils.getNewsAccentText(msg.accent);
       this.accentColorClass = msg.accentColorClass;
+      this.newsTagText = this.$Utils.getNewsTagText(msg.newsTag);
       this.dialog = true;
       if (!localStorage.haveDblClickCloseReaderDialog) {
         this.$Bus.$emit('setSnackbar', {
