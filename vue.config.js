@@ -1,12 +1,14 @@
+/* eslint-disable quote-props */
 module.exports = {
-  'transpileDependencies': [
+  transpileDependencies: [
     'vuetify',
   ],
-  'css': {
+  css: {
     loaderOptions: {
       scss: {
-        additionalData: `@import "~@/style/main.scss";
-            @import "~@/style/media.scss";`,
+        additionalData: [
+          //
+        ],
       },
     },
   },

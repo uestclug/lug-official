@@ -10,8 +10,8 @@ import Common from '@/common/common';
 import DevData from '@/common/devData';
 import Utils from '@/utils/index';
 
-import '@/style/main.scss';
-import '@/style/media.scss';
+import '@/styles/main.scss';
+import '@/styles/media.scss';
 
 Vue.prototype.$Bus = Bus;
 Vue.prototype.$Common = Common; // 全局变量
