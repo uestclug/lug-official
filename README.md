@@ -14,7 +14,9 @@ yarn install
 yarn serve
 ```
 
-### Compiles and hot-reloads for full stack development
+### Compiles and hot-reloads for full-stack development
+
+To start backend serve, see [nu-official-backend](https://github.com/uestclug/nu-official-backend).
 
 ``` yarn
 yarn fullstack

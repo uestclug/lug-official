@@ -22,7 +22,7 @@ module.exports = {
         blogTitle: '这是一篇博文',
         blogAuthor: 'blogAuthor',
         blogDate: '2020-11-10',
-        blogContent: '突击检查！请问您这是什么 XP 系统？',
+        blogContent: '突击检查！请问您这是什么 XP 系统？:smile:',
         blogLocation: '',
         blogLink: '',
       },

@@ -76,3 +76,15 @@ body {
 .color-warning {
   color: $color-warning;
 }
+
+/**
+ *  Custom classes
+ */
+.fixed-component {
+  position: fixed;
+}
+
+.fixed-component-outer-box {
+  width: 100%;
+  position: fixed;
+}

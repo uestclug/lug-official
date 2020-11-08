@@ -2,6 +2,7 @@
   <v-footer
     drak
     padless
+    class="mt-9"
   >
     <v-card
       flat
@@ -60,10 +61,10 @@
           <v-card-title>FIND US</v-card-title>
           <v-card-text>
             <div class="mb-2">
-              <span>电子科技大学沙河校区阳光餐厅后</span>
+              <span>电子科技大学沙河校区 阳光餐厅后</span>
             </div>
             <div class="mb-2">
-              <span>电子科技大学清水河校区第 X 组团下</span>
+              <span>电子科技大学清水河校区 第某组团下</span>
             </div>
           </v-card-text>
         </v-col>

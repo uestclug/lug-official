@@ -17,10 +17,12 @@
         <ContentTitle title="加入我们" icon="fas fa-user-plus" />
         <Recruitment />
       </v-col>
+      <!--
       <v-col cols="12" lg="6">
         <ContentTitle title="协会成员" icon="fas fa-user-friends" />
         <Members />
       </v-col>
+      -->
     </v-row>
   </div>
 </template>
@@ -28,7 +30,7 @@
 <script>
 import BlogList from '@/components/Home/BlogList';
 import ContentTitle from '@/components/Modal/ContentTitle';
-import Members from '@/components/Home/Members';
+// import Members from '@/components/Home/Members';
 import NewsList from '@/components/Home/NewsList';
 import Recruitment from '@/components/Home/Recruitment';
 import Serves from '@/components/Home/Serves';
@@ -38,7 +40,7 @@ export default {
   components: {
     BlogList,
     ContentTitle,
-    Members,
+    // Members,
     NewsList,
     Recruitment,
     Serves,

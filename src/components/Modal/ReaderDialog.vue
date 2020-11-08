@@ -6,10 +6,10 @@
       @click:outside="clickOutsideCloseReaderDialog"
     >
       <v-card
-        class="rounded-lg pt-4 pb-4"
+        class="rounded-lg pa-4"
         @dblclick="dblClickCloseReaderDialog"
       >
-        <div class="pl-2 pr-2">
+        <div>
           <v-card-title
             :class="accentColorClass"
           >
@@ -54,7 +54,7 @@
             </div>
           </v-card-subtitle>
         </div>
-        <div class="pl-2 pr-2">
+        <div>
           <v-card-text>
             <MarkdownIt :content="content" />
           </v-card-text>
@@ -102,19 +102,6 @@ export default {
           verticalPosition: 'bottom',
         });
         localStorage.haveDblClickCloseReaderDialog = true;
-      }
-    },
-    initRoutePath() {
-      const url = window.location.href;
-      const index = url.lastIndexOf('/');
-      window.history.pushState('', '', url.substring(0, index + 1));
-    },
-  },
-  watch: {
-    // 当 ReaderDialog 关闭时，移除路径栏可能出现的锚点值
-    dialog(val) {
-      if (!val) {
-        this.initRoutePath();
       }
     },
   },

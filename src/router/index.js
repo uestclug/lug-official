@@ -1,5 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
+// import About from '@/views/About.vue';
+import Blog from '@/views/Blog.vue';
+// import Chat from '@/views/Chat.vue';
 import Home from '@/views/Home.vue';
 import NotFound from '@/views/NotFound.vue';
 
@@ -19,11 +23,15 @@ const routes = [
   {
     path: '/blog',
     name: 'blog',
-    component: () => import('@/views/Blog.vue'),
+    component: Blog,
   },
   {
     path: '/blog/id/:blogId',
-    component: () => import('@/views/Blog.vue'),
+    component: Blog,
+  },
+  {
+    path: '/blog/tag/:blogTag',
+    component: Blog,
   },
   {
     path: '/chat',

@@ -70,6 +70,7 @@
             <v-chip
               v-for="blogTag in blogTags"
               v-bind:key="blogTag"
+              @click="toBlogByTag(blogTag)"
               class="mr-2 rounded-lg"
               color="primary"
               label
@@ -80,7 +81,7 @@
           </div>
           <span
             class="clickable"
-            @click="toBlogTweet(tweetId)"
+            @click="toBlogById(tweetId)"
           >
             <v-card-title
               :class="blogTags ? 'pt-2' : ''"
@@ -155,7 +156,10 @@ export default {
         newsTag: this.newsTag,
       });
     },
-    toBlogTweet(blogId) {
+    toBlogByTag(blogTag) {
+      this.$router.push('/blog/tag/' + blogTag);
+    },
+    toBlogById(blogId) {
       this.$router.push('/blog/id/' + blogId);
     },
   },

@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-row class="content">
-      <v-col class="d-none d-md-flex">
-        <BlogNavigation cols="3" md="3" />
+      <v-col cols="3" class="hide-on-xs">
+        <BlogNavigation />
       </v-col>
-      <v-col>
-        <BlogTweets cols="12" md="9" />
+      <v-col cols="12" sm="9">
+        <BlogTweets />
       </v-col>
     </v-row>
   </div>

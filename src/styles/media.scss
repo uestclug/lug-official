@@ -1,23 +1,4 @@
 /**
- *  Classes below are @media screen included.
- */
-.app-bar-content {
-  padding: 0 10%;
-}
-
-.footer-content {
-  padding: 0 10%;
-}
-
-.content {
-  padding: 0 15%;
-}
-
-.content-card {
-  padding: 0 10%;
-}
-
-/**
  *  code  range
  *  ----  -------------------
  *  xs    < 600px
@@ -29,20 +10,56 @@
  *  * -16px on Desktop
  *  more info please visit: [https://v2.vuetifyjs.com/zh-Hans/styles/display/]
  */
-@media screen and (max-width: 960px) {
+$xs-max-width: 600px;
+$sm-max-width: 960px;
+$md-max-width: 1280px;
+$lg-max-width: 1920px;
+
+$padding-none: 0 0; // 左右无间距
+$padding-basic: 0 16px; // 左右 16px 间距
+$padding-sm: 0 10%;
+$padding-md: 0 15%;
+$padding-lg: 0 20%;
+
+/**
+ *  Classes below are @media screen included.
+ */
+.app-bar-content {
+  padding: $padding-sm;
+}
+
+.footer-content {
+  padding: $padding-sm;
+}
+
+.content {
+  padding: $padding-md;
+}
+
+.content-card {
+  padding: $padding-sm;
+}
+
+@media screen and (max-width: $sm-max-width) {
   .app-bar-content {
-    padding: 0 0;
+    padding: $padding-none;
   }
 
   .footer-content {
-    padding: 0 0;
+    padding: $padding-none;
   }
 
   .content {
-    padding: 0 16px;
+    padding: $padding-basic;
   }
 
   .content-card {
-    padding: 0 16px;
+    padding: $padding-basic;
   }
+}
+
+@media screen and (max-width: $xs-max-width) {
+  .hide-on-xs {
+    display: none;
+  }  
 }

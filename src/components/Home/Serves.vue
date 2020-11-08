@@ -41,7 +41,7 @@ export default {
         name: '宿舍网络报修',
         icon: 'fas fa-tools',
         intro: '您的寝室生活救星',
-        link: '',
+        link: 'https://www.uestc.dev',
       },
       {
         name: '在线文档',

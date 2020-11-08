@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import TweetCard from '@/components/Modal/TweetCard';
+import TweetCard from '@/components/Home/TweetCard';
 
 export default {
   name: 'BlogList',
