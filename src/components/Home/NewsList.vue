@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import TweetCard from '@/components/Home/TweetCard';
+import TweetCard from '@/components/Modal/TweetCard';
 // import TweetSkeletonLoader from '@/components/Modal/TweetSkeletonLoader';
 
 export default {

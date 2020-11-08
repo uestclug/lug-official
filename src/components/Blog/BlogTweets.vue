@@ -1,28 +1,30 @@
 <template>
   <div>
-    <BlogTweetCard
+    <TweetCard
       class="mb-6"
       v-for="blog in blogItems"
       v-bind:key="blog.blogId"
-      :blogId="blog.blogId"
-      :blogTitle="blog.blogTitle"
-      :blogAuthor="blog.blogAuthor"
-      :blogDate="blog.blogDate"
-      :blogContent="blog.blogContent"
-      :blogLocation="blog.blogLocation"
-      :blogLink="blog.blogLink"
+      :tweetId="blog.blogId"
+      :tweetTitle="blog.blogTitle"
+      :tweetAuthor="blog.blogAuthor"
+      tweetType="blog"
+      :tweetDate="blog.blogDate"
+      :tweetContent="blog.blogContent"
+      :tweetLocation="blog.blogLocation"
+      :tweetLink="blog.blogLink"
       :blogTags="blog.blogTags"
+      blogView="markdown"
     />
   </div>
 </template>
 
 <script>
-import BlogTweetCard from '@/components/Blog/BlogTweetCard';
+import TweetCard from '@/components/Modal/TweetCard';
 
 export default {
   name: 'BlogTweets',
   components: {
-    BlogTweetCard,
+    TweetCard,
   },
   data: () => ({
     blogItems: [],

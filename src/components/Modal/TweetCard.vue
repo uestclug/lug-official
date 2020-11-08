@@ -91,7 +91,10 @@
             >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle>
           </span>
           <v-card-text>
-            <span class="tweet-card-content">{{ tweetContent }}</span>
+            <span v-if="blogView == 'markdown'">
+              <MarkdownIt :content="tweetContent"></MarkdownIt>
+            </span>
+            <span v-else class="tweet-card-content">{{ tweetContent }}</span>
             <div>
               <v-chip
                 v-if="tweetLocation"
@@ -121,11 +124,16 @@
 </template>
 
 <script>
+import MarkdownIt from '@/components/Modal/MarkdownIt';
+
 export default {
   name: 'TweetCard',
   data: () => ({
     //
   }),
+  components: {
+    MarkdownIt,
+  },
   props: [
     // 推送卡片公用
     'tweetId', // 编号
@@ -141,6 +149,7 @@ export default {
     'newsTag', // 新闻标签 ('mirrors'/'iptv'/'repair'/'markdown')
     // 博客
     'blogTags', // 博客标签
+    'blogView', // 博客渲染 (''/'markdown')
   ],
   methods: {
     openReaderDialog() {

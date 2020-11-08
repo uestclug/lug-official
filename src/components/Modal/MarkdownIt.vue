@@ -4,7 +4,7 @@
       <v-btn text loading disabled></v-btn>
       <p>正在加载中，请稍后...</p>
     </div>
-    <div v-else v-html="htmlContent" />
+    <div v-else v-html="htmlContent" class="markdown-body" />
   </div>
 </template>
 
@@ -16,6 +16,7 @@ const mdSub = require('markdown-it-sub');
 const mdSup = require('markdown-it-sup');
 const mdTaskLists = require('markdown-it-task-lists');
 const twemoji = require('twemoji');
+import 'github-markdown-css';
 
 const md = require('markdown-it')({
   linkify: false,
