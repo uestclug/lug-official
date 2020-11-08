@@ -29,11 +29,50 @@ export default {
   data: () => ({
     blogItems: [],
   }),
-  created() {
+  props: [
+    'filter',
+    'filterValue',
+  ],
+  methods: {
     // TODO: 获取博客内容
-    if (this.$DevMode) {
-      this.blogItems = this.$DevData.blogList.blogItems;
-    }
+    getBlogTweets() {
+      if (this.$DevMode) {
+        this.blogItems = [];
+        const filter = this.filter;
+        const filterValue = this.filterValue;
+        const blogItems = this.$DevData.blogList.blogItems;
+        if (filter == 'tag') {
+          for (const blogItem of blogItems) {
+            for (const blogTag of blogItem.blogTags) {
+              if (blogTag == filterValue) {
+                this.blogItems.push(blogItem);
+                break;
+              }
+            }
+          }
+        } else if (filter == 'id') {
+          for (const blogItem of blogItems) {
+            if (blogItem.blogId == filterValue) {
+              this.blogItems.push(blogItem);
+              break;
+            }
+          }
+        } else {
+          this.blogItems = blogItems;
+        }
+      }
+    },
+  },
+  created() {
+    this.getBlogTweets();
+  },
+  watch: {
+    filter() {
+      this.getBlogTweets();
+    },
+    filterValue() {
+      this.getBlogTweets();
+    },
   },
 };
 </script>

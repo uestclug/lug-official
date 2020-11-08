@@ -6,7 +6,7 @@ module.exports = {
     blogItems: [
       {
         blogId: '4',
-        blogTags: ['吐槽', '点赞'],
+        blogTags: ['Enjoy', 'Development'],
         blogTitle: '这是一篇博文',
         blogAuthor: 'blogAuthor',
         blogDate: '2020-11-12',
@@ -18,7 +18,7 @@ module.exports = {
       },
       {
         blogId: '3',
-        blogTags: ['诚实'],
+        blogTags: ['Enjoy'],
         blogTitle: '这是一篇博文',
         blogAuthor: 'blogAuthor',
         blogDate: '2020-11-10',
@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         blogId: '2',
-        blogTags: ['Trump', 'Ahhhha'],
+        blogTags: ['Development'],
         blogTitle: '这是一篇博文',
         blogAuthor: 'blogAuthor',
         blogDate: '2020-11-08',
@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         blogId: '1',
-        blogTags: ['科普', '定律'],
+        blogTags: ['科普'],
         blogTitle: '这是一篇博文',
         blogAuthor: 'blogAuthor',
         blogDate: '2020-11-07',

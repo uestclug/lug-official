@@ -26,12 +26,9 @@ const routes = [
     component: Blog,
   },
   {
-    path: '/blog/id/:blogId',
+    path: '/blog/:filter/:filterValue',
     component: Blog,
-  },
-  {
-    path: '/blog/tag/:blogTag',
-    component: Blog,
+    props: true,
   },
   {
     path: '/chat',

@@ -5,7 +5,7 @@
         <BlogNavigation />
       </v-col>
       <v-col cols="12" sm="9">
-        <BlogTweets />
+        <BlogTweets :filter="filter" :filterValue="filterValue" />
       </v-col>
     </v-row>
   </div>
@@ -21,5 +21,9 @@ export default {
     BlogNavigation,
     BlogTweets,
   },
+  props: [
+    'filter',
+    'filterValue',
+  ],
 };
 </script>
