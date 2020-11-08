@@ -1,5 +1,12 @@
 <template>
   <div>
+    <!--
+    <v-breadcrumbs
+      v-if="breadcrumbsItems.length != 0"
+      large
+      :items="breadcrumbsItems"
+    ></v-breadcrumbs>
+    -->
     <TweetCard
       class="mb-6"
       v-for="blog in blogItems"
@@ -28,6 +35,7 @@ export default {
   },
   data: () => ({
     blogItems: [],
+    breadcrumbsItems: [],
   }),
   props: [
     'filter',
@@ -62,16 +70,36 @@ export default {
         }
       }
     },
+    getBreadcrumbsItems() {
+      if (this.filter && this.filterValue) {
+        this.breadcrumbsItems = [
+          {
+            text: 'blog',
+          },
+          {
+            text: this.filter,
+          },
+          {
+            text: this.filterValue,
+          },
+        ];
+      } else {
+        this.breadcrumbsItems = [];
+      }
+    },
   },
   created() {
     this.getBlogTweets();
+    // this.getBreadcrumbsItems();
   },
   watch: {
     filter() {
       this.getBlogTweets();
+      // this.getBreadcrumbsItems();
     },
     filterValue() {
       this.getBlogTweets();
+      // this.getBreadcrumbsItems();
     },
   },
 };

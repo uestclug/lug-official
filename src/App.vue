@@ -44,9 +44,7 @@ export default {
   },
   mounted() {
     this.$Bus.$on('routeTo', (path) => {
-      if (this.$route.path != path) {
-        this.$router.push({path: path});
-      }
+      this.$router.push({path: path});
     });
   },
 };

@@ -7,6 +7,12 @@ import Blog from '@/views/Blog.vue';
 import Home from '@/views/Home.vue';
 import NotFound from '@/views/NotFound.vue';
 
+// 重复跳转相同路由不再报错
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((err) => err);
+};
+
 Vue.use(VueRouter);
 
 const routes = [

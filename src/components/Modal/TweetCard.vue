@@ -38,7 +38,7 @@
             <div>
               <v-chip
                 v-if="tweetLocation"
-                class="mt-2 mr-2 rounded-lg"
+                class="mt-4 mr-2 rounded-lg"
                 label
                 outlined
                 small
@@ -47,7 +47,7 @@
               </v-chip>
               <v-chip
                 v-if="tweetLink"
-                class="mt-2 rounded-lg"
+                class="mt-4 rounded-lg"
                 @click="$Utils.openExternalLink(tweetLink)"
                 label
                 outlined
@@ -98,7 +98,7 @@
             <div>
               <v-chip
                 v-if="tweetLocation"
-                class="mt-2 mr-2 rounded-lg"
+                class="mt-4 mr-2 rounded-lg"
                 label
                 outlined
                 small
@@ -107,7 +107,7 @@
               </v-chip>
               <v-chip
                 v-if="tweetLink"
-                class="mt-2 rounded-lg"
+                class="mt-4 rounded-lg"
                 @click="$Utils.openExternalLink(tweetLink)"
                 label
                 outlined

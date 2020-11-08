@@ -6,19 +6,22 @@ module.exports = {
     blogItems: [
       {
         blogId: '4',
-        blogTags: ['Enjoy', 'Development'],
+        blogTags: ['Enjoy'],
         blogTitle: '这是一篇博文',
         blogAuthor: 'blogAuthor',
         blogDate: '2020-11-12',
-        blogContent: '## 这是一条简单的博客\n以及这是所有内容。\n喜欢的话为我点个赞吧！'+
-            '\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞'+
-            '\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞',
+        blogContent: '## 这是一条简单的博客\n下面是一些简单的测试：\n' +
+            '### List\n- 被窝一无所有\n- 为何给我安慰\n1. 天空一无所有\n2. 为何给我安慰\n' +
+            '### Task list\n- [ ] 美观的前端设计\n- [x] Primary color\n' +
+            '### Emoji\n这是一张笑脸:smile:\n这是星星:star:\n这是小朋友:boy:\n' +
+            '### Link\n点击[这里](https://www.google.com)访问 Google!\n' +
+            '### Pic\n这是 Pixiv 中一张上传于 `2020年11月9日 00:17` 的插画！Pid = `85554818`.\n![坏女人](https://i.pximg.net/img-master/img/2020/11/09/01/17/59/85554818_p0_master1200.jpg)',
         blogLocation: '电子科技大学',
         blogLink: 'https://github.com/uestclug',
       },
       {
         blogId: '3',
-        blogTags: ['Enjoy'],
+        blogTags: ['Enjoy', 'Development'],
         blogTitle: '这是一篇博文',
         blogAuthor: 'blogAuthor',
         blogDate: '2020-11-10',
@@ -59,9 +62,7 @@ module.exports = {
         newsAuthor: 'newsAuthor',
         newsAccent: 'info',
         newsDate: '2020-10-03',
-        newsContent: '## 这是一条简单的新闻公告\n以及这是所有内容。\n喜欢的话为我点个赞吧！'+
-            '\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞'+
-            '\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞\n点赞',
+        newsContent: '## 这是一条简单的新闻公告\n以及这是所有内容。\n喜欢的话为我点个赞吧！',
         newsLocation: '电子科技大学',
         newsLink: 'https://github.com/uestclug',
       },
