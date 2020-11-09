@@ -1,6 +1,12 @@
 # nu-official
 
-Official page of NetUnion.
+Official page of Netunion.
+
+## Todo list
+
+- [ ] 招新简历投递。
+- [ ] 招新了解更多单页。
+- [ ] CAT ROOM 留言板。在 [fishroom](https://fishroom.tuna.moe/log/tuna/today) 基础上改进。
 
 ## Project setup
 
