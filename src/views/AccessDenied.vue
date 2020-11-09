@@ -1,7 +1,7 @@
 <template>
   <div>
-    <SimpleNotes title="导航失败" icon="fas fa-map-marked-alt"
-        primaryText="您来到了未知的荒漠" />
+    <SimpleNotes title="拒绝访问" icon="fas fa-ban"
+        primaryText="只有 Netunion 的成员才能访问此空间" />
   </div>
 </template>
 

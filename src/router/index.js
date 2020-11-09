@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import Blog from '@/views/Blog.vue';
 // import Chat from '@/views/Chat.vue';
 import Home from '@/views/Home.vue';
+import AccessDenied from '@/views/AccessDenied.vue';
 import NotFound from '@/views/NotFound.vue';
 
 // 重复跳转相同路由不再报错
@@ -39,7 +40,43 @@ const routes = [
   {
     path: '/chat',
     name: 'chat',
+    meta: {
+      needLogin: true,
+    },
     component: () => import('@/views/Chat.vue'),
+  },
+  {
+    path: '/editor',
+    name: 'editor',
+    meta: {
+      needLogin: true,
+      needAdmin: true,
+    },
+    component: () => import('@/views/Editor.vue'),
+  },
+  {
+    path: '/editor/:type/:id',
+    meta: {
+      needLogin: true,
+      needAdmin: true,
+    },
+    component: () => import('@/views/Editor.vue'),
+    props: true,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/Login.vue'),
+  },
+  {
+    path: '/oauth/redirect',
+    name: 'oauth',
+    component: () => import('@/views/Oauth.vue'),
+  },
+  {
+    path: '/accessdenied',
+    name: 'accessdenied',
+    component: AccessDenied,
   },
   {
     path: '/notfound',
@@ -53,9 +90,9 @@ const routes = [
 ];
 
 const Router = new VueRouter({
+  mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // 路由切换滚动
     if (savedPosition) {
       return savedPosition;
     } else {
@@ -66,7 +103,19 @@ const Router = new VueRouter({
 
 Router.beforeEach((to, from, next) => {
   if (to.matched.length !== 0) {
-    next();
+    if (to.meta.needLogin && !localStorage.getItem('token')) {
+      next({
+        name: 'login',
+      });
+    } else {
+      if (to.meta.needAdmin && !localStorage.getItem('tokenAdmin')) {
+        next({
+          name: 'accessdenied',
+        });
+      } else {
+        next();
+      }
+    }
   } else {
     next({path: '/notfound'});
   }

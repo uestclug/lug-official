@@ -1,7 +1,12 @@
 module.exports = {
-  // 打开外链网页
+  // 在新窗口打开链接
   openExternalLink(link) {
     window.open(link);
+  },
+
+  // 在当前窗口打开链接
+  openLink(link) {
+    window.open(link, '_self');
   },
 
   // 根据 news 的 tag 获取对应文本值
@@ -24,5 +29,12 @@ module.exports = {
       case 'error': return '天哪';
       default: return '嗯哼';
     }
+  },
+
+  removeLocalStorageUserInfo() {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('token');
+    localStorage.removeItem('tokenAdmin');
+    localStorage.removeItem('githubAccessToken');
   },
 };
