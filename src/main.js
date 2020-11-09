@@ -38,6 +38,7 @@ axios.interceptors.request.use(
         userId: localStorage.getItem('userId'),
         token: localStorage.getItem('token'),
         tokenAdmin: localStorage.getItem('tokenAdmin'),
+        githubAccessToken: localStorage.getItem('githubAccessToken'),
       };
       return config;
     },
