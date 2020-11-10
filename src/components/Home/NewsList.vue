@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import TweetCard from '@/components/Modal/TweetCard';
-// import TweetSkeletonLoader from '@/components/Modal/TweetSkeletonLoader';
+import TweetCard from '@/components/Model/TweetCard';
+// import TweetSkeletonLoader from '@/components/Model/TweetSkeletonLoader';
 
 export default {
   name: 'NewsList',

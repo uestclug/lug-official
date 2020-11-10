@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content text-center pb-6">
+    <div class="content text-center">
       <ContentTitle :title="title ? title : 'Ops'" :icon="icon ? icon : ''" />
       <div class="pb-6">
         <div class="pb-1">{{ primaryText ? primaryText : '不知道发生了什么，但是请' }}</div>
@@ -9,6 +9,8 @@
         >
       </div>
       <v-btn
+        class="mb-6"
+        v-if="button != 'hide'"
         to="/"
         color="primary"
         depressed
@@ -18,7 +20,7 @@
 </template>
 
 <script>
-import ContentTitle from '@/components/Modal/ContentTitle';
+import ContentTitle from '@/components/Model/ContentTitle';
 
 export default {
   name: 'SimpleNotes',
@@ -30,6 +32,7 @@ export default {
     'icon',
     'primaryText',
     'secondaryText',
+    'button',
     'buttonText',
   ],
 };

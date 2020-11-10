@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import SimpleNotes from '@/components/Modal/SimpleNotes';
+import SimpleNotes from '@/components/Model/SimpleNotes';
 
 export default {
   name: 'NotFound',

@@ -47,13 +47,23 @@
               </v-chip>
               <v-chip
                 v-if="tweetLink"
-                class="mt-4 rounded-lg"
+                class="mt-4 mr-2 rounded-lg"
                 @click="$Utils.openExternalLink(tweetLink)"
                 label
                 outlined
                 small
               ><v-icon left x-small>fas fa-link</v-icon>
                 相关链接
+              </v-chip>
+              <v-chip
+                v-if="editRoutePath"
+                class="mt-4 rounded-lg"
+                @click="$Utils.openLink(editRoutePath)"
+                label
+                outlined
+                small
+              ><v-icon left x-small>fas fa-edit</v-icon>
+                编辑新闻公告
               </v-chip>
             </div>
           </v-card-text>
@@ -107,13 +117,23 @@
               </v-chip>
               <v-chip
                 v-if="tweetLink"
-                class="mt-4 rounded-lg"
+                class="mt-4 mr-2 rounded-lg"
                 @click="$Utils.openExternalLink(tweetLink)"
                 label
                 outlined
                 small
               ><v-icon left x-small>fas fa-link</v-icon>
                 相关链接
+              </v-chip>
+              <v-chip
+                v-if="editRoutePath"
+                class="mt-4 rounded-lg"
+                @click="$Utils.openLink(editRoutePath)"
+                label
+                outlined
+                small
+              ><v-icon left x-small>fas fa-edit</v-icon>
+                编辑博客文章
               </v-chip>
             </div>
           </v-card-text>
@@ -124,12 +144,12 @@
 </template>
 
 <script>
-import MarkdownIt from '@/components/Modal/MarkdownIt';
+import MarkdownIt from '@/components/Model/MarkdownIt';
 
 export default {
   name: 'TweetCard',
   data: () => ({
-    //
+    editRoutePath: '',
   }),
   components: {
     MarkdownIt,
@@ -146,11 +166,17 @@ export default {
     'tweetLink', // 相关链接
     // 新闻
     'newsAccent', // 新闻类型 ('info'/'accent'/'warning'/'error')
-    'newsTag', // 新闻标签 ('mirrors'/'iptv'/'repair'/'markdown')
+    // eslint-disable-next-line max-len
+    'newsTag', // 新闻标签 ('mirrors'/'iptv'/'repair'/'markdown'/'catroom'/'nuofficial')
     // 博客
     'blogTags', // 博客标签
     'blogView', // 博客渲染 (''/'markdown')
   ],
+  created() {
+    if (localStorage.tokenAdmin) {
+      this.editRoutePath = '/editor/' + this.tweetType + '/' + this.tweetId;
+    }
+  },
   methods: {
     openReaderDialog() {
       this.$Bus.$emit('setReaderDialog', {

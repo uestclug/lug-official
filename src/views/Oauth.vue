@@ -1,32 +1,49 @@
 <template>
   <div>
-    <div class="content text-center pb-6">
-      <ContentTitle title="与您一起" icon="fas fa-heart" />
-      <div class="pb-6">
-        <div class="pb-1">正在将您登录到我们的舰队</div>
-        <div class="pb-1">请稍等，成功后会自动跳转到首页</div>
+    <div class="pb-6">
+      <SimpleNotes title="与您一起" icon="fas fa-heart"
+          primaryText="正在将您登录到我们的舰队"
+          secondaryText="请稍等，成功后会自动跳转到首页..." button="hide" />
+      <div class="text-center">
+        <div class="pb-1">您已经等待了 <strong>{{ waitTimeCount }}</strong> 秒钟</div>
+        <div><small>{{ waitTimeText }}</small></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ContentTitle from '@/components/Modal/ContentTitle';
+import SimpleNotes from '@/components/Model/SimpleNotes';
 
 export default {
   name: 'Oauth',
   components: {
-    ContentTitle,
+    SimpleNotes,
   },
+  data: () => ({
+    waitTimeCount: 0,
+    waitTimeText: '',
+  }),
   methods: {
-    // setLoginViewLogined() {
-    //   this.$Bus.$emit('setLoginViewLogined');
-    // },
-    // setLoginViewLoginFailed() {
-    //   this.$Bus.$emit('setLoginViewLoginFailed');
-    // },
+    setWaitTimeCount() {
+      this.waitTimeCount += 1;
+      switch (this.waitTimeCount) {
+        case 5:
+          this.waitTimeText = '从 Github 读取您的信息中...';
+          break;
+        case 10:
+          this.waitTimeText = '这个过程花费的时间取决于您的网络状况...';
+          break;
+        case 15:
+          this.waitTimeText = '看着时间从眼前流逝...';
+          break;
+        default:
+          break;
+      }
+    },
   },
   created() {
+    setInterval(this.setWaitTimeCount, 1000);
     if (this.$DevMode) {
       setTimeout(() => {
         localStorage.token = 'token';

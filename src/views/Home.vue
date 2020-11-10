@@ -29,7 +29,7 @@
 
 <script>
 import BlogList from '@/components/Home/BlogList';
-import ContentTitle from '@/components/Modal/ContentTitle';
+import ContentTitle from '@/components/Model/ContentTitle';
 // import Members from '@/components/Home/Members';
 import NewsList from '@/components/Home/NewsList';
 import Recruitment from '@/components/Home/Recruitment';
@@ -44,6 +44,9 @@ export default {
     NewsList,
     Recruitment,
     Serves,
+  },
+  methods: {
+    //
   },
 };
 </script>

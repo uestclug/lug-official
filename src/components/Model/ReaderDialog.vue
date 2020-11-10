@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import MarkdownIt from '@/components/Modal/MarkdownIt';
+import MarkdownIt from '@/components/Model/MarkdownIt';
 
 export default {
   name: 'ReaderDialog',

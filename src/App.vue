@@ -18,7 +18,7 @@ import FloatButton from '@/components/App/FloatButton';
 import Footer from '@/components/App/Footer';
 import Login from '@/components/App/Login';
 import Snackbar from '@/components/App/Snackbar';
-import ReaderDialog from '@/components/Modal/ReaderDialog';
+import ReaderDialog from '@/components/Model/ReaderDialog';
 
 export default {
   name: 'App',

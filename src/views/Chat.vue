@@ -8,7 +8,7 @@
 
 <script>
 import ChatRoom from '@/components/Chat/ChatRoom';
-import SimpleNotes from '@/components/Modal/SimpleNotes';
+import SimpleNotes from '@/components/Model/SimpleNotes';
 
 export default {
   name: 'Chat',

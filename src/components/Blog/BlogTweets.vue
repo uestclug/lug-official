@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import TweetCard from '@/components/Modal/TweetCard';
+import TweetCard from '@/components/Model/TweetCard';
 
 export default {
   name: 'BlogTweets',

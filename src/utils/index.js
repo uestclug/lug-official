@@ -16,6 +16,8 @@ module.exports = {
       case 'iptv': return 'IPTV';
       case 'repair': return '网络报修';
       case 'markdown': return '在线文档';
+      case 'catroom': return 'Cat Room';
+      case 'nuofficial': return '此网站';
       default: return '新闻公告';
     }
   },

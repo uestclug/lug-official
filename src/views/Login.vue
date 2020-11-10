@@ -1,30 +1,27 @@
 <template>
-  <div>
-    <div class="content text-center pb-6">
-      <ContentTitle title="与我们一起" icon="fas fa-users" />
-      <div class="pb-6">
-        <div class="pb-1">有朋自远方来，不亦乐乎</div>
-        <div class="pb-1">现在就使用你的 Github 账号登录吧</div>
-      </div>
-      <v-btn
-        @click="loginWithGithub"
-        color="primary"
-        depressed
-        :disabled="logining"
-      ><v-icon left>fab fa-github</v-icon
-        >{{ logining ? '正在使用 Github 登录中' : '使用 Github 登录' }}</v-btn
-      >
-    </div>
+  <div class="text-center">
+    <SimpleNotes title="与我们一起" icon="fas fa-users"
+        primaryText="有朋自远方来，不亦乐乎"
+        secondaryText="现在就使用你的 Github 账号登录吧" button="hide" />
+    <v-btn
+      class="mb-6"
+      @click="loginWithGithub"
+      color="primary"
+      depressed
+      :disabled="logining"
+    ><v-icon left>fab fa-github</v-icon
+      >{{ logining ? '正在使用 Github 登录中' : '使用 Github 登录' }}</v-btn
+    >
   </div>
 </template>
 
 <script>
-import ContentTitle from '@/components/Modal/ContentTitle';
+import SimpleNotes from '@/components/Model/SimpleNotes';
 
 export default {
   name: 'Login',
   components: {
-    ContentTitle,
+    SimpleNotes,
   },
   data: () => ({
     logining: false,
