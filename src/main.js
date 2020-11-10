@@ -35,10 +35,9 @@ axios.interceptors.request.use(
       // 设置请求体
       config.data = {
         ...config.data,
-        userId: localStorage.getItem('userId'),
+        githubId: localStorage.getItem('githubId'),
         token: localStorage.getItem('token'),
         tokenAdmin: localStorage.getItem('tokenAdmin'),
-        githubAccessToken: localStorage.getItem('githubAccessToken'),
       };
       return config;
     },

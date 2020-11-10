@@ -29,10 +29,11 @@ export default {
   created() {
     if (this.$DevMode) {
       setTimeout(() => {
-        localStorage.setItem('userId', 'userId');
-        localStorage.setItem('token', 'token');
-        localStorage.setItem('tokenAdmin', 'tokenAdmin');
-        localStorage.setItem('githubAccessToken', 'githubAccessToken');
+        localStorage.token = 'token';
+        localStorage.tokenAdmin = 'tokenAdmin';
+        localStorage.githubId = 'githubId';
+        localStorage.username = 'username';
+        localStorage.userBio = 'userBio';
         this.$Bus.$emit('setSnackbar', {
           type: 'success',
           text: '嗨，欢迎回到我们的大航线！',
@@ -47,13 +48,25 @@ export default {
       }).then((Response) => {
         // console.log(Response.data);
         if (Response.data.code == 200) {
-          localStorage.setItem('githubAccessToken',
-              Response.data.result.accessToken);
-          this.$Bus.$emit('setSnackbar', {
-            type: 'success',
-            text: '嗨，欢迎回到我们的大航线！',
-            timeout: 5000,
-          });
+          localStorage.token = Response.data.result.token;
+          localStorage.githubId = Response.data.result.githubId;
+          localStorage.username = Response.data.result.username;
+          localStorage.userBio = Response.data.result.userBio;
+
+          if (Response.data.result.tokenAdmin) {
+            localStorage.tokenAdmin = Response.data.result.tokenAdmin;
+            this.$Bus.$emit('setSnackbar', {
+              type: 'success',
+              text: '嗨，长官，欢迎回到我们的大航线！',
+              timeout: 5000,
+            });
+          } else {
+            this.$Bus.$emit('setSnackbar', {
+              type: 'success',
+              text: '嗨，欢迎来到我们的大航线！',
+              timeout: 5000,
+            });
+          }
         } else {
           this.$Bus.$emit('setSnackbar', {
             type: 'error',

@@ -32,9 +32,10 @@ module.exports = {
   },
 
   removeLocalStorageUserInfo() {
-    localStorage.removeItem('userId');
     localStorage.removeItem('token');
     localStorage.removeItem('tokenAdmin');
-    localStorage.removeItem('githubAccessToken');
+    localStorage.removeItem('githubId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userBlo');
   },
 };

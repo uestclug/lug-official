@@ -104,8 +104,7 @@ const Router = new VueRouter({
 Router.beforeEach((to, from, next) => {
   if (to.matched.length !== 0) {
     if (to.meta.needLogin && (!localStorage.getItem('token') ||
-        !localStorage.getItem('githubAccessToken') ||
-        !localStorage.getItem('userId'))) {
+        !localStorage.getItem('githubId'))) {
       next({
         name: 'login',
       });
