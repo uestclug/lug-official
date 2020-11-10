@@ -36,6 +36,6 @@ module.exports = {
     localStorage.removeItem('tokenAdmin');
     localStorage.removeItem('githubId');
     localStorage.removeItem('username');
-    localStorage.removeItem('userBlo');
+    localStorage.removeItem('userBio');
   },
 };

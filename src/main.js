@@ -57,9 +57,7 @@ axios.interceptors.response.use(
           // 如果响应错误码为 401，则清除登录账户信息，回到 login 页面
           case 401:
             Utils.removeLocalStorageUserInfo();
-            router.push({
-              name: 'login',
-            });
+            router.push({name: 'login'});
         }
       }
       return Promise.reject(error.response.data);
