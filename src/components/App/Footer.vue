@@ -27,6 +27,7 @@
             <div class="mb-2">
               <a
                 class="white--text"
+                href="mailto:nu@uestclug.org"
               >
                 <v-icon dark left small>fas fa-envelope</v-icon>Email
               </a>
@@ -42,6 +43,7 @@
             <div class="mb-2">
               <a
                 class="white--text"
+                @click="$Utils.openExternalLink('https://t.me/joinchat/LgGQ2UXTfAtQW1TPR22_Uw')"
               >
                 <v-icon dark left small>fab fa-telegram-plane</v-icon>Telegram
               </a>
@@ -64,7 +66,7 @@
               <span>电子科技大学沙河校区 阳光餐厅后</span>
             </div>
             <div class="mb-2">
-              <span>电子科技大学清水河校区 第某组团下</span>
+              <span>电子科技大学清水河校区 第八组团 27 栋下</span>
             </div>
           </v-card-text>
         </v-col>
@@ -81,3 +83,9 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+a {
+  text-decoration:none
+}
+</style>
