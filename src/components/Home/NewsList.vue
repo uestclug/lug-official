@@ -1,5 +1,10 @@
 <template>
   <div>
+    <TweetSkeletonLoader
+      class="mt-6"
+      v-if="initLoading"
+      loadingType="news"
+    />
     <TweetCard
       class="mt-6"
       v-for="news in newsItems"
@@ -28,38 +33,36 @@
         <v-icon right small>fas fa-search</v-icon>
       </v-btn>
     </div>
-    <!--
-    <TweetSkeletonLoader
-      class="mt-6"
-      v-if="loadingAbled"
-      @click.native="loadMoreNews"
-      loadingType="news"
-      :loadingAbled="loadingAbled"
-      :isLoading="isLoading"
-    />
-    -->
   </div>
 </template>
 
 <script>
 import TweetCard from '@/components/Model/TweetCard';
-// import TweetSkeletonLoader from '@/components/Model/TweetSkeletonLoader';
+import TweetSkeletonLoader from '@/components/Model/TweetSkeletonLoader';
 
 export default {
   name: 'NewsList',
   components: {
     TweetCard,
-    // TweetSkeletonLoader,
+    TweetSkeletonLoader,
   },
   data: () => ({
+    initLoading: true,
     newsItems: [],
     loadingAbled: true,
     isLoading: false,
+    page: 0,
+    newsLoadLimit: 5, // 新闻加载数量
   }),
   created() {
     // TODO: 获取新闻公告信息
     if (this.$DevMode) {
-      this.newsItems = this.$DevData.newsList.newsItems;
+      setTimeout(() => {
+        this.newsItems = this.$DevData.newsList.newsItems;
+        this.initLoading = false;
+      }, 700);
+    } else {
+      this.loadMoreNews();
     }
   },
   methods: {
@@ -67,18 +70,46 @@ export default {
     loadMoreNews() {
       if (this.isLoading) return;
       this.isLoading = true;
-      setTimeout(() => {
-        this.newsItems.push(this.$DevData.newsList.newsItems[0]);
-        this.$Bus.$emit('setSnackbar', {
-          text: '新的新闻已经加载完成！',
-          type: 'info',
+
+      if (this.$DevMode) {
+        setTimeout(() => {
+          this.newsItems.push(this.$DevData.newsList.newsItems[0]);
+          this.$Bus.$emit('setSnackbar', {
+            text: '新的新闻已经加载完成！',
+            type: 'info',
+          });
+          this.isLoading = false;
+          if (this.newsItems.length == 7) this.loadingAbled = false;
+        }, 400);
+      } else {
+        this.axios.post('/tweet/getNewsTweet', {
+          page: this.page,
+          limit: this.newsLoadLimit,
+        }).then((Response) => {
+          // console.log(Response);
+          if (Response.data.code == 200) {
+            if (this.page == 0) {
+              this.initLoading = false;
+            }
+
+            const newsCount = Response.data.result.count;
+            const news = Response.data.result.news;
+            for (let i = 0; i < news.length; i++) {
+              news[i].newsDate = news[i].createdAt.split('T')[0];
+              news[i].newsAuthor = news[i].Account.newsAuthor;
+              this.newsItems.push(news[i]);
+            }
+
+            this.page += 1;
+            this.isLoading = false;
+
+            if (newsCount < this.newsLoadLimit) {
+              this.loadingAbled = false;
+            }
+          }
         });
-        this.isLoading = false;
-        if (this.newsItems.length == 7) this.loadingAbled = false;
-      }, 400);
+      }
     },
-    // TODO: 管理员修改新闻公告入口
-    // TODO: 管理员移除新闻公告入口
   },
 };
 </script>

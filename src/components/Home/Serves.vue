@@ -8,10 +8,15 @@
       v-bind:key="serve.name"
       class="text-center"
     >
-      <span class="clickable" @click="redirectTo(serve.route, serve.link)">
+      <span
+        class="clickable"
+        @click="redirectTo(serve.route, serve.link)"
+        v-if="!serve.needAdmin ||
+            (serve.needAdmin && isAdmin)"
+      >
         <v-icon
           class="serve-icon pb-4"
-          color="primary"
+          :color="serve.color ? serve.color : 'primary'"
         >{{ serve.icon }}</v-icon>
         <h3>{{ serve.name }}</h3>
         <small>{{ serve.intro }}</small>
@@ -61,8 +66,30 @@ export default {
         intro: 'Bug 提交/意见反馈',
         link: 'https://github.com/uestclug/nu-official/issues',
       },
+      {
+        name: '推送编辑器',
+        icon: 'fas fa-edit',
+        intro: '创建新闻和博客推送',
+        route: '/editor',
+        color: 'accent',
+        needAdmin: true,
+      },
     ],
+    isAdmin: false,
   }),
+  created() {
+    if (localStorage.tokenAdmin) {
+      if (this.$DevMode) {
+        this.isAdmin = true;
+      } else {
+        this.axios.post('/users/checkTokenAdmin').then((Response) => {
+          if (Response.data.code == 200) {
+            this.isAdmin = true;
+          }
+        });
+      }
+    }
+  },
   methods: {
     redirectTo(route, link) {
       if (route != null && route != '') {

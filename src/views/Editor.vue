@@ -126,24 +126,25 @@
             </v-col>
           </v-row>
 
-          <div class="mt-4 text-end">
+          <div class="mt-2 text-end">
             <v-btn
               @click="submitEditor"
+              class="mt-2"
               color="primary"
             >{{ (type && id) ? '保存修改' : '发布推送' }}</v-btn>
             <v-btn
-              v-if="type && id"
-              class="ml-4"
-              @click="resetEditor"
-              depressed
-            >还原推送</v-btn>
-            <v-btn
               :disabled="tweet.type == '' || tweet.title == '' ||
                   tweet.content == ''"
-              class="ml-4"
+              class="mt-2 ml-4"
               @click="previewTweet"
               depressed
             >预览推送</v-btn>
+            <v-btn
+              v-if="type && id"
+              class="mt-2 ml-4"
+              @click="resetEditor"
+              depressed
+            >还原推送</v-btn>
           </div>
         </v-form>
       </ValidationObserver>

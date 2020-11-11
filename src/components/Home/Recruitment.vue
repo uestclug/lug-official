@@ -42,12 +42,16 @@
           <v-btn
             text
             color="primary"
+            :disabled="submitResumeLink == ''"
+            @click="$Utils.openExternalLink(submitResumeLink)"
           >
             投递简历
           </v-btn>
           <v-btn
             text
             color="secondary"
+            :disabled="recruitmentGroupLink == ''"
+            @click="$Utils.openExternalLink(recruitmentGroupLink)"
           >
             了解更多
           </v-btn>
@@ -62,6 +66,8 @@ export default {
   name: 'Recruitment',
   data: () => ({
     existYear: '许多',
+    submitResumeLink: '',
+    recruitmentGroupLink: 'https://jq.qq.com/?_wv=1027&k=ocOa70Ns',
   }),
   created() {
     // 计算成立时长

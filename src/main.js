@@ -28,8 +28,13 @@ if (process.env.VUE_APP_DEV_MODE === 'frontend') {
 Vue.config.productionTip = false;
 
 // 设置 axios 的 request 拦截
+// const axiosPromiseArr = [];
 axios.interceptors.request.use(
     (config) => {
+      // 设置 cancel token
+      // config.cancelToken = new axios.CancelToken(function(cancel) {
+      //   axiosPromiseArr.push({cancel});
+      // });
       // 设置请求头
       // config.headers.Authorization = localStorage.getItem('token');
       // 设置请求体
@@ -52,6 +57,10 @@ axios.interceptors.response.use(
       return response;
     },
     (error) => {
+      // if (axios.isCancel(error)) {
+      //   console.log('Cancel request.');
+      // }
+
       if (error.response) {
         switch (error.response.status) {
           // 如果响应错误码为 401，则清除登录账户信息，回到 login 页面
@@ -63,6 +72,14 @@ axios.interceptors.response.use(
       return Promise.reject(error.response.data);
     },
 );
+
+// 设置 router 的 axios 取消拦截
+// router.beforeEach((to, from, next) => {
+//   axiosPromiseArr.forEach((ele, index) => {
+//     ele.cancel();
+//     delete axiosPromiseArr[index];
+//   });
+// });
 
 Vue.use(VueAxios, axios);
 

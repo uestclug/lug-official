@@ -54,7 +54,7 @@ export default {
         this.$Bus.$emit('setSnackbar', {
           type: 'success',
           text: '嗨，欢迎回到我们的大航线！',
-          timeout: 5000,
+          timeout: 6500,
         });
         this.$router.push({path: '/'});
       }, 2000);

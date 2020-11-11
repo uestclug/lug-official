@@ -1,5 +1,10 @@
 <template>
   <div>
+    <TweetSkeletonLoader
+      class="mt-6"
+      v-if="initLoading"
+      loadingType="blog"
+    />
     <TweetCard
       class="mt-6"
       v-for="blog in blogItems"
@@ -20,9 +25,7 @@
         color="primary"
         text
         to="/blog"
-      >
-        查看所有博客文章
-        <v-icon right small>far fa-hand-point-right</v-icon>
+      >查看所有博客文章<v-icon right small>far fa-hand-point-right</v-icon>
       </v-btn>
     </div>
   </div>
@@ -30,20 +33,48 @@
 
 <script>
 import TweetCard from '@/components/Model/TweetCard';
+import TweetSkeletonLoader from '@/components/Model/TweetSkeletonLoader';
 
 export default {
   name: 'BlogList',
   components: {
     TweetCard,
+    TweetSkeletonLoader,
   },
   data: () => ({
+    initLoading: true,
+    blogLoadLimit: 4, // 获取博客量
     blogItems: [],
   }),
   created() {
     // TODO: 获取博客内容
     if (this.$DevMode) {
-      this.blogItems = this.$DevData.blogList.blogItems;
+      setTimeout(() => {
+        this.blogItems = this.$DevData.blogList.blogItems;
+        this.initLoading = false;
+      }, 1000);
+    } else {
+      this.loadBlogs();
     }
+  },
+  methods: {
+    loadBlogs() {
+      this.axios.post('/tweet/getBlogTweet', {
+        page: 0,
+        limit: this.blogLoadLimit,
+      }).then((Response) => {
+        // console.log(Response);
+        if (Response.data.code == 200) {
+          const blog = Response.data.result.blog;
+          for (let i = 0; i < blog.length; i++) {
+            blog[i].blogDate = blog[i].createdAt.split('T')[0];
+            blog[i].blogAuthor = blog[i].Account.blogAuthor;
+            this.blogItems.push(blog[i]);
+          }
+          this.initLoading = false;
+        }
+      });
+    },
   },
 };
 </script>
