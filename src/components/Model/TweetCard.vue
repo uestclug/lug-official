@@ -167,7 +167,7 @@ export default {
     // 新闻
     'newsAccent', // 新闻类型 ('info'/'accent'/'warning'/'error')
     // eslint-disable-next-line max-len
-    'newsTag', // 新闻标签 ('mirrors'/'iptv'/'repair'/'markdown'/'catroom'/'nuofficial')
+    'newsTag', // 新闻标签 (''/'mirrors'/'iptv'/'repair'/'markdown'/'catroom'/'nuofficial')
     // 博客
     'blogTags', // 博客标签
     'blogView', // 博客渲染 (''/'markdown')
@@ -180,6 +180,7 @@ export default {
   methods: {
     openReaderDialog() {
       this.$Bus.$emit('setReaderDialog', {
+        type: 'news',
         title: this.tweetTitle,
         author: this.tweetAuthor,
         date: this.tweetDate,
@@ -187,7 +188,6 @@ export default {
         location: this.tweetLocation,
         link: this.tweetLink,
         accent: this.newsAccent,
-        accentColorClass: this.newsAccentColorClass,
         newsTag: this.newsTag,
       });
     },

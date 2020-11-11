@@ -19,10 +19,11 @@
     "markdown-it-sup": "^1.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "twemoji": "^13.0.1",
+    "vee-validate": "^3.4.4",
     "vue": "^2.6.12",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.4.9",
-    "vuetify": "^2.3.16"
+    "vuetify": "^2.3.17"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",

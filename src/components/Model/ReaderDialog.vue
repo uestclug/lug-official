@@ -18,20 +18,34 @@
           <v-card-subtitle class="pb-0">
             {{ date }}, {{ author }}
             <div>
-              <v-chip
-                class="mt-2 mr-2 rounded-lg"
-                :color="accent ? accent : 'info'"
-                label
-                small
-              >{{ newsTagText }}</v-chip>
-              <v-chip
-                class="mt-2 mr-2 rounded-lg"
-                :color="accent ? accent : 'info'"
-                label
-                small
-              ><v-icon left x-small>fas fa-comment-dots</v-icon>
-                {{ accentText }}
-              </v-chip>
+              <span v-if="type == 'news'">
+                <v-chip
+                  class="mt-2 mr-2 rounded-lg"
+                  :color="accent ? accent : 'info'"
+                  label
+                  small
+                >{{ newsTagText }}</v-chip>
+                <v-chip
+                  class="mt-2 mr-2 rounded-lg"
+                  :color="accent ? accent : 'info'"
+                  label
+                  small
+                ><v-icon left x-small>fas fa-comment-dots</v-icon>
+                  {{ accentText }}
+                </v-chip>
+              </span>
+              <span v-else-if="type == 'blog'">
+                <v-chip
+                  v-for="blogTag in blogTags"
+                  v-bind:key="blogTag"
+                  class="mt-2 mr-2 rounded-lg"
+                  color="primary"
+                  label
+                  small
+                ><v-icon left x-small>fas fa-tag</v-icon>
+                  {{ blogTag }}
+                </v-chip>
+              </span>
               <v-chip
                 v-if="location"
                 class="mt-2 mr-2 rounded-lg"
@@ -74,17 +88,20 @@ export default {
   },
   data: () => ({
     dialog: false,
+    type: '',
     title: '',
     author: '',
     date: '',
     content: '',
     location: '',
     link: '',
+    // 新闻公告
+    newsTagText: '',
     accent: '',
     accentText: '',
     accentColorClass: '',
-    // 新闻公告
-    newsTagText: '',
+    // 博客文章
+    blogTags: [],
   }),
   methods: {
     clickOutsideCloseReaderDialog() {
@@ -107,16 +124,29 @@ export default {
   },
   mounted() {
     this.$Bus.$on('setReaderDialog', (msg) => {
+      this.type = msg.type;
       this.title = msg.title;
       this.author = msg.author;
       this.date = msg.date;
       this.content = msg.content;
       this.location = msg.location;
       this.link = msg.link;
-      this.accent = msg.accent;
-      this.accentText = this.$Utils.getNewsAccentText(msg.accent);
-      this.accentColorClass = msg.accentColorClass;
-      this.newsTagText = this.$Utils.getNewsTagText(msg.newsTag);
+
+      if (this.type == 'news') {
+        this.accent = this.$Utils.getNewsAccentFromText(msg.accent);
+        this.accentText = this.$Utils.getNewsAccentText(msg.accent);
+        this.accentColorClass = this.$Utils.getNewsAccentColorClass(msg.accent);
+        this.newsTagText = this.$Utils.getNewsTagText(msg.newsTag);
+
+        this.blogTags = [];
+      } else if (this.type == 'blog') {
+        this.blogTags = msg.blogTags;
+
+        this.accent = '';
+        this.accentText = '';
+        this.accentColorClass = '';
+        this.newsTagText = '';
+      }
       this.dialog = true;
       if (!localStorage.haveDblClickCloseReaderDialog) {
         this.$Bus.$emit('setSnackbar', {

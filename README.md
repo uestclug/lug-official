@@ -6,7 +6,7 @@ Official page of Netunion.
 
 - [ ] 招新简历投递。
 - [ ] 招新了解更多单页。
-- [ ] CAT ROOM 留言板。在 [fishroom](https://fishroom.tuna.moe/log/tuna/today) 基础上改进。
+- [ ] CAT ROOM 留言板。在 [fishroom](https://fishroom.tuna.moe/log/tuna/today) 基础上充分改进。
 
 ## Project setup
 
@@ -29,6 +29,15 @@ yarn fullstack
 ```
 
 ### Compiles and minifies for production
+
+Modify `.env` settings.
+
+``` .env
+VUE_APP_GITHUB_OAUTH_CLIENT_ID='YOUR_GITHUB_OAUTH_CLIENT_ID'
+VUE_APP_GITHUB_OAUTH_CLIENT_REDIRECT_URL='http://YOUR_GITHUB_OAUTH_CLIENT_REDIRECT_URL/oauth/redirect'
+```
+
+You should make sure the `VUE_APP_GITHUB_OAUTH_CLIENT_ID` setting is consistent with the backend.
 
 ``` yarn
 yarn build
