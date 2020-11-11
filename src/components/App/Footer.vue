@@ -63,10 +63,16 @@
           <v-card-title>FIND US</v-card-title>
           <v-card-text>
             <div class="mb-2">
-              <span>电子科技大学沙河校区 阳光餐厅后</span>
+              <a
+                class="white--text"
+              >电子科技大学沙河校区 阳光餐厅后</a>
             </div>
             <div class="mb-2">
-              <span>电子科技大学清水河校区 第八组团 27 栋下</span>
+              <a
+                class="white--text"
+                :href="require('../../assets/locationQingshuihe.jpg')"
+                target="_blank"
+              >电子科技大学清水河校区 第八组团 27 栋下</a>
             </div>
           </v-card-text>
         </v-col>
@@ -86,6 +92,6 @@ export default {
 
 <style scoped>
 a {
-  text-decoration:none
+  text-decoration: none;
 }
 </style>
