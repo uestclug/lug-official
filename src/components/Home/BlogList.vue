@@ -53,9 +53,10 @@ export default {
         this.blogItems = this.$DevData.blogList.blogItems;
         this.initLoading = false;
       }, 1000);
-    } else {
-      this.loadBlogs();
+      return;
     }
+
+    this.loadBlogs();
   },
   methods: {
     loadBlogs() {

@@ -31,16 +31,23 @@ export default {
     loginWithGithub() {
       if (this.$DevMode) {
         this.logining = true;
-        this.$Utils.openLink(process.env
-            .VUE_APP_GITHUB_OAUTH_CLIENT_REDIRECT_URL);
-      } else {
-        this.logining = true;
-        this.$Utils.removeLocalStorageUserInfo();
-        const clientId = process.env.VUE_APP_GITHUB_OAUTH_CLIENT_ID;
-        const redirectUrl = process.env
-            .VUE_APP_GITHUB_OAUTH_CLIENT_REDIRECT_URL;
-        this.$Utils.openLink('https://github.com/login/oauth/authorize?client_id='+clientId+'&redirect_uri='+redirectUrl);
+        let REDIRECT_URL = '';
+        if (process.env.VUE_APP_DEPLOYMENT_MODE === 'github') {
+          // 部署到 github page 时，使用 https://uestclug.github.io/oauth/redirect.
+          REDIRECT_URL = 'https://uestclug.github.io/oauth/redirect';
+        } else {
+          REDIRECT_URL = 'http://localhost:8080/oauth/redirect';
+        }
+        this.$Utils.openLink(REDIRECT_URL);
+        return;
       }
+
+      this.logining = true;
+      this.$Utils.removeLocalStorageUserInfo();
+      const clientId = process.env.VUE_APP_GITHUB_OAUTH_CLIENT_ID;
+      const redirectUrl = process.env
+          .VUE_APP_GITHUB_OAUTH_CLIENT_REDIRECT_URL;
+      this.$Utils.openLink('https://github.com/login/oauth/authorize?client_id='+clientId+'&redirect_uri='+redirectUrl);
     },
   },
   mounted() {

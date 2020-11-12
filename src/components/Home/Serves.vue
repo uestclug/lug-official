@@ -81,13 +81,14 @@ export default {
     if (localStorage.tokenAdmin) {
       if (this.$DevMode) {
         this.isAdmin = true;
-      } else {
-        this.axios.post('/users/checkTokenAdmin').then((Response) => {
-          if (Response.data.code == 200) {
-            this.isAdmin = true;
-          }
-        });
+        return;
       }
+
+      this.axios.post('/users/checkTokenAdmin').then((Response) => {
+        if (Response.data.code == 200) {
+          this.isAdmin = true;
+        }
+      });
     }
   },
   methods: {

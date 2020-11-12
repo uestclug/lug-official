@@ -305,59 +305,60 @@ export default {
             this.overlay = false;
             this.$router.push({path: '/'});
           }, 2000);
-        } else { // 产品模式
-          if (this.type == 'news') {
-            this.axios.post('/editor/modifyNewsTweet', {
-              newsId: this.id,
-              newsAccent: this.$Utils
-                  .getNewsAccentFromText(this.tweetNews.accent),
-              newsTitle: this.tweet.title,
-              newsContent: this.tweet.content,
-              newsLocation: this.tweet.location,
-              newsLink: this.tweet.link,
-            }).then((Response) => {
-              // console.log(Response);
-              if (Response.data.code == 200) {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '成功修改新闻公告推送！',
-                  type: 'info',
-                });
-                this.overlay = false;
-                this.$router.push({path: '/'});
-              } else {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '修改新闻公告推送失败，请稍后尝试',
-                  type: 'error',
-                });
-                this.overlay = false;
-              }
-            });
-          } else if (this.type == 'blog') {
-            this.axios.post('/editor/modifyBlogTweet', {
-              blogId: this.id,
-              blogTags: this.tweetBlog.tags,
-              blogTitle: this.tweet.title,
-              blogContent: this.tweet.content,
-              blogLocation: this.tweet.location,
-              blogLink: this.tweet.link,
-            }).then((Response) => {
-              // console.log(Response);
-              if (Response.data.code == 200) {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '成功修改博客文章推送！',
-                  type: 'info',
-                });
-                this.overlay = false;
-                this.$router.push({path: '/'});
-              } else {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '修改博客文章推送失败，请稍后尝试',
-                  type: 'error',
-                });
-                this.overlay = false;
-              }
-            });
-          }
+          return;
+        }
+
+        if (this.type == 'news') {
+          this.axios.post('/editor/modifyNewsTweet', {
+            newsId: this.id,
+            newsAccent: this.$Utils
+                .getNewsAccentFromText(this.tweetNews.accent),
+            newsTitle: this.tweet.title,
+            newsContent: this.tweet.content,
+            newsLocation: this.tweet.location,
+            newsLink: this.tweet.link,
+          }).then((Response) => {
+            // console.log(Response);
+            if (Response.data.code == 200) {
+              this.$Bus.$emit('setSnackbar', {
+                text: '成功修改新闻公告推送！',
+                type: 'info',
+              });
+              this.overlay = false;
+              this.$router.push({path: '/'});
+            } else {
+              this.$Bus.$emit('setSnackbar', {
+                text: '修改新闻公告推送失败，请稍后尝试',
+                type: 'error',
+              });
+              this.overlay = false;
+            }
+          });
+        } else if (this.type == 'blog') {
+          this.axios.post('/editor/modifyBlogTweet', {
+            blogId: this.id,
+            blogTags: this.tweetBlog.tags,
+            blogTitle: this.tweet.title,
+            blogContent: this.tweet.content,
+            blogLocation: this.tweet.location,
+            blogLink: this.tweet.link,
+          }).then((Response) => {
+            // console.log(Response);
+            if (Response.data.code == 200) {
+              this.$Bus.$emit('setSnackbar', {
+                text: '成功修改博客文章推送！',
+                type: 'info',
+              });
+              this.overlay = false;
+              this.$router.push({path: '/'});
+            } else {
+              this.$Bus.$emit('setSnackbar', {
+                text: '修改博客文章推送失败，请稍后尝试',
+                type: 'error',
+              });
+              this.overlay = false;
+            }
+          });
         }
       } else { // 新建推送模式
         const confirm = window.confirm('您将发布此推送，确定继续吗？');
@@ -376,61 +377,62 @@ export default {
             this.overlay = false;
             this.$router.push({path: '/'});
           }, 2000);
-        } else { // 产品模式
-          if (this.tweet.type == '新闻公告 / News') {
-            this.axios.post('/editor/createNewsTweet', {
-              newsTag: this.$Utils
-                  .getNewsTagFromText(this.tweetNews.tag),
-              newsAccent: this.$Utils
-                  .getNewsAccentFromText(this.tweetNews.accent),
-              newsTitle: this.tweet.title,
-              newsContent: this.tweet.content,
-              newsLocation: this.tweet.location,
-              newsLink: this.tweet.link,
-            }).then((Response) => {
-              // console.log(Response);
-              if (Response.data.code == 200) {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '成功发布新闻公告推送！',
-                  type: 'success',
-                });
-                this.overlay = false;
-                this.$router.push({path: '/'});
-              } else {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '发布新闻公告推送失败，请稍后尝试',
-                  type: 'error',
-                });
-                this.overlay = false;
-              }
-            });
-          } else if (this.tweet.type == '博客文章 / Blog') {
-            this.axios.post('/editor/createBlogTweet', {
-              blogTags: this.tweetBlog.tags,
-              blogTitle: this.tweet.title,
-              blogContent: this.tweet.content,
-              blogLocation: this.tweet.location,
-              blogLink: this.tweet.link,
-            }).then((Response) => {
-              // console.log(Response);
-              if (Response.data.code == 200) {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '成功发布博客文章推送！',
-                  type: 'success',
-                });
-                this.overlay = false;
-                this.$router.push({path: '/'});
-              } else {
-                this.$Bus.$emit('setSnackbar', {
-                  text: '发布博客文章推送失败，请稍后尝试',
-                  type: 'error',
-                });
-                this.overlay = false;
-              }
-            });
-          } else {
-            return;
-          }
+          return;
+        }
+
+        if (this.tweet.type == '新闻公告 / News') {
+          this.axios.post('/editor/createNewsTweet', {
+            newsTag: this.$Utils
+                .getNewsTagFromText(this.tweetNews.tag),
+            newsAccent: this.$Utils
+                .getNewsAccentFromText(this.tweetNews.accent),
+            newsTitle: this.tweet.title,
+            newsContent: this.tweet.content,
+            newsLocation: this.tweet.location,
+            newsLink: this.tweet.link,
+          }).then((Response) => {
+            // console.log(Response);
+            if (Response.data.code == 200) {
+              this.$Bus.$emit('setSnackbar', {
+                text: '成功发布新闻公告推送！',
+                type: 'success',
+              });
+              this.overlay = false;
+              this.$router.push({path: '/'});
+            } else {
+              this.$Bus.$emit('setSnackbar', {
+                text: '发布新闻公告推送失败，请稍后尝试',
+                type: 'error',
+              });
+              this.overlay = false;
+            }
+          });
+        } else if (this.tweet.type == '博客文章 / Blog') {
+          this.axios.post('/editor/createBlogTweet', {
+            blogTags: this.tweetBlog.tags,
+            blogTitle: this.tweet.title,
+            blogContent: this.tweet.content,
+            blogLocation: this.tweet.location,
+            blogLink: this.tweet.link,
+          }).then((Response) => {
+            // console.log(Response);
+            if (Response.data.code == 200) {
+              this.$Bus.$emit('setSnackbar', {
+                text: '成功发布博客文章推送！',
+                type: 'success',
+              });
+              this.overlay = false;
+              this.$router.push({path: '/'});
+            } else {
+              this.$Bus.$emit('setSnackbar', {
+                text: '发布博客文章推送失败，请稍后尝试',
+                type: 'error',
+              });
+              this.overlay = false;
+            }
+          });
+        } else {
+          return;
         }
       }
     },
@@ -440,6 +442,17 @@ export default {
         return;
       }
       // console.log('还原推送修改');
+
+      if (this.$DevMode) {
+        this.tweet.title = '';
+        this.tweet.content = '';
+        this.tweet.location = '';
+        this.tweet.link = '';
+        this.tweetBlogInputTags = '';
+        this.tweetBlog.tags = [];
+        this.tweetNews.accent = '';
+        return;
+      }
 
       if (this.type == 'news') {
         this.tweet = JSON.parse(sessionStorage.originalTweet);
@@ -499,96 +512,99 @@ export default {
         setTimeout(() => {
           this.tokenAdminChecking = false;
         }, 1000);
-      } else { // 产品模式
-        this.axios.post('/users/checkTokenAdmin').then((Response) => {
-          if (Response.data.code == 200) { // 管理员 token 验证成功
-            // 从数据库读取修改前的推送内容
-            switch (this.type) {
-              case 'news':
-                this.axios.post('/editor/getOriginalNewsTweet', {
-                  newsId: this.id,
-                }).then((Response) => {
-                  // console.log(Response.data);
-                  if (Response.data.code == 200) {
-                    const newsItem = Response.data.result;
-                    this.originalTweet.type = '新闻公告 / News';
-                    this.originalTweet.title = newsItem.newsTitle;
-                    this.originalTweet.content = newsItem.newsContent;
-                    this.originalTweet.location = newsItem.newsLocation;
-                    this.originalTweet.link = newsItem.newsLink;
-                    this.originalTweetNews.tag =
+        return;
+      }
+
+      this.axios.post('/users/checkTokenAdmin').then((Response) => {
+        if (Response.data.code == 200) { // 管理员 token 验证成功
+          // 从数据库读取修改前的推送内容
+          switch (this.type) {
+            case 'news':
+              this.axios.post('/editor/getOriginalNewsTweet', {
+                newsId: this.id,
+              }).then((Response) => {
+                // console.log(Response.data);
+                if (Response.data.code == 200) {
+                  const newsItem = Response.data.result;
+                  this.originalTweet.type = '新闻公告 / News';
+                  this.originalTweet.title = newsItem.newsTitle;
+                  this.originalTweet.content = newsItem.newsContent;
+                  this.originalTweet.location = newsItem.newsLocation;
+                  this.originalTweet.link = newsItem.newsLink;
+                  this.originalTweetNews.tag =
                         this.$Utils.getNewsTagText(newsItem.newsTag);
-                    this.originalTweetNews.accent =
+                  this.originalTweetNews.accent =
                         this.$Utils.getNewsAccentText(newsItem.newsAccent);
 
-                    sessionStorage.originalTweet =
+                  sessionStorage.originalTweet =
                         JSON.stringify(this.originalTweet);
-                    sessionStorage.originalTweetNews =
+                  sessionStorage.originalTweetNews =
                         JSON.stringify(this.originalTweetNews);
 
-                    this.tweet = this.originalTweet;
-                    this.tweetNews = this.originalTweetNews;
-                    this.tokenAdminChecking = false;
-                  } else { // 未能成功获取新闻公告
-                    this.$router.push({path: '/'});
-                  }
-                });
-                break;
-              case 'blog':
-                this.axios.post('/editor/getOriginalBlogTweet', {
-                  blogId: this.id,
-                }).then((Response) => {
-                  // console.log(Response.data);
-                  if (Response.data.code == 200) {
-                    const blogItem = Response.data.result;
-                    this.originalTweet.type = '博客文章 / Blog';
-                    this.originalTweet.title = blogItem.blogTitle;
-                    this.originalTweet.content = blogItem.blogContent;
-                    this.originalTweet.location = blogItem.blogLocation;
-                    this.originalTweet.link = blogItem.blogLink;
-                    this.originalTweetBlog.tags = blogItem.blogTags;
+                  this.tweet = this.originalTweet;
+                  this.tweetNews = this.originalTweetNews;
+                  this.tokenAdminChecking = false;
+                } else { // 未能成功获取新闻公告
+                  this.$router.push({path: '/'});
+                }
+              });
+              break;
+            case 'blog':
+              this.axios.post('/editor/getOriginalBlogTweet', {
+                blogId: this.id,
+              }).then((Response) => {
+                // console.log(Response.data);
+                if (Response.data.code == 200) {
+                  const blogItem = Response.data.result;
+                  this.originalTweet.type = '博客文章 / Blog';
+                  this.originalTweet.title = blogItem.blogTitle;
+                  this.originalTweet.content = blogItem.blogContent;
+                  this.originalTweet.location = blogItem.blogLocation;
+                  this.originalTweet.link = blogItem.blogLink;
+                  this.originalTweetBlog.tags = blogItem.blogTags;
 
-                    sessionStorage.originalTweet =
+                  sessionStorage.originalTweet =
                         JSON.stringify(this.originalTweet);
-                    sessionStorage.originalTweetBlog =
+                  sessionStorage.originalTweetBlog =
                         JSON.stringify(this.originalTweetBlog);
 
-                    this.tweet = this.originalTweet;
-                    this.tweetBlog = this.originalTweetBlog;
+                  this.tweet = this.originalTweet;
+                  this.tweetBlog = this.originalTweetBlog;
 
-                    const blogTagsArray = this.tweetBlog.tags;
-                    const blogTagsValue = blogTagsArray.join('#');
-                    this.tweetBlogInputTags = blogTagsValue;
+                  const blogTagsArray = this.tweetBlog.tags;
+                  const blogTagsValue = blogTagsArray.join('#');
+                  this.tweetBlogInputTags = blogTagsValue;
 
-                    this.tokenAdminChecking = false;
-                  } else { // 未能成功获取新闻公告
-                    this.$router.push({path: '/'});
-                  }
-                });
-                break;
-              default: // 类型校验错误
-                this.$router.push({path: '/'});
-                return;
-            }
-          } else {
-            return;
+                  this.tokenAdminChecking = false;
+                } else { // 未能成功获取新闻公告
+                  this.$router.push({path: '/'});
+                }
+              });
+              break;
+            default: // 类型校验错误
+              this.$router.push({path: '/'});
+              return;
           }
-        });
-      }
+        } else {
+          return;
+        }
+      });
     } else { // 路由不含 type 及 id 时，进入新建推送模式
       if (this.$DevMode) { // 开发者模式
         setTimeout(() => {
           this.tokenAdminChecking = false;
         }, 1000);
-      } else { // 产品模式
-        this.axios.post('/users/checkTokenAdmin').then((Response) => {
-          if (Response.data.code == 200) { // 管理员 token 验证成功
-            this.tokenAdminChecking = false;
-          } else {
-            return;
-          }
-        });
+        return;
       }
+
+      this.axios.post('/users/checkTokenAdmin').then((Response) => {
+        if (Response.data.code == 200) { // 管理员 token 验证成功
+          this.tokenAdminChecking = false;
+        } else {
+          return;
+        }
+      });
+
       // 移除 sessionStorage 中保存的推送数据
       sessionStorage.removeItem('originalTweet');
       sessionStorage.removeItem('originalTweetNews');

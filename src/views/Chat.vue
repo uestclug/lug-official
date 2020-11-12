@@ -22,13 +22,14 @@ export default {
   created() {
     if (this.$DevMode) {
       this.tokenChecking = false;
-    } else {
-      this.axios.post('/users/checkToken').then((Response) => {
-        if (Response.data.code == 200) {
-          this.tokenChecking = false;
-        }
-      });
+      return;
     }
+
+    this.axios.post('/users/checkToken').then((Response) => {
+      if (Response.data.code == 200) {
+        this.tokenChecking = false;
+      }
+    });
   },
 };
 </script>

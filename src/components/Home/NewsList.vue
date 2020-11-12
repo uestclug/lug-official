@@ -81,34 +81,35 @@ export default {
           this.isLoading = false;
           if (this.newsItems.length == 7) this.loadingAbled = false;
         }, 400);
-      } else {
-        this.axios.post('/tweet/getNewsTweet', {
-          page: this.page,
-          limit: this.newsLoadLimit,
-        }).then((Response) => {
-          // console.log(Response);
-          if (Response.data.code == 200) {
-            if (this.page == 0) {
-              this.initLoading = false;
-            }
-
-            const newsCount = Response.data.result.count;
-            const news = Response.data.result.news;
-            for (let i = 0; i < news.length; i++) {
-              news[i].newsDate = news[i].createdAt.split('T')[0];
-              news[i].newsAuthor = news[i].Account.newsAuthor;
-              this.newsItems.push(news[i]);
-            }
-
-            this.page += 1;
-            this.isLoading = false;
-
-            if (newsCount < this.newsLoadLimit) {
-              this.loadingAbled = false;
-            }
-          }
-        });
+        return;
       }
+
+      this.axios.post('/tweet/getNewsTweet', {
+        page: this.page,
+        limit: this.newsLoadLimit,
+      }).then((Response) => {
+        // console.log(Response);
+        if (Response.data.code == 200) {
+          if (this.page == 0) {
+            this.initLoading = false;
+          }
+
+          const newsCount = Response.data.result.count;
+          const news = Response.data.result.news;
+          for (let i = 0; i < news.length; i++) {
+            news[i].newsDate = news[i].createdAt.split('T')[0];
+            news[i].newsAuthor = news[i].Account.newsAuthor;
+            this.newsItems.push(news[i]);
+          }
+
+          this.page += 1;
+          this.isLoading = false;
+
+          if (newsCount < this.newsLoadLimit) {
+            this.loadingAbled = false;
+          }
+        }
+      });
     },
   },
 };

@@ -58,42 +58,43 @@ export default {
         });
         this.$router.push({path: '/'});
       }, 2000);
-    } else {
-      // console.log(this.$route.query.code);
-      this.axios.post('/oauth/github/login', {
-        code: this.$route.query.code,
-      }).then((Response) => {
-        // console.log(Response.data);
-        if (Response.data.code == 200) {
-          localStorage.token = Response.data.result.token;
-          localStorage.githubId = Response.data.result.githubId;
-          localStorage.username = Response.data.result.username;
-          localStorage.userBio = Response.data.result.userBio;
+      return;
+    }
 
-          if (Response.data.result.tokenAdmin) {
-            localStorage.tokenAdmin = Response.data.result.tokenAdmin;
-            this.$Bus.$emit('setSnackbar', {
-              type: 'success',
-              text: '嗨，长官，欢迎回到我们的大航线！',
-              timeout: 5000,
-            });
-          } else {
-            this.$Bus.$emit('setSnackbar', {
-              type: 'success',
-              text: '嗨，欢迎来到我们的大航线！',
-              timeout: 5000,
-            });
-          }
+    // console.log(this.$route.query.code);
+    this.axios.post('/oauth/github/login', {
+      code: this.$route.query.code,
+    }).then((Response) => {
+      // console.log(Response.data);
+      if (Response.data.code == 200) {
+        localStorage.token = Response.data.result.token;
+        localStorage.githubId = Response.data.result.githubId;
+        localStorage.username = Response.data.result.username;
+        localStorage.userBio = Response.data.result.userBio;
+
+        if (Response.data.result.tokenAdmin) {
+          localStorage.tokenAdmin = Response.data.result.tokenAdmin;
+          this.$Bus.$emit('setSnackbar', {
+            type: 'success',
+            text: '嗨，长官，欢迎回到我们的大航线！',
+            timeout: 5000,
+          });
         } else {
           this.$Bus.$emit('setSnackbar', {
-            type: 'error',
-            text: 'Ops, 我们未能将您成功登录到我们的舰队，请稍后再次申请！',
+            type: 'success',
+            text: '嗨，欢迎来到我们的大航线！',
             timeout: 5000,
           });
         }
-        this.$router.push({path: '/'});
-      });
-    }
+      } else {
+        this.$Bus.$emit('setSnackbar', {
+          type: 'error',
+          text: 'Ops, 我们未能将您成功登录到我们的舰队，请稍后再次申请！',
+          timeout: 5000,
+        });
+      }
+      this.$router.push({path: '/'});
+    });
   },
 };
 </script>

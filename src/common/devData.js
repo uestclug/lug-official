@@ -62,7 +62,7 @@ module.exports = {
         newsAuthor: 'newsAuthor',
         newsAccent: 'info',
         newsDate: '2020-10-03',
-        newsContent: '## 这是一条简单的新闻公告\n以及这是所有内容。\n喜欢的话为我点个赞吧！',
+        newsContent: '## 这是一条简单的新闻公告\n以及这是所有内容。',
         newsLocation: '电子科技大学',
         newsLink: 'https://github.com/uestclug',
       },
@@ -106,8 +106,7 @@ module.exports = {
         newsAuthor: 'none',
         newsAccent: '',
         newsDate: '2020-09-01',
-        newsContent: '这是第零条简单的新闻公告，以及这是所有内容。这是所有内容。这是所有内容。这是所有内容。' +
-            '这是所有内容。这是所有内容。这是所有内容。这是所有内容。这是所有内容。这是所有内容。这是所有内容。',
+        newsContent: '这是第零条简单的新闻公告，很高兴遇见您 :stars:',
         newsLocation: '',
         newsLink: '',
       },

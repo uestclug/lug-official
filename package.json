@@ -5,6 +5,7 @@
     "serve": "cross-env VUE_APP_DEV_MODE=frontend vue-cli-service serve --open",
     "fullstack": "cross-env VUE_APP_DEV_MODE=fullstack vue-cli-service serve --open",
     "build": "vue-cli-service build",
+    "build--github-pages": "cross-env VUE_APP_DEPLOYMENT_MODE=github vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

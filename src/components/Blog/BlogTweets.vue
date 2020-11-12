@@ -171,6 +171,7 @@ export default {
               break;
             }
           }
+          this.loadingAbled = false;
         } else {
           this.blogItems = blogItems;
         }
@@ -189,9 +190,10 @@ export default {
           this.isLoading = false;
           this.loadingAbled = false;
         }, 1000);
-      } else {
-        this.getBlogTweets();
+        return;
       }
+
+      this.getBlogTweets();
     },
     // 获取面包屑导航
     getBreadcrumbsItems() {

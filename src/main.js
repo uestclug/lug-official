@@ -17,7 +17,8 @@ Vue.prototype.$Bus = Bus;
 Vue.prototype.$Common = Common; // 全局变量
 Vue.prototype.$Utils = Utils; // 通用 js 函数
 
-if (process.env.VUE_APP_DEV_MODE === 'frontend') {
+if (process.env.VUE_APP_DEV_MODE === 'frontend' ||
+    process.env.VUE_APP_DEPLOYMENT_MODE === 'github') {
   Vue.prototype.$DevMode = true;
   Vue.prototype.$DevData = DevData;
 } else {

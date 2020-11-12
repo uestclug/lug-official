@@ -43,6 +43,14 @@ You should make sure the `VUE_APP_GITHUB_OAUTH_CLIENT_ID` setting is consistent 
 yarn build
 ```
 
+### Compiles and minifies for Github Pages
+
+``` yarn
+yarn build--github-pages
+```
+
+Pull changes to git including `/docs`.
+
 ### Lints and fixes files
 
 ``` yarn
