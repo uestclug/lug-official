@@ -31,14 +31,10 @@ export default {
     loginWithGithub() {
       if (this.$DevMode) {
         this.logining = true;
-        let REDIRECT_URL = '';
-        if (process.env.VUE_APP_DEPLOYMENT_MODE === 'github') {
-          // 部署到 github page 时，使用 https://uestclug.github.io/oauth/redirect.
-          REDIRECT_URL = 'https://uestclug.github.io/oauth/redirect';
-        } else {
-          REDIRECT_URL = 'http://localhost:8080/oauth/redirect';
-        }
-        this.$Utils.openLink(REDIRECT_URL);
+        setTimeout(() => {
+          this.$router.push({path: '/oauth/redirect'});
+        }, 1000);
+
         return;
       }
 

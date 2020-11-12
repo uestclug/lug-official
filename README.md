@@ -4,6 +4,7 @@ Official page of Netunion.
 
 ## Todo list
 
+- [ ] 更换为 Netunion 设计的 icons.
 - [ ] 招新简历投递通道。
 - [ ] CAT ROOM 留言板。在 [fishroom](https://fishroom.tuna.moe/log/tuna/today) 基础上充分改进。
 - [ ] 切换路由时，取消之前路由的请求。
