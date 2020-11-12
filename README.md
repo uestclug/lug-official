@@ -49,7 +49,7 @@ yarn build
 yarn build--github-pages
 ```
 
-Pull changes to git including `/docs`.
+Pull files in `/docs` to [uestclug.github.io](https://github.com/uestclug/uestclug.github.io).
 
 ### Lints and fixes files
 
