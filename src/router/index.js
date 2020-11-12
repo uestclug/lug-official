@@ -79,18 +79,19 @@ const routes = [
     component: AccessDenied,
   },
   {
-    path: '/notfound',
-    name: 'notfound',
-    component: NotFound,
-  },
-  {
     path: '/_empty',
     name: '_empty',
+  },
+  {
+    path: '*',
+    name: 'notfound',
+    component: NotFound,
   },
 ];
 
 const Router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -102,23 +103,19 @@ const Router = new VueRouter({
 });
 
 Router.beforeEach((to, from, next) => {
-  if (to.matched.length !== 0) {
-    if (to.meta.needLogin && (!localStorage.getItem('token') ||
+  if (to.meta.needLogin && (!localStorage.getItem('token') ||
         !localStorage.getItem('githubId'))) {
+    next({
+      name: 'login',
+    });
+  } else {
+    if (to.meta.needAdmin && !localStorage.getItem('tokenAdmin')) {
       next({
-        name: 'login',
+        name: 'accessdenied',
       });
     } else {
-      if (to.meta.needAdmin && !localStorage.getItem('tokenAdmin')) {
-        next({
-          name: 'accessdenied',
-        });
-      } else {
-        next();
-      }
+      next();
     }
-  } else {
-    next({path: '/notfound'});
   }
 });
 

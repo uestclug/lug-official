@@ -11,13 +11,13 @@ Official page of Netunion.
 
 ## Project setup
 
-``` yarn
+``` shell
 yarn install
 ```
 
 ### Compiles and hot-reloads for frontend development
 
-``` yarn
+``` shell
 yarn serve
 ```
 
@@ -25,7 +25,7 @@ yarn serve
 
 To start backend serve, see [nu-official-backend](https://github.com/uestclug/nu-official-backend).
 
-``` yarn
+``` shell
 yarn fullstack
 ```
 
@@ -40,21 +40,31 @@ VUE_APP_GITHUB_OAUTH_CLIENT_REDIRECT_URL='http://YOUR_GITHUB_OAUTH_CLIENT_REDIRE
 
 You should make sure the `VUE_APP_GITHUB_OAUTH_CLIENT_ID` setting is consistent with the backend.
 
-``` yarn
+``` shell
 yarn build
 ```
 
 ### Compiles and minifies for Github Pages
 
-``` yarn
+#### Method 1
+
+Run `deploy.sh`.
+
+#### Method 2
+
+For better address bar display, the project uses **HTML5 History Mode**. So you need to manually copy an identical `404.html` file with `index.html`. see [HTML5 History Mode](https://router.vuejs.org/guide/essentials/history-mode.html).
+
+``` shell
 yarn build--github-pages
+cd ./docs
+cp index.html 404.html
 ```
 
-Pull files in `/docs` to [uestclug.github.io](https://github.com/uestclug/uestclug.github.io).
+Push files in `/docs` to [uestclug.github.io](https://github.com/uestclug/uestclug.github.io).
 
 ### Lints and fixes files
 
-``` yarn
+``` shell
 yarn lint
 ```
 
