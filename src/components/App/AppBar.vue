@@ -103,7 +103,7 @@ export default {
     routes: [
       {name: 'HOME', path: '/'},
       {name: 'BLOG', path: '/blog'},
-      {name: 'CHAT', path: '/chat'},
+      // {name: 'CHAT', path: '/chat'},
     ],
     links: [
       {name: 'MIRRORS', path: 'http://mirrors.uestc.cn'},

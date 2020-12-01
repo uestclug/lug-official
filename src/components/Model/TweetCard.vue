@@ -55,16 +55,6 @@
               ><v-icon left x-small>fas fa-link</v-icon>
                 相关链接
               </v-chip>
-              <v-chip
-                v-if="editRoutePath"
-                class="mt-4 rounded-lg"
-                @click="$Utils.openLink(editRoutePath)"
-                label
-                outlined
-                small
-              ><v-icon left x-small>fas fa-edit</v-icon>
-                编辑新闻公告
-              </v-chip>
             </div>
           </v-card-text>
         </v-alert>
@@ -125,16 +115,6 @@
               ><v-icon left x-small>fas fa-link</v-icon>
                 相关链接
               </v-chip>
-              <v-chip
-                v-if="editRoutePath"
-                class="mt-4 rounded-lg"
-                @click="$Utils.openLink(editRoutePath)"
-                label
-                outlined
-                small
-              ><v-icon left x-small>fas fa-edit</v-icon>
-                编辑博客文章
-              </v-chip>
             </div>
           </v-card-text>
         </div>
@@ -149,7 +129,7 @@ import MarkdownIt from '@/components/Model/MarkdownIt';
 export default {
   name: 'TweetCard',
   data: () => ({
-    editRoutePath: '',
+    //
   }),
   components: {
     MarkdownIt,
@@ -173,9 +153,7 @@ export default {
     'blogView', // 博客渲染 (''/'markdown')
   ],
   created() {
-    if (localStorage.tokenAdmin) {
-      this.editRoutePath = '/editor/' + this.tweetType + '/' + this.tweetId;
-    }
+    //
   },
   methods: {
     openReaderDialog() {

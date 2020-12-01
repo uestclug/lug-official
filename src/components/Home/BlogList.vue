@@ -48,34 +48,8 @@ export default {
   }),
   created() {
     // TODO: 获取博客内容
-    if (this.$DevMode) {
-      setTimeout(() => {
-        this.blogItems = this.$DevData.blogList.blogItems;
-        this.initLoading = false;
-      }, 1000);
-      return;
-    }
-
-    this.loadBlogs();
-  },
-  methods: {
-    loadBlogs() {
-      this.axios.post('/tweet/getBlogTweet', {
-        page: 0,
-        limit: this.blogLoadLimit,
-      }).then((Response) => {
-        // console.log(Response);
-        if (Response.data.code == 200) {
-          const blog = Response.data.result.blog;
-          for (let i = 0; i < blog.length; i++) {
-            blog[i].blogDate = blog[i].createdAt.split('T')[0];
-            blog[i].blogAuthor = blog[i].Account.blogAuthor;
-            this.blogItems.push(blog[i]);
-          }
-          this.initLoading = false;
-        }
-      });
-    },
+    this.blogItems = this.$DevData.blogList.blogItems;
+    this.initLoading = false;
   },
 };
 </script>

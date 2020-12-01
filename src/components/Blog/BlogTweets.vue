@@ -54,13 +54,14 @@ export default {
     TweetSkeletonLoader,
   },
   data: () => ({
-    initLoading: true, // 初始化加载，为 true 时显示骨架屏
-    blogItems: [], // 博客数组
-    loadingAbled: true, // 可以加载更多，为 true 时可以点击加载更多按钮
-    isLoading: true, // 加载状态，为 true 时设置加载按钮为加载中
-    breadcrumbsItems: [], // 面包屑导航数组
-    page: 0, // 当前加载页
-    blogLoadLimit: 8, // 单次加载博客最大数
+    initLoading: true,
+    blogItems: [],
+    loadingAbled: true,
+    isLoading: true,
+    page: 0,
+    blogLoadLimit: 8,
+    // 面包屑导航数组
+    breadcrumbsItems: [],
   }),
   props: [
     'filter',

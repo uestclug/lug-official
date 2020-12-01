@@ -1,13 +1,20 @@
 # nu-official
 
-Official page of Netunion.
+Official page of Netunion. Frontend pages only.
+
+## Write blog and news
+
+See this [document](./docs/How%20to%20Write%20Blog%20and%20News.md).
+
+Or you can just imitate well-written [blog](./src/docs/blog) and [news](./src/docs/news).
 
 ## Todo list
 
-- [ ] 更换为 Netunion 设计的 icons.
-- [ ] 招新简历投递通道。
-- [ ] CAT ROOM 留言板。在 [fishroom](https://fishroom.tuna.moe/log/tuna/today) 基础上充分改进。
-- [ ] 切换路由时，取消之前路由的请求。
+- [ ] Netunion design icons.
+- [ ] Git projects display page.
+- [ ] About page.
+- [ ] Netunion members palace page.
+- [ ] Recruit page.
 
 ## Project setup
 
@@ -21,30 +28,15 @@ yarn install
 yarn serve
 ```
 
-### Compiles and hot-reloads for full-stack development
-
-To start backend serve, see [nu-official-backend](https://github.com/uestclug/nu-official-backend).
-
-``` shell
-yarn fullstack
-```
-
 ### Compiles and minifies for production
-
-Modify `.env` settings.
-
-``` .env
-VUE_APP_GITHUB_OAUTH_CLIENT_ID='YOUR_GITHUB_OAUTH_CLIENT_ID'
-VUE_APP_GITHUB_OAUTH_CLIENT_REDIRECT_URL='http://YOUR_GITHUB_OAUTH_CLIENT_REDIRECT_URL/oauth/redirect'
-```
-
-You should make sure the `VUE_APP_GITHUB_OAUTH_CLIENT_ID` setting is consistent with the backend.
 
 ``` shell
 yarn build
 ```
 
 ### Compiles and minifies for Github Pages
+
+The differences between `Compiles and minifies for Github Pages` and `Compiles and minifies for production` are `publicPath` and `outputDir` settings. You can find them in [vue.config.js](./vue.config.js).
 
 #### Method 1
 
@@ -74,11 +66,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Version
 
-Year.Month-B(eta)/S(table) (Number)
+Year.Month-B(eta)/S(table) (Number)-FRONTEND
 
 Example:
 
 ``` js
 // .env
-VUE_APP_VERSION_CODE=20.10-B1
+VUE_APP_VERSION_CODE=20.10-S1-FRONTEND
 ```

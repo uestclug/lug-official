@@ -1,6 +1,5 @@
 <template>
   <div>
-    <DevModeAlert />
     <ContentTitle class="content" title="线上服务" icon="fas fa-concierge-bell" />
     <Serves class="content" />
     <v-row class="content">
@@ -31,7 +30,6 @@
 <script>
 import BlogList from '@/components/Home/BlogList';
 import ContentTitle from '@/components/Model/ContentTitle';
-import DevModeAlert from '@/components/Model/DevModeAlert';
 // import Members from '@/components/Home/Members';
 import NewsList from '@/components/Home/NewsList';
 import Recruitment from '@/components/Home/Recruitment';
@@ -42,7 +40,6 @@ export default {
   components: {
     BlogList,
     ContentTitle,
-    DevModeAlert,
     // Members,
     NewsList,
     Recruitment,
