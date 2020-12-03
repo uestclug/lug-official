@@ -1,7 +1,7 @@
 <template>
   <div class="pt-3">
     <v-row class="content">
-      <v-col cols="3" class="hide-on-xs">
+      <v-col cols="12" sm="3">
         <BlogNavigation />
       </v-col>
       <v-col cols="12" sm="9">
