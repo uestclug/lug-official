@@ -12,17 +12,21 @@ The blog consists of two parts: blog info and blog content.
 
 The blog info stores the basic information of the blog, which will be rendered on the front page. The blog content is the main text of the blog.
 
-Blog files should be stored in path: `/src/docs/blog`.
+Blog files are stored in path: `/src/docs/blog`.
 
 博客包括博客信息和博客内容两部分。
 
 博客信息存储此篇博客的基本信息，将渲染到前端页面上。博客内容则是正文。
 
-博客文件应该存放在 `/src/docs/blog` 目录下。
+博客文件存放在 `/src/docs/blog` 目录下。
 
 ### Blog Info / 博客信息
 
+You need to place the blog info at the **beginning** of the post and frame it with two `---`.
+
 The blog info is written in the following manner.
+
+您需要将博客信息的内容放在文章的**开头部分**，并且用两个 `---` 将它们框住。
 
 博客信息的编写方式如下所示。
 
@@ -36,10 +40,6 @@ location: RELATED LOCATION
 link: RELATED LINK
 ---
 ```
-
-You need to place the blog info at the beginning of the post and frame it with two `---`.
-
-您需要将博客信息的内容放在文章的开头部分，并且用两个 `---` 将它们框住。
 
 Attribute / 属性|Value / 内容|Format / 格式要求|Needed / 必要|Note / 注释
 ---|---|---|---|---
@@ -76,17 +76,21 @@ The news also consists of two parts: news info and news content.
 
 The news info stores the basic information of the news, which will be rendered on the front page. The news content is the main text of the news.
 
-News files should be stored in path: `/src/docs/news`.
+News files are stored in path: `/src/docs/news`.
 
 新闻同样包括新闻信息和新闻内容两部分。
 
 新闻信息存储此篇新闻的基本信息，将渲染到前端页面上。新闻内容则是正文。
 
-新闻文件应该存放在 `/src/docs/news` 目录下。
+新闻文件存放在 `/src/docs/news` 目录下。
 
 ### News Info / 新闻信息
 
+You need to place the news info at the **beginning** of the post and frame it with two `---`.
+
 The news info is written in the following manner.
+
+您需要将新闻信息的内容放在文章的**开头部分**，并且用两个 `---` 将它们框住。
 
 新闻信息的编写方式如下所示。
 
@@ -102,10 +106,6 @@ link: RELATED LINK
 ---
 ```
 
-You need to place the news info at the beginning of the post and frame it with two `---`.
-
-您需要将新闻信息的内容放在文章的开头部分，并且用两个 `---` 将它们框住。
-
 Attribute / 属性|Value / 内容|Format / 格式要求|Needed / 必要|Note / 注释
 ---|---|---|---|---
 `title`|Title of news / 新闻的标题||Yes / 必要
@@ -116,9 +116,9 @@ Attribute / 属性|Value / 内容|Format / 格式要求|Needed / 必要|Note / �
 `location`|Related loaction of news / 与新闻相关的地址|
 `link`|Related web link of news / 与新闻相关的网页链接|`http(s)://link`|
 
-Note that, unlike the `tags` attribute of blog, news uses the `tag` attribute, which can only be filled with one tag; and the value of the `tag` attribute of news is fixed, if it is not one of the preset values, it will be parsed as `news`.
+Note that, unlike the `tags` attribute of blog, news uses the `tag` attribute, **which can only be filled with one tag**; and the value of the `tag` attribute of news is fixed, if it is not one of the preset values, it will be parsed as `news`.
 
-需要注意的是，与博客的 `tags` 属性不同，新闻使用 `tag` 属性，只能填写一个标签；且新闻的 `tag` 属性的值是固定的，如果不属于预设值的一种，都会被解析为 `新闻公告`。
+需要注意的是，与博客的 `tags` 属性不同，新闻使用 `tag` 属性，**只能填写一个标签**；且新闻的 `tag` 属性的值是固定的，如果不属于预设值的一种，都会被解析为 `新闻公告`。
 
 <span id="newsTagValues">The news `tag` attribute has the following preset values.
 
@@ -131,7 +131,7 @@ Note that, unlike the `tags` attribute of blog, news uses the `tag` attribute, w
 - `catroom`，即由电子科技大学 NetUnion 团队开发的 `Cat Room` 留言板。
 - `nuofficial`，电子科技大学 NetUnion 官网，即 `此网站`。
 
-Similarly, the `accent` attribute of the news fills in any value that is not one of the preset values, will be resolved to `info'.
+Similarly, the `accent` attribute of the news fills in any value that is not one of the preset values, will be resolved to `info`.
 
 同样，新闻的 `accent` 属性填写的值如果不属于预设值的一种，都会解析为 `嗯哼`。
 
@@ -166,7 +166,7 @@ Function in [mdParser.js](../src/utils/mdParser.js) shows how we parse those `.m
 
 We use [markdown-it](https://github.com/markdown-it/markdown-it) to render the parsed objects, if you are still not satisfied with the existing content support, you can refer to the official documentation to add more plugins!
 
-You can define more `tag` of news tags in [this file](../src/utils/index.js).
+You can define more `tag` preset values of news tags in [this file](../src/utils/index.js).
 
 [NewsList.vue](../src/components/Home/NewsList.vue) and [BlogList.vue](../src/components/Home/BlogList.vue) are components that display news and blogs at **HOME** route.
 
@@ -176,7 +176,7 @@ You can define more `tag` of news tags in [this file](../src/utils/index.js).
 
 我们采用 [markdown-it](https://github.com/markdown-it/markdown-it) 渲染解析后的对象，如果您对已有的内容支持仍不满意，可以参考其官方文档自行添加插件！
 
-您可以编写[这个文件](../src/utils/index.js)中的函数，以定义更多新闻的 `tag` 属性。
+您可以编写[这个文件](../src/utils/index.js)中的函数，以定义更多新闻的 `tag` 属性的预设值。
 
 组件 [NewsList.vue](../src/components/Home/NewsList.vue) 和 [BlogList.vue](../src/components/Home/BlogList.vue) 展示了**主页**的新闻和博客内容。
 
