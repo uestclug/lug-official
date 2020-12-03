@@ -27,7 +27,7 @@
             <div class="mb-2">
               <a
                 class="white--text"
-                href="mailto:nu@uestclug.org"
+                :href="link.mail"
               >
                 <v-icon dark left small>fas fa-envelope</v-icon>Email
               </a>
@@ -35,7 +35,8 @@
             <div class="mb-2">
               <a
                 class="white--text"
-                @click="$Utils.openExternalLink('https://github.com/uestclug')"
+                @click=
+                    "$Utils.openExternalLink(link.github)"
               >
                 <v-icon dark left small>fab fa-github</v-icon>Github
               </a>
@@ -43,7 +44,8 @@
             <div class="mb-2">
               <a
                 class="white--text"
-                @click="$Utils.openExternalLink('https://t.me/joinchat/LgGQ2UXTfAtQW1TPR22_Uw')"
+                @click=
+                    "$Utils.openExternalLink(link.telegram)"
               >
                 <v-icon dark left small>fab fa-telegram-plane</v-icon>Telegram
               </a>
@@ -51,7 +53,8 @@
             <div class="mb-2">
               <a
                 class="white--text"
-                @click="$Utils.openExternalLink('https://lug.uestc.dev')"
+                @click=
+                    "$Utils.openExternalLink(link.uestcLug)"
               >
                 <v-icon dark left small>fab fa-linux</v-icon
                 >UESTC LUG
@@ -85,7 +88,12 @@
 export default {
   name: 'Footer',
   data: () => ({
-    //
+    link: {
+      mail: process.env.VUE_APP_MAIL_LINK,
+      github: process.env.VUE_APP_GITHUB_LINK,
+      telegram: process.env.VUE_APP_TELEGRAM_LINK,
+      uestcLug: process.env.VUE_APP_UESTCLUG_LINK,
+    },
   }),
 };
 </script>

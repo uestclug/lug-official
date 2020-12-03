@@ -4,6 +4,7 @@
       <v-card
         :elevation="hover ? 4 : 2"
         class="rounded-lg transition-swing"
+        outlined
       >
         <!-- 新闻公告的 tweet 卡片 -->
         <v-alert

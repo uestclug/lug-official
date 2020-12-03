@@ -47,7 +47,6 @@ export default {
     blogItems: [],
   }),
   created() {
-    console.log(this.$Blogs);
     for (let i = 0; i < this.$Blogs.length && i < this.blogLoadLimit; i++) {
       this.blogItems.push(this.$Blogs[i]);
     }

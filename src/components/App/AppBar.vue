@@ -106,7 +106,7 @@ export default {
       // {name: 'CHAT', path: '/chat'},
     ],
     links: [
-      {name: 'MIRRORS', path: 'http://mirrors.uestc.cn'},
+      {name: 'MIRRORS', path: process.env.VUE_APP_MIRRORS_LINK},
     ],
   }),
   methods: {

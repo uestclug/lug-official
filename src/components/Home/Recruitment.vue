@@ -2,8 +2,9 @@
   <v-hover>
     <template v-slot:default="{ hover }">
       <v-card
-        :elevation="hover ? 4 : 2"
-        class="rounded-lg transition-swing"
+        :elevation="hover ? 4 : 1"
+        class="rounded-lg transition-swing mt-6"
+        outlined
       >
         <v-card-title class="color-primary font-weight-bold">
           # WE NEED YOU
@@ -66,8 +67,8 @@ export default {
   name: 'Recruitment',
   data: () => ({
     existYear: '许多',
-    submitResumeLink: '',
-    recruitmentGroupLink: 'https://jq.qq.com/?_wv=1027&k=ocOa70Ns',
+    submitResumeLink: process.env.VUE_APP_RECRUIT_LINK,
+    recruitmentGroupLink: process.env.VUE_APP_RECRUIT_QQ_LINK,
   }),
   created() {
     // 计算成立时长

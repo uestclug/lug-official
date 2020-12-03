@@ -60,7 +60,6 @@ export default {
   }),
   created() {
     this.loadMoreNews();
-    console.log(this.$News);
   },
   methods: {
     loadMoreNews() {
