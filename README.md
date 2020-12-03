@@ -36,23 +36,11 @@ yarn build
 
 ### Compiles and minifies for Github Pages
 
-The differences between `Compiles and minifies for Github Pages` and `Compiles and minifies for production` are `publicPath` and `outputDir` settings. You can find them in [vue.config.js](./vue.config.js).
-
-#### Method 1
-
 Run `deploy.sh`.
 
-#### Method 2
+#### Note
 
-For better address bar display, the project uses **HTML5 History Mode**. So you need to manually copy an identical `404.html` file with `index.html`. see [HTML5 History Mode](https://router.vuejs.org/guide/essentials/history-mode.html).
-
-``` shell
-yarn build--github-pages
-cd ./docs
-cp index.html 404.html
-```
-
-Push files in `/docs` to [uestclug.github.io](https://github.com/uestclug/uestclug.github.io).
+The differences between `Compiles and minifies for Github Pages` and `Compiles and minifies for production` are `publicPath` and `outputDir` settings. You can find them in [vue.config.js](./vue.config.js).
 
 ### Lints and fixes files
 

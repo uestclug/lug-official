@@ -5,7 +5,6 @@ import router from '@/router/index';
 
 import Bus from '@/Bus';
 import Common from '@/common/common';
-import DevData from '@/common/devData';
 import Utils from '@/utils/index';
 import mdParser from '@/utils/mdParser';
 
@@ -47,10 +46,8 @@ Vue.prototype.$News = news;
 // 引入开发者模式和数据
 if (process.env.NODE_ENV === 'development') {
   Vue.prototype.$DevMode = true;
-  Vue.prototype.$DevData = DevData;
 } else {
   Vue.prototype.$DevMode = false;
-  Vue.prototype.$DevData = null;
 }
 
 Vue.config.productionTip = false;
