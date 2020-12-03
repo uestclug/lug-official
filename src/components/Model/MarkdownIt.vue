@@ -20,7 +20,7 @@ import 'github-markdown-css';
 
 const md = require('markdown-it')({
   linkify: false,
-  breaks: true,
+  breaks: false,
   typographer: true,
   highlight: function(str, lang) {
     if (lang && mdHighlight.getLanguage(lang)) {

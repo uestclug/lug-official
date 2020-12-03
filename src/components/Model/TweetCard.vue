@@ -22,7 +22,6 @@
             >
               <span class="mr-2">{{ tweetTitle }}</span>
               <v-chip
-                v-if="newsTag"
                 class="rounded-lg clickable"
                 :color="newsAccent ? newsAccent : 'info'"
                 label

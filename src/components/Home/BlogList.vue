@@ -8,16 +8,16 @@
     <TweetCard
       class="mt-6"
       v-for="blog in blogItems"
-      v-bind:key="blog.blogId"
-      :tweetId="blog.blogId"
-      :tweetTitle="blog.blogTitle"
-      :tweetAuthor="blog.blogAuthor"
+      v-bind:key="blog.id"
       tweetType="blog"
-      :tweetDate="blog.blogDate"
-      :tweetContent="blog.blogContent"
-      :tweetLocation="blog.blogLocation"
-      :tweetLink="blog.blogLink"
-      :blogTags="blog.blogTags"
+      :tweetId="blog.id"
+      :tweetTitle="blog.title"
+      :tweetAuthor="blog.author"
+      :tweetDate="blog.date"
+      :tweetContent="blog.content"
+      :tweetLocation="blog.location"
+      :tweetLink="blog.link"
+      :blogTags="blog.tags"
     />
     <div>
       <v-btn
@@ -43,12 +43,14 @@ export default {
   },
   data: () => ({
     initLoading: true,
-    blogLoadLimit: 4, // 获取博客量
+    blogLoadLimit: 4,
     blogItems: [],
   }),
   created() {
-    // TODO: 获取博客内容
-    this.blogItems = this.$DevData.blogList.blogItems;
+    console.log(this.$Blogs);
+    for (let i = 0; i < this.$Blogs.length && i < this.blogLoadLimit; i++) {
+      this.blogItems.push(this.$Blogs[i]);
+    }
     this.initLoading = false;
   },
 };

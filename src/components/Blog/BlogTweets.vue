@@ -15,29 +15,28 @@
     <TweetCard
       class="mb-6"
       v-for="blog in blogItems"
-      v-bind:key="blog.blogId"
-      :tweetId="blog.blogId"
-      :tweetTitle="blog.blogTitle"
-      :tweetAuthor="blog.blogAuthor"
+      v-bind:key="blog.id"
       tweetType="blog"
-      :tweetDate="blog.blogDate"
-      :tweetContent="blog.blogContent"
-      :tweetLocation="blog.blogLocation"
-      :tweetLink="blog.blogLink"
-      :blogTags="blog.blogTags"
       blogView="markdown"
+      :tweetId="blog.id"
+      :tweetTitle="blog.title"
+      :tweetAuthor="blog.author"
+      :tweetDate="blog.date"
+      :tweetContent="blog.content"
+      :tweetLocation="blog.location"
+      :tweetLink="blog.link"
+      :blogTags="blog.tags"
     />
     <div>
       <v-btn
         class="float-right"
         color="primary"
         text
-        @click="loadMoreBlogTweets"
-        :disabled="!loadingAbled"
-        :loading="isLoading"
-      >
-        {{ loadingAbled ? '加载更多博客文章' : '没有更多博客文章啦' }}
-        <v-icon right small>fas fa-search</v-icon>
+        disabled
+      >{{ blogItems.length == 0 ?
+          '未找到符合条件的博客文章' :
+          '没有更多博客文章啦'
+        }}<v-icon right small>fas fa-search</v-icon>
       </v-btn>
     </div>
   </div>
@@ -56,10 +55,6 @@ export default {
   data: () => ({
     initLoading: true,
     blogItems: [],
-    loadingAbled: true,
-    isLoading: true,
-    page: 0,
-    blogLoadLimit: 8,
     // 面包屑导航数组
     breadcrumbsItems: [],
   }),
@@ -70,131 +65,39 @@ export default {
   methods: {
     // 获取博客内容
     getBlogTweets() {
+      this.initLoading = true;
+      this.blogItems = [];
+
       const filter = this.filter;
       const filterValue = this.filterValue;
       if (filter && filterValue) { // 博客文章过滤
-        if (filter == 'tag') {
-          this.axios.post('/tweet/getBlogTweet', {
-            page: this.page,
-            limit: this.blogLoadLimit,
-            blogTag: filterValue,
-          }).then((Response) => {
-            if (Response.data.code == 200) {
-              const count = Response.data.result.count;
-              const blog = Response.data.result.blog;
-              for (let i = 0; i < blog.length; i++) {
-                blog[i].blogDate = blog[i].createdAt.split('T')[0];
-                blog[i].blogAuthor = blog[i].Account.blogAuthor;
-                this.blogItems.push(blog[i]);
-              }
-
-              if (count < this.blogLoadLimit) {
-                this.loadingAbled = false;
-              }
-
-              this.page += 1;
-              this.initLoading = false;
-              this.isLoading = false;
-            } else {
-              return;
-            }
-          });
-        } else if (filter == 'id') {
-          this.axios.post('/tweet/getBlogTweet', {
-            blogId: filterValue,
-          }).then((Response) => {
-            if (Response.data.code == 200) {
-              // console.log(Response);
-              const blog = Response.data.result.blog;
-              blog.blogDate = blog.createdAt.split('T')[0];
-              blog.blogAuthor = blog.Account.blogAuthor;
-              this.blogItems.push(blog);
-
-              this.loadingAbled = false;
-              this.initLoading = false;
-              this.isLoading = false;
-            } else {
-              return;
-            }
-          });
-        } else {
-          return;
-        }
-      } else { // 按时间顺序获得博客
-        this.axios.post('/tweet/getBlogTweet', {
-          page: this.page,
-          limit: this.blogLoadLimit,
-        }).then((Response) => {
-          // console.log(Response);
-          if (Response.data.code == 200) {
-            const count = Response.data.result.count;
-            const blog = Response.data.result.blog;
-            for (let i = 0; i < blog.length; i++) {
-              blog[i].blogDate = blog[i].createdAt.split('T')[0];
-              blog[i].blogAuthor = blog[i].Account.blogAuthor;
-              this.blogItems.push(blog[i]);
-            }
-
-            if (count < this.blogLoadLimit) {
-              this.loadingAbled = false;
-            }
-
-            this.page += 1;
-            this.initLoading = false;
-            this.isLoading = false;
-          }
-        });
-      }
-    },
-    // 启动时获取博客内容
-    initBlogTweets() {
-      this.blogItems = [];
-      this.isLoading = true;
-      this.initLoading = true;
-
-      if (this.$DevMode) { // 开发者模式
-        const filter = this.filter;
-        const filterValue = this.filterValue;
-        const blogItems = this.$DevData.blogList.blogItems;
-        if (filter == 'tag') {
-          for (const blogItem of blogItems) {
-            for (const blogTag of blogItem.blogTags) {
-              if (blogTag == filterValue) {
-                this.blogItems.push(blogItem);
+        if (filter == 'tag') { // 按照博客的 tag 过滤
+          for (let i = 0; i < this.$Blogs.length; i++) {
+            for (let n = 0; n < this.$Blogs[i].tags.length; n++) {
+              if (this.$Blogs[i].tags[n] == filterValue) {
+                this.blogItems.push(this.$Blogs[i]);
                 break;
               }
             }
           }
-        } else if (filter == 'id') {
-          for (const blogItem of blogItems) {
-            if (blogItem.blogId == filterValue) {
-              this.blogItems.push(blogItem);
+
+          this.initLoading = false;
+        } else if (filter == 'id') { // 按照博客的 id 过滤
+          for (let i = 0; i < this.$Blogs.length; i++) {
+            if (this.$Blogs[i].id == filterValue) {
+              this.blogItems.push(this.$Blogs[i]);
               break;
             }
           }
-          this.loadingAbled = false;
+
+          this.initLoading = false;
         } else {
-          this.blogItems = blogItems;
+          return;
         }
+      } else { // 按时间顺序获得博客
+        this.blogItems = this.$Blogs;
         this.initLoading = false;
-        this.isLoading = false;
-      } else { // 产品模式
-        this.getBlogTweets();
       }
-    },
-    // 加载更多博客内容
-    loadMoreBlogTweets() {
-      this.isLoading = true;
-
-      if (this.$DevMode) {
-        setTimeout(() => {
-          this.isLoading = false;
-          this.loadingAbled = false;
-        }, 1000);
-        return;
-      }
-
-      this.getBlogTweets();
     },
     // 获取面包屑导航
     getBreadcrumbsItems() {
@@ -216,18 +119,13 @@ export default {
     },
   },
   created() {
-    this.initBlogTweets();
+    this.getBlogTweets();
     // this.getBreadcrumbsItems();
   },
   watch: {
     filterValue() {
       // console.log('filter value changed.');
-      this.initLoading = true;
-      this.blogItems = [];
-      this.loadingAbled = true;
-      this.isLoading = true;
-      this.page = 0;
-      this.initBlogTweets();
+      this.getBlogTweets();
       // this.getBreadcrumbsItems();
     },
   },

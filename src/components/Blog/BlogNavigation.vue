@@ -61,54 +61,38 @@ export default {
     },
   },
   created() {
-    if (this.$DevMode) {
-      this.tagItems = [
-        {
-          name: 'Enjoy',
-          blogCount: 2,
-        },
-        {
-          name: 'Development',
-          blogCount: 2,
-        },
-        {
-          name: '科普',
-          blogCount: 1,
-        },
-      ];
-      return;
+    const blogTagsArray = [];
+
+    for (let i = 0; i < this.$Blogs.length; i++) {
+      blogTagsArray.push(this.$Blogs[i].tags);
     }
 
-    this.axios.post('/tweet/getBlogTweetTagList').then((Response) => {
-      // console.log(Response);
-      const blogTagsArray = Response.data.result.blogTags;
-      const tagItems = [];
+    const tagItems = [];
 
-      for (let i = 0; i < blogTagsArray.length; i++) {
-        const tags = blogTagsArray[i].blogTags;
-        for (let n = 0; n < tags.length; n++) {
-          // 遍历 tags 数组的每一项标签
-          let index = -1;
-          for (let m = 0; m < tagItems.length; m++) {
-            // 寻找 tagItems 与标签相同的 name 存在
-            if (tagItems[m].name == tags[n]) {
-              index = m;
-            }
+    for (let i = 0; i < blogTagsArray.length; i++) {
+      const tags = blogTagsArray[i];
+      for (let n = 0; n < tags.length; n++) {
+        // 遍历 tags 数组的每一项标签
+        let index = -1;
+        for (let m = 0; m < tagItems.length; m++) {
+          // 寻找 tagItems 与标签相同的 name 存在
+          if (tagItems[m].name == tags[n]) {
+            index = m;
           }
-          if (index == -1) { // tagItems 不包含该 tag 时
-            tagItems.push({
-              name: tags[n],
-              blogCount: 1,
-            });
-          } else { // 该 tag 存在于 tagItems 时
-            tagItems[index].blogCount += 1;
-          };
         }
+        if (index == -1) { // tagItems 不包含该 tag 时
+          tagItems.push({
+            name: tags[n],
+            blogCount: 1,
+          });
+        } else { // 该 tag 存在于 tagItems 时
+          tagItems[index].blogCount += 1;
+        };
       }
-      tagItems.sort(this.tagSortByBlogCount);
+    }
+    tagItems.sort(this.tagSortByBlogCount);
 
-      this.tagItems = tagItems;
-    });
+    this.tagItems = tagItems;
   },
 };
 </script>

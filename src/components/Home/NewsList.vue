@@ -8,17 +8,17 @@
     <TweetCard
       class="mt-6"
       v-for="news in newsItems"
-      v-bind:key="news.newsId"
-      :tweetId="news.newsId"
-      :tweetTitle="news.newsTitle"
-      :tweetAuthor="news.newsAuthor"
+      v-bind:key="news.id"
       tweetType="news"
-      :tweetDate="news.newsDate"
-      :tweetContent="news.newsContent"
-      :tweetLocation="news.newsLocation"
-      :tweetLink="news.newsLink"
-      :newsAccent="news.newsAccent"
-      :newsTag="news.newsTag"
+      :tweetId="news.id"
+      :tweetTitle="news.title"
+      :tweetAuthor="news.author"
+      :tweetDate="news.date"
+      :tweetContent="news.content"
+      :tweetLocation="news.location"
+      :tweetLink="news.link"
+      :newsAccent="news.accent"
+      :newsTag="news.tag"
     />
     <div>
       <v-btn
@@ -49,33 +49,31 @@ export default {
   data: () => ({
     // 初次加载标识
     initLoading: true,
-    // 新闻
+    // 新闻对象数组
     newsItems: [],
     // 是否能够加载更多新闻
     loadingAbled: true,
     // 是否正在加载更多新闻
     isLoading: false,
-    // 当前页数
-    page: 0,
     // 新闻加载数量
     newsLoadLimit: 5,
   }),
   created() {
     this.loadMoreNews();
+    console.log(this.$News);
   },
   methods: {
     loadMoreNews() {
       if (this.isLoading) return;
       this.isLoading = true;
 
-      const newsCount = Response.data.result.count;
-      const news = Response.data.result.news;
-      for (let i = 0; i < news.length; i++) {
-        news[i].newsDate = news[i].createdAt.split('T')[0];
-        news[i].newsAuthor = news[i].Account.newsAuthor;
-        this.newsItems.push(news[i]);
+      const newsCount = this.newsItems.length;
+      let pushNewsCount = 0;
+      for (let i = newsCount; i < this.$News.length &&
+          pushNewsCount < this.newsLoadLimit; i++) {
+        this.newsItems.push(this.$News[i]);
+        pushNewsCount += 1;
       }
-      this.page += 1;
 
       // 初始化加载不显示 snackbar.
       if (this.initLoading) {
@@ -87,7 +85,7 @@ export default {
         });
       }
 
-      if (newsCount < this.newsLoadLimit) {
+      if (pushNewsCount < this.newsLoadLimit) {
         this.loadingAbled = false;
       }
 

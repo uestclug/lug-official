@@ -1,4 +1,12 @@
 module.exports = {
+  // 获取 sort() 函数进行对象排序的 function
+  getSortFun(order, sortBy) {
+    const ordAlpah = (order == 'asc') ? '>' : '<';
+    const sortFun = new Function('a', 'b', 'return a.' + sortBy +
+        ordAlpah + 'b.' + sortBy + '?1:-1');
+    return sortFun;
+  },
+
   // 在新窗口打开链接
   openExternalLink(link) {
     window.open(link);

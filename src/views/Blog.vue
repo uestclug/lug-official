@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pt-3">
     <v-row class="content">
       <v-col cols="3" class="hide-on-xs">
         <BlogNavigation />

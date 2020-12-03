@@ -3,14 +3,13 @@ module.exports = {
   transpileDependencies: [
     'vuetify',
   ],
-  css: {
-    loaderOptions: {
-      scss: {
-        additionalData: [
-          //
-        ],
-      },
-    },
+  chainWebpack: (config) => {
+    config.module
+        .rule('md')
+        .test(/\.md/)
+        .use('md-text-loader')
+        .loader('md-text-loader')
+        .end();
   },
   // devServer: {
   //   proxy: {
