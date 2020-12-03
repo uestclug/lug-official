@@ -1,4 +1,4 @@
-module.exports = function(content) {
+module.exports = function(content, type) {
   // 根据 `---` 将文章拆分为数组
   const contentArray = content.split('---\n');
   // 编写者正确编写属性内容
@@ -30,10 +30,11 @@ module.exports = function(content) {
     let contentText = '';
     if (contentArray.length == 3) {
       contentText = contentArray[2];
-    } else { // 编写者在正文中使用了 `---` 作为分隔符
-      for (let i = 2; i < contentArray.length; i++) {
-        contentText += contentArray[i];
+    } else { // 撰写者在正文中使用了 `---` 作为分隔符
+      contentText += contentArray[2];
+      for (let i = 3; i < contentArray.length; i++) {
         contentText += '\n\n---\n\n';
+        contentText += contentArray[i];
       }
     }
 
@@ -59,8 +60,12 @@ module.exports = function(content) {
     }
 
     // 对 Blog 的 tags 属性进行处理
-    if (result.tags != null) {
-      result.tags = result.tags.split('#');
+    if (type == 'blog') {
+      if (result.tags == null || result.tags == ['']) {
+        result.tags = ['未归档'];
+      } else {
+        result.tags = result.tags.split('#');
+      }
     }
 
     // 结果对象中的 title 和 date 不能为空

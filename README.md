@@ -11,8 +11,7 @@ Or you can just imitate well-written [blog](./src/docs/blog) and [news](./src/do
 ## Todo list
 
 - [ ] Netunion design icons.
-- [ ] Git projects display page.
-- [ ] About page.
+- [ ] Open source projects display page.
 - [ ] Netunion members palace page.
 - [ ] Recruit page.
 

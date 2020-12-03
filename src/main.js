@@ -19,7 +19,7 @@ Vue.prototype.$Utils = Utils; // 通用 js 函数
 const blogFiles = require.context('@/docs/blog/', true, /\.md$/);
 const blogs = [];
 blogFiles.keys().forEach((key) => { // 将合法的 md 文件对象添加到数组中
-  const blogItem = mdParser(blogFiles(key));
+  const blogItem = mdParser(blogFiles(key), 'blog');
   if (blogItem != null) {
     blogs.push(blogItem);
   }
@@ -27,7 +27,7 @@ blogFiles.keys().forEach((key) => { // 将合法的 md 文件对象添加到数�
 const newsFiles = require.context('@/docs/news/', true, /\.md$/);
 const news = [];
 newsFiles.keys().forEach((key) => {
-  const newsItem = mdParser(newsFiles(key));
+  const newsItem = mdParser(newsFiles(key), 'news');
   if (newsItem != null) {
     news.push(newsItem);
   }
