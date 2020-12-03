@@ -4,7 +4,7 @@ Official page of Netunion. Frontend pages only.
 
 ## Write blog and news
 
-See this [document](./docs/How%20to%20Write%20Blog%20and%20News.md).
+See this [document](./assets/How%20to%20Write%20Blog%20and%20News.md).
 
 Or you can just imitate well-written [blog](./src/docs/blog) and [news](./src/docs/news).
 
