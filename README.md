@@ -10,10 +10,17 @@ Or you can just imitate well-written [blog](./src/docs/blog) and [news](./src/do
 
 ## Todo list
 
+### Feature
+
 - [ ] Netunion design icons.
 - [ ] Open source projects display page.
 - [ ] Netunion members palace page.
 - [ ] Recruit page.
+
+### Known issues
+
+- [ ] Better tweet preview.
+- [ ] Image cache.
 
 ## Project setup
 
@@ -35,7 +42,9 @@ yarn build
 
 ### Compiles and minifies for Github Pages
 
-Run `deploy.sh`.
+``` shell
+./deploy.sh
+```
 
 #### Note
 
