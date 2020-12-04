@@ -162,12 +162,12 @@ Here is a simple [news sample](./Sample%20News.md).
 
 ## Pictures / 引用图片
 
-A favorite suggestion is to store image files in the `assets/pic` directory, which can be referenced in the following way.
+It is recommended that image files be stored in the `assets/pic` directory and referenced by copying the image address.
 
-建议将图片文件存放在 `assets/pic` 目录下，通过如下方式引用。
+建议将图片文件存放在 `assets/pic` 目录下，通过复制图片地址的方式引用。
 
 ``` markdown
-![pic](https://github.com/uestclug/nu-official/tree/frontend/assets/pic/tweet/pic)
+![pic](https://github.com/uestclug/nu-official/blob/frontend/assets/pic/tweet/pic?raw=true)
 ```
 
 ## Issues / 已知问题（特性）
