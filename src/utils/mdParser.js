@@ -16,7 +16,7 @@ module.exports = function(content, type) {
       const param = contentInfoArray[i].substring(0, index);
       // 获取属性名对应的值
       let value;
-      if (index != -1) {
+      if (index != -1) { // 使用超过一个空格时将被视为文本的一部分
         value = contentInfoArray[i].substring(index + 2);
       } else { // 编写者甚至没有在冒号后空格！天哪真可怕
         index = contentInfoArray[i].indexOf(':');
@@ -30,10 +30,10 @@ module.exports = function(content, type) {
     let contentText = '';
     if (contentArray.length == 3) {
       contentText = contentArray[2];
-    } else { // 撰写者在正文中使用了 `---` 作为分隔符
+    } else { // 撰写者在正文中使用了 `---` 作为分隔符或其它用途
       contentText += contentArray[2];
       for (let i = 3; i < contentArray.length; i++) {
-        contentText += '\n\n---\n\n';
+        contentText += '---';
         contentText += contentArray[i];
       }
     }
