@@ -61,3 +61,5 @@ Example:
 // .env
 VUE_APP_VERSION_CODE=20.10-S1-FRONTEND
 ```
+
+Want to know more about website change infomation? See our [Changelog](./CHANGELOG.md).
