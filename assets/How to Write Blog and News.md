@@ -160,6 +160,16 @@ Here is a simple [news sample](./Sample%20News.md).
 
 这是一个简单的[新闻撰写示例](./Sample%20News.md)。
 
+## Pictures / 引用图片
+
+A favorite suggestion is to store image files in the `assets/pic` directory, which can be referenced in the following way.
+
+建议将图片文件存放在 `assets/pic` 目录下，通过如下方式引用。
+
+``` markdown
+![pic](https://github.com/uestclug/nu-official/tree/frontend/assets/pic/tweet/pic)
+```
+
 ## Issues / 已知问题（特性）
 
 - 属性在 `:` 后的赋值超过一个空格时，**额外的空格**会被视为属性值的一部分。例如填写 'title:&nbsp;&nbsp;News-Title', 会将 `title` 属性解析为 '&nbsp;News-Title', 而非我们通常希望的 'News-Title'.

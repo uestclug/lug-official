@@ -53,30 +53,38 @@ export default {
   },
   mounted() {
     this.$Bus.$on('setSnackbar', (msg) => {
-      // console.log('msg: ' + msg.text);
-      // console.log('type: ' + msg.type);
+      // 设置关闭时间
       if (msg.timeout != null && msg.timeout != '') {
         this.timeout = msg.timeout;
-      } else {
+      } else { // 默认为 2000 ms
         this.timeout = 2000;
       }
+
+      // 设置 icon
       if (msg.icon != null) {
         this.snackbarIcon = msg.icon;
-      } else {
+      } else { // 默认为空
         this.snackbarIcon = '';
       }
+
+      // 设置垂直位置
       if (msg.verticalPosition != null && msg.verticalPosition != '') {
         this.verticalPosition = msg.verticalPosition;
-      } else {
+      } else { // 默认为顶部
         this.verticalPosition = 'top';
       }
+
+      // 设置水平位置
       if (msg.horizontalPosition != null) {
         this.horizontalPosition = msg.horizontalPosition;
-      } else {
+      } else { // 默认为中间
         this.horizontalPosition = '';
       }
 
+      // 设置值
       this.snackbarText = msg.text;
+
+      // 设置强调颜色
       switch (msg.type) {
         case 'info':
           this.snackbarColor = this.$vuetify.theme.themes.light
@@ -102,15 +110,15 @@ export default {
           this.snackbarColor = this.$vuetify.theme.themes.light
               .error;
           break;
-        default:
+        default: // 默认为 secondary
           this.snackbarColor = this.$vuetify.theme.themes.light
               .secondary;
       }
       this.snackbar = true;
     });
+
     this.$Bus.$on('closeSnackbar', (msg) => {
       this.snackbar = false;
-      this.initSnackbar();
     });
   },
 };

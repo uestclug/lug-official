@@ -105,8 +105,8 @@ export default {
   }),
   methods: {
     clickOutsideCloseReaderDialog() {
-      this.dialog = false;
       this.$Bus.$emit('closeSnackbar');
+      this.dialog = false;
     },
     dblClickCloseReaderDialog() {
       this.dialog = false;

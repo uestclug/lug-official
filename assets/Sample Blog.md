@@ -33,6 +33,13 @@ link: https://uestclug.github.io
 
 点击[这里](https://www.google.com)访问 Google!
 
+### Table
+
+|属性|内容|简介|
+|---|---|---|
+|你好，|世界！|Hello, world!|
+|你好，|Vue !|Hello, Vue !|
+
 ### Code
 
 现在就开始开发吧！
