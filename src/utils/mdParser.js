@@ -69,7 +69,8 @@ module.exports = function(content, type) {
     }
 
     // 结果对象中的 title 和 date 不能为空
-    if (result.title != null && result.date != null) {
+    if (result.title != null && result.title != '' &&
+        result.date != null && result.date != '') {
       return result;
     } else {
       return null;

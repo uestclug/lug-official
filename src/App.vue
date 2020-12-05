@@ -37,7 +37,10 @@ export default {
     if (this.$DevMode) {
       console.log('You are now in DevMode, feel free to develop this website!');
       console.log('Version: ' + process.env.VUE_APP_VERSION_CODE);
-      return;
+      console.log('Read blogs:');
+      console.log(this.$Blogs);
+      console.log('Read news:');
+      console.log(this.$News);
     }
   },
   mounted() {

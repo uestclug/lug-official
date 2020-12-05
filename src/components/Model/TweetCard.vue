@@ -34,7 +34,11 @@
             >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle>
           </span>
           <v-card-text>
-            <span class="tweet-card-content">{{ tweetContent }}</span>
+            <MarkdownIt
+              class="tweet-card-content"
+              :content="tweetContent"
+              :type="preview"
+            ></MarkdownIt>
             <div>
               <v-chip
                 v-if="tweetLocation"
@@ -91,10 +95,13 @@
             >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle>
           </span>
           <v-card-text>
-            <span v-if="blogView == 'markdown'">
-              <MarkdownIt :content="tweetContent"></MarkdownIt>
+            <span>
+              <MarkdownIt
+                :class="blogView == 'markdown' ? '' : 'tweet-card-content'"
+                :content="tweetContent"
+                :type="blogView == 'markdown' ? '' : 'preview'"
+              ></MarkdownIt>
             </span>
-            <span v-else class="tweet-card-content">{{ tweetContent }}</span>
             <div>
               <v-chip
                 v-if="tweetLocation"

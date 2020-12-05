@@ -4,7 +4,10 @@
       <v-btn text loading disabled></v-btn>
       <p>正在加载中，请稍后...</p>
     </div>
-    <div v-else v-html="htmlContent" class="markdown-body" />
+    <div v-else>
+      <div v-if="type == 'preview'">{{ previewContent }}</div>
+      <div v-else v-html="htmlContent" class="markdown-body" />
+    </div>
   </div>
 </template>
 
@@ -44,15 +47,23 @@ md.renderer.rules.mdEmoji = function(token, idx) {
 export default {
   name: 'MarkdownIt',
   data: () => ({
+    previewContent: '',
     htmlContent: '',
     rendered: false,
   }),
   props: [
     'content',
+    'type',
   ],
   methods: {
     renderHtmlContent() {
-      this.htmlContent = md.render(this.content);
+      const htmlContent = md.render(this.content);
+      if (this.type == 'preview') { // 预览模式提取 html 中的文本
+        const previewContent = htmlContent.replace(/<[^<>]+>/g, '');
+        this.previewContent = previewContent;
+      } else {
+        this.htmlContent = htmlContent;
+      }
       this.rendered = true;
     },
   },
