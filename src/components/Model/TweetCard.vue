@@ -37,7 +37,7 @@
             <MarkdownIt
               class="tweet-card-content"
               :content="tweetContent"
-              :type="preview"
+              type="preview"
             ></MarkdownIt>
             <div>
               <v-chip

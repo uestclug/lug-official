@@ -32,6 +32,9 @@ module.exports = {
       case 'markdown':
       case '在线文档':
         return 'markdown';
+      case 'minecraft':
+      case '我的世界':
+        return 'minecraft';
       case 'catroom':
       case 'Cat Room':
         return 'catroom';
@@ -58,6 +61,9 @@ module.exports = {
       case 'markdown':
       case '在线文档':
         return '在线文档';
+      case 'minecraft':
+      case '我的世界':
+        return '我的世界';
       case 'catroom':
       case 'Cat Room':
         return 'Cat Room';

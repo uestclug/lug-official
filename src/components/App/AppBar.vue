@@ -11,7 +11,7 @@
         class="app-bar-title pt-1 clickable"
         @click="routeToHome"
       >
-        <v-icon class="app-bar-title-icon">fab fa-vuejs</v-icon>
+        <v-icon class="app-bar-title-icon"></v-icon>
         <span class="app-bar-title-text">UESTC NETUNION</span>
       </div>
 

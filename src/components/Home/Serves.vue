@@ -55,6 +55,12 @@ export default {
         link: process.env.VUE_APP_MARKDOWN_LINK,
       },
       {
+        name: 'MINECRAFT',
+        icon: 'fas fa-cube',
+        intro: '是一款堆方块的沙盒游戏',
+        link: process.env.VUE_APP_MINECRAFT_LINK,
+      },
+      {
         name: 'CAT ROOM',
         icon: 'fas fa-cat',
         intro: '摸鱼聊天留言板',

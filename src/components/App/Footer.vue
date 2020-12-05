@@ -68,6 +68,8 @@
             <div class="mb-2">
               <a
                 class="white--text"
+                :href="require('../../assets/locationShahe.jpg')"
+                target="_blank"
               >电子科技大学沙河校区 阳光餐厅后</a>
             </div>
             <div class="mb-2">

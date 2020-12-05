@@ -128,6 +128,7 @@ Note that, unlike the `tags` attribute of blog, news uses the `tag` attribute, *
 - `iptv`，即电子科技大学的 `IPTV` 网站。
 - `repair`，即电子科技大学宿舍 `网络报修` 系统。
 - `markdown`，即由电子科技大学 Linux 用户组提供的 `在线文档` 系统。
+- `minecraft`，即由电子科技大学 Linux 用户组建立并维护的 `我的世界` 服务器。
 - `catroom`，即由电子科技大学 NetUnion 团队开发的 `Cat Room` 留言板。
 - `nuofficial`，电子科技大学 NetUnion 官网，即 `此网站`。
 
