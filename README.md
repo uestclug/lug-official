@@ -8,42 +8,46 @@ See this [document](./assets/How%20to%20Write%20Blog%20and%20News.md).
 
 Or you can just imitate well-written [blog](./src/docs/blog) and [news](./src/docs/news).
 
+## Become the one in members palace
+
+Display your information on the members palace page, see this [document](./assets/Add%20Your%20Info%20to%20Member%20Palace.md).
+
 ## Todo list
 
 ### Feature
 
 - [ ] Netunion design icons.
 - [ ] Open source projects display page.
-- [ ] Netunion members palace page.
+- [x] Netunion members palace page.
 - [ ] Recruit page.
 
 ### Known issues
 
-- [ ] Better tweet preview.
+- [x] Better tweet preview.
 - [ ] Image cache.
 
 ## Project setup
 
-``` shell
+```bash
 yarn install
 ```
 
 ### Compiles and hot-reloads for frontend development
 
-``` shell
+```bash
 yarn serve
 ```
 
 ### Compiles and minifies for production
 
-``` shell
+```bash
 yarn build
 ```
 
 ### Compiles and minifies for Github Pages
 
-``` shell
-./deploy.sh
+```bash
+deploy.sh
 ```
 
 #### Note
@@ -52,7 +56,7 @@ The differences between `Compiles and minifies for Github Pages` and `Compiles a
 
 ### Lints and fixes files
 
-``` shell
+```bash
 yarn lint
 ```
 

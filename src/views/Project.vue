@@ -1,10 +1,13 @@
 <template>
-  <div>
-  </div>
+  <div />
 </template>
 
 <script>
 export default {
-  name: 'MembersPalace',
+  name: 'Project',
 };
 </script>
+
+<style>
+
+</style>

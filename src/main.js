@@ -4,7 +4,6 @@ import vuetify from '@/plugins/vuetify';
 import router from '@/router/index';
 
 import Bus from '@/Bus';
-import Common from '@/common/common';
 import Utils from '@/utils/index';
 import mdParser from '@/utils/mdParser';
 
@@ -12,7 +11,6 @@ import '@/styles/main.scss';
 import '@/styles/media.scss';
 
 Vue.prototype.$Bus = Bus;
-Vue.prototype.$Common = Common; // 全局变量
 Vue.prototype.$Utils = Utils; // 通用 js 函数
 
 // 引入博客和新闻的 md 文件

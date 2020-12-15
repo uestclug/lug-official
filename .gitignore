@@ -3,7 +3,7 @@ node_modules
 /dist
 /docs
 
-# Use yarn.lock
+# yarn.lock
 package-lock.json
 
 # local env files

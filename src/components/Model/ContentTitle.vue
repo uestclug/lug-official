@@ -4,7 +4,7 @@
       class="content-title-icon mr-2 mb-2"
       v-if="icon"
     >{{ icon }}</v-icon>
-    <span>{{ title }}</span>
+    <span>{{ title }}<small>{{ subtitle }}</small></span>
   </h1>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   data: () => ({
     //
   }),
-  props: ['title', 'icon'],
+  props: ['icon', 'title', 'subtitle'],
 };
 </script>
 

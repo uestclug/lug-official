@@ -66,6 +66,12 @@ export default {
         intro: '摸鱼聊天留言板',
         route: process.env.VUE_APP_CATROOM_LINK,
       },
+      // {
+      //   name: '开源项目',
+      //   icon: 'fas fa-code',
+      //   intro: '共同促进开源社区发展',
+      //   route: process.env.VUE_APP_PROJECT_LINK,
+      // },
       {
         name: 'ISSUES',
         icon: 'fas fa-tasks',
