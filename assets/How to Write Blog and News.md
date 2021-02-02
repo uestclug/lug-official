@@ -174,6 +174,7 @@ It is recommended that image files be stored in the `assets/pic` directory and r
 ## Issues / 已知问题（特性）
 
 - 属性在 `:` 后的赋值超过一个空格时，**额外的空格**会被视为属性值的一部分。例如填写 'title:&nbsp;&nbsp;News-Title', 会将 `title` 属性解析为 '&nbsp;News-Title', 而非我们通常希望的 'News-Title'.
+- 请确保编写的 `md` 源文件的行尾序列为 `LF` 格式，否则可能导致 `mdParser` 解析错误。
 
 ## Advanced / 了解源码
 
