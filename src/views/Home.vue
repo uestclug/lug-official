@@ -1,7 +1,7 @@
 <template>
   <div>
     <ContentTitle class="content" title="线上服务" icon="fas fa-concierge-bell" />
-    <Serves class="content" />
+    <Serves class="content mt-3" />
     <v-row class="content">
       <v-col cols="12" lg="6">
         <ContentTitle title="新闻公告" icon="fas fa-bullhorn" />

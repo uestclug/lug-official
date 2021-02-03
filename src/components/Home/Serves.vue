@@ -8,19 +8,22 @@
       v-bind:key="serve.name"
       class="text-center"
     >
-      <span
-        class="clickable"
-        @click="redirectTo(serve.route, serve.link)"
-        v-if="!serve.needAdmin ||
-            (serve.needAdmin && isAdmin)"
-      >
-        <v-icon
-          class="serve-icon pb-4"
-          :color="serve.color ? serve.color : 'primary'"
-        >{{ serve.icon }}</v-icon>
-        <h3>{{ serve.name }}</h3>
-        <small>{{ serve.intro }}</small>
-      </span>
+      <v-hover v-slot="{ hover }">
+        <v-card
+          :elevation="hover ? 4 : 0"
+          class="pa-4 rounded-lg transition-swing clickable"
+          @click.native="redirectTo(serve.route, serve.link)"
+        >
+          <span>
+            <v-icon
+              class="serve-icon pb-4"
+              :color="serve.color ? serve.color : 'primary'"
+            >{{ serve.icon }}</v-icon>
+            <h3>{{ serve.name }}</h3>
+            <small>{{ serve.intro }}</small>
+          </span>
+        </v-card>
+      </v-hover>
     </v-col>
   </v-row>
 </template>

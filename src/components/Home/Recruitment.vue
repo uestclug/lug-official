@@ -68,7 +68,7 @@
         color="primary"
         text
         to="/about"
-      >前往成员殿堂<v-icon right small>fas fa-mouse-pointer</v-icon>
+      >前往成员殿堂<v-icon right small>fas fa-street-view</v-icon>
       </v-btn>
     </div>
   </div>

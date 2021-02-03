@@ -69,7 +69,7 @@
                 class="white--text"
                 :href="require('../../assets/locationQingshuihe.jpg')"
                 target="_blank"
-                >电子科技大学清水河校区 第八组团 27 栋下</a
+                >电子科技大学清水河校区 第九组团 27 栋下</a
               >
             </div>
           </v-card-text>
