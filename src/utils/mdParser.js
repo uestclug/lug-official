@@ -6,7 +6,7 @@ module.exports = function(content, type) {
     // 获取属性字符串
     const contentInfo = contentArray[1];
     // 根据 `\n` 将属性字符串拆分为属性数组
-    const contentInfoArray = contentInfo.split(/\n/g);
+    const contentInfoArray = contentInfo.split(/\r?\n/g);
     // 处理属性数组中的属性
     const contentInfoItem = {};
     // 分割后的属性数组最后一个为空元素，故使用 arr.length - 1
