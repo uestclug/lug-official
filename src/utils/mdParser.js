@@ -1,12 +1,12 @@
 module.exports = function(content, type) {
   // 根据 `---` 将文章拆分为数组
-  const contentArray = content.split('---\n');
+  const contentArray = content.split(/---\r?\n/g);
   // 编写者正确编写属性内容
   if (contentArray.length >= 3) {
     // 获取属性字符串
     const contentInfo = contentArray[1];
     // 根据 `\n` 将属性字符串拆分为属性数组
-    const contentInfoArray = contentInfo.split('\n');
+    const contentInfoArray = contentInfo.split(/\n/g);
     // 处理属性数组中的属性
     const contentInfoItem = {};
     // 分割后的属性数组最后一个为空元素，故使用 arr.length - 1
