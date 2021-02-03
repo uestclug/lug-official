@@ -1,5 +1,10 @@
 # NU-OFFICIAL CHANGELOG / NetUnion 官网开发者日志
 
+## 2021-02-03
+
+- 修复了 `mdParser` 解析行尾序列为 `CRLF` 的 `md` 文件的问题。
+- 为主页的线上服务项添加悬停效果，更加 material.
+
 ## 2020-12-15
 
 - 添加 `About` 页面，展示成员信息。
