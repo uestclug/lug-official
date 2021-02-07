@@ -2,7 +2,7 @@
   <v-hover>
     <template v-slot:default="{ hover }">
       <v-card
-        :elevation="hover ? 4 : 2"
+        :elevation="hover ? 4 : 1"
         class="rounded-lg transition-swing"
         outlined
       >
