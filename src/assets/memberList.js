@@ -13,4 +13,17 @@ export default [
       },
     ],
   },
+  {
+    year: 2020,
+    members: [
+      {
+        color: '#b342af',
+        nickname: 'CharlesYang',
+        intro: '如无必要，勿增实体',
+        blog: 'https://0x7f.cc',
+        github: 'https://github.com/SteveCharlesYang',
+        gitlab: 'https://gitlab.com/YukariChiba',
+      },
+    ],
+  },
 ];
