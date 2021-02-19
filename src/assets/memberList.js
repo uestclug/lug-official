@@ -1,5 +1,18 @@
 export default [
   {
+    year: 2020,
+    members: [
+      {
+        color: '#b342af',
+        nickname: 'CharlesYang',
+        intro: '如无必要，勿增实体',
+        blog: 'https://0x7f.cc',
+        github: 'https://github.com/SteveCharlesYang',
+        gitlab: 'https://gitlab.com/YukariChiba',
+      },
+    ],
+  },
+  {
     year: 2019,
     members: [
       {
@@ -10,19 +23,6 @@ export default [
         github: 'https://github.com/LolipopJ',
         gitlab: 'https://gitlab.com/LolipopJ',
         gitee: 'https://gitee.com/lolipopj',
-      },
-    ],
-  },
-  {
-    year: 2020,
-    members: [
-      {
-        color: '#b342af',
-        nickname: 'CharlesYang',
-        intro: '如无必要，勿增实体',
-        blog: 'https://0x7f.cc',
-        github: 'https://github.com/SteveCharlesYang',
-        gitlab: 'https://gitlab.com/YukariChiba',
       },
     ],
   },

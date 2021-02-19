@@ -16,7 +16,7 @@
         >
           <span>
             <v-icon
-              class="serve-icon pb-4"
+              class="serve-icon pb-4 mt-1"
               :color="serve.color ? serve.color : 'primary'"
             >{{ serve.icon }}</v-icon>
             <h3>{{ serve.name }}</h3>

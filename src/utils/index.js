@@ -38,6 +38,9 @@ module.exports = {
       case 'catroom':
       case 'Cat Room':
         return 'catroom';
+      case 'sso':
+      case 'SSO':
+        return 'sso';
       case 'nuofficial':
       case '此网站':
         return 'nuofficial';
@@ -67,6 +70,9 @@ module.exports = {
       case 'catroom':
       case 'Cat Room':
         return 'Cat Room';
+      case 'sso':
+      case 'SSO':
+        return 'SSO';
       case 'nuofficial':
       case '此网站':
         return '此网站';
@@ -115,6 +121,7 @@ module.exports = {
     }
   },
 
+  // 根据 news 的 accent 获取对应的 css 类
   getNewsAccentColorClass(accent) {
     switch (accent) {
       case 'info':

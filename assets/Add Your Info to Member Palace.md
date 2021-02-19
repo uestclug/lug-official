@@ -31,7 +31,7 @@
 ```js
 {
   year: 2019, // 你加入 NetUnion 的年份
-  members: [ // 你需要将你的信息添加到此数组中
+  members: [
     {
       color: '#ed738d', // 你的个性颜色，请选择较深的颜色。若不填写，默认为 'primary'
       nickname: 'Lolipop', // 你的昵称
@@ -41,9 +41,22 @@
       gitlab: 'https://gitlab.com/LolipopJ', // 你的 Gitlab 链接（可选）
       gitee: 'https://gitee.com/lolipopj', // 你的 Gitee 链接（可选）
     },
+    {
+      ……  // 如果你也是 2019 年加入，则需要将你的信息添加到此处
+    }
+  ],
+},
+{
+  year: 2018, // 否则应新建一个对象标注年份并存放你的信息
+  members: [
+    {
+      ……
+    }
   ],
 },
 ```
+
+成员殿堂页面将按加入年份由近及远和昵称字典序将成员进行排列展示。
 
 ### 查看效果
 
