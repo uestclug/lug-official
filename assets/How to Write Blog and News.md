@@ -130,6 +130,7 @@ Note that, unlike the `tags` attribute of blog, news uses the `tag` attribute, *
 - `markdown`，即由电子科技大学 Linux 用户组提供的 `在线文档` 系统。
 - `minecraft`，即由电子科技大学 Linux 用户组建立并维护的 `我的世界` 服务器。
 - `catroom`，即由电子科技大学 NetUnion 团队开发的 `Cat Room` 留言板。
+- `sso`，即面向 NetUnion 及电子科技大学 Linux 用户组成员的 `SSO` 统一身份验证平台。
 - `nuofficial`，电子科技大学 NetUnion 官网，即 `此网站`。
 
 Similarly, the `accent` attribute of the news fills in any value that is not one of the preset values, will be resolved to `info`.
@@ -173,7 +174,8 @@ It is recommended that image files be stored in the `assets/pic` directory and r
 
 ## Issues / 已知问题（特性）
 
-- 属性在 `:` 后的赋值超过一个空格时，**额外的空格**会被视为属性值的一部分。例如填写 'title:&nbsp;&nbsp;News-Title', 会将 `title` 属性解析为 '&nbsp;News-Title', 而非我们通常希望的 'News-Title'.
+- [x] ~~属性在 `:` 后的赋值超过一个空格时，**额外的空格**会被视为属性值的一部分。例如填写 'title:&nbsp;&nbsp;News-Title', 会将 `title` 属性解析为 '&nbsp;News-Title', 而非我们通常希望的 'News-Title'.~~
+- [x] ~~请确保编写的 `md` 源文件的行尾序列为 `LF` 格式，否则可能导致 `mdParser` 解析错误。~~
 
 ## Advanced / 了解源码
 

@@ -7,7 +7,7 @@ export default [
         nickname: 'CharlesYang',
         intro: '如无必要，勿增实体',
         blog: 'https://0x7f.cc',
-        github: 'https://github.com/SteveCharlesYang',
+        github: 'https://github.com/YukariChiba',
         gitlab: 'https://gitlab.com/YukariChiba',
       },
     ],

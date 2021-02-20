@@ -1,37 +1,23 @@
 module.exports = function(content, type) {
   // 根据 `---` 将文章拆分为数组
   const contentArray = content.split(/---\r?\n/g);
-  // 编写者正确编写属性内容
+
   if (contentArray.length >= 3) {
-    // 获取属性字符串
-    const contentInfo = contentArray[1];
     // 根据 `\n` 将属性字符串拆分为属性数组
+    const contentInfo = contentArray[1];
     const contentInfoArray = contentInfo.split(/\r?\n/g);
-    // 处理属性数组中的属性
+
+    // 获取属性对象
     const contentInfoItem = {};
-    // 分割后的属性数组最后一个为空元素，故使用 arr.length - 1
     for (let i = 0; i < contentInfoArray.length - 1; i++) {
-      let index = contentInfoArray[i].indexOf(': ');
-      // 获取属性名
-      const param = contentInfoArray[i].substring(0, index);
-      // 获取属性名对应的值
-      let value;
-      if (index != -1) { // 使用超过一个空格时将被视为文本的一部分
-        value = contentInfoArray[i].substring(index + 2);
-      } else { // 编写者甚至没有在冒号后空格！天哪真可怕
-        index = contentInfoArray[i].indexOf(':');
-        value = contentInfoArray[i].substring(index + 1);
-      }
-      // 添加属性
-      contentInfoItem[param] = value;
+      const contentInfoParamArray = contentInfoArray[i].split(':');
+      contentInfoItem[contentInfoParamArray[0].trim()] =
+          contentInfoParamArray[1].trim();
     }
 
     // 获取正文字符串
-    let contentText = '';
-    if (contentArray.length == 3) {
-      contentText = contentArray[2];
-    } else { // 撰写者在正文中使用了 `---` 作为分隔符或其它用途
-      contentText += contentArray[2];
+    let contentText = contentArray[2];
+    if (contentArray.length > 3) {
       for (let i = 3; i < contentArray.length; i++) {
         contentText += '---';
         contentText += contentArray[i];
@@ -68,14 +54,15 @@ module.exports = function(content, type) {
       }
     }
 
-    // 结果对象中的 title 和 date 不能为空
     if (result.title != null && result.title != '' &&
         result.date != null && result.date != '') {
       return result;
     } else {
+      console.log('文章的 title 和 date 项不能为空！');
       return null;
     }
-  } else {
+  } else { // 编写者没有正确编写属性内容
+    console.log('请正确编写文章属性内容！');
     return null;
   }
 };
