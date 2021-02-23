@@ -140,13 +140,4 @@ module.exports = {
         return 'color-info';
     }
   },
-
-  // 移除 localStorage 中的用户信息
-  removeLocalStorageUserInfo() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('tokenAdmin');
-    localStorage.removeItem('githubId');
-    localStorage.removeItem('username');
-    localStorage.removeItem('userBio');
-  },
 };

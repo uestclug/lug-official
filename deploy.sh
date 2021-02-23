@@ -17,7 +17,7 @@ cp index.html 404.html
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'Deploy pages'
 
 # 部署到 https://uestclug.github.io
 git push -f git@github.com:uestclug/uestclug.github.io.git master

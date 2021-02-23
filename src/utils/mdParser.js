@@ -1,6 +1,6 @@
 module.exports = function(content, type) {
   // 根据 `---` 将文章拆分为数组
-  const contentArray = content.split(/---\r?\n/g);
+  const contentArray = content.split(/---+\r?\n/g);
 
   if (contentArray.length >= 3) {
     // 根据 `\n` 将属性字符串拆分为属性数组
