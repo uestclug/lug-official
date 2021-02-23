@@ -19,7 +19,7 @@ module.exports = function(content, type) {
     let contentText = contentArray[2];
     if (contentArray.length > 3) {
       for (let i = 3; i < contentArray.length; i++) {
-        contentText += '---';
+        contentText += '---\n';
         contentText += contentArray[i];
       }
     }
