@@ -148,15 +148,15 @@ export default {
         this.newsTagText = '';
       }
       this.dialog = true;
-      if (!localStorage.haveDblClickCloseReaderDialog) {
-        this.$Bus.$emit('setSnackbar', {
-          icon: 'fas fa-question-circle',
-          text: '使用双击来关闭新闻公告窗口。',
-          type: 'info',
-          timeout: -1,
-          verticalPosition: 'bottom',
-        });
-      }
+      // if (!localStorage.haveDblClickCloseReaderDialog) {
+      //   this.$Bus.$emit('setSnackbar', {
+      //     icon: 'fas fa-question-circle',
+      //     text: '使用双击来关闭新闻公告窗口。',
+      //     type: 'info',
+      //     timeout: -1,
+      //     verticalPosition: 'bottom',
+      //   });
+      // }
     });
   },
 };

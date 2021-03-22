@@ -43,7 +43,7 @@ export default {
       this.snackbarColor = '';
       this.snackbarIcon = '';
       this.snackbarText = '';
-      this.timeout = 2000;
+      this.timeout = 3000;
       this.verticalPosition = 'top';
       this.horizontalPosition = '';
     },
@@ -54,35 +54,20 @@ export default {
   mounted() {
     this.$Bus.$on('setSnackbar', (msg) => {
       // 设置关闭时间
-      if (msg.timeout != null && msg.timeout != '') {
-        this.timeout = msg.timeout;
-      } else { // 默认为 2000 ms
-        this.timeout = 2000;
-      }
+      const timeout = msg.timeout || 3000;
+      this.refreshTimeout(timeout);
 
       // 设置 icon
-      if (msg.icon != null) {
-        this.snackbarIcon = msg.icon;
-      } else { // 默认为空
-        this.snackbarIcon = '';
-      }
+      this.snackbarIcon = msg.icon || '';
 
       // 设置垂直位置
-      if (msg.verticalPosition != null && msg.verticalPosition != '') {
-        this.verticalPosition = msg.verticalPosition;
-      } else { // 默认为顶部
-        this.verticalPosition = 'top';
-      }
+      this.verticalPosition = msg.verticalPosition || 'top';
 
       // 设置水平位置
-      if (msg.horizontalPosition != null) {
-        this.horizontalPosition = msg.horizontalPosition;
-      } else { // 默认为中间
-        this.horizontalPosition = '';
-      }
+      this.horizontalPosition = msg.horizontalPosition || '';
 
       // 设置值
-      this.snackbarText = msg.text;
+      this.snackbarText = msg.text || '';
 
       // 设置强调颜色
       switch (msg.type) {
@@ -120,6 +105,14 @@ export default {
     this.$Bus.$on('closeSnackbar', (msg) => {
       this.snackbar = false;
     });
+  },
+  methods: {
+    refreshTimeout(timeout) {
+      this.timeout = -1;
+      this.$nextTick(() => {
+        this.timeout = timeout;
+      });
+    },
   },
 };
 </script>

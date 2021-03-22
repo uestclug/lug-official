@@ -1,37 +1,69 @@
 <template>
-  <v-row>
-    <v-col
-      cols="6"
-      md="4"
-      lg="3"
-      v-for="serve in serves"
-      v-bind:key="serve.name"
-      class="text-center"
-    >
-      <v-hover v-slot="{ hover }">
-        <v-card
-          :elevation="hover ? 4 : 0"
-          class="pa-4 rounded-lg transition-swing clickable"
-          @click.native="redirectTo(serve.route, serve.link)"
-        >
-          <span>
-            <v-icon
-              class="serve-icon pb-4 mt-1"
-              :color="serve.color ? serve.color : 'primary'"
-            >{{ serve.icon }}</v-icon>
-            <h3>{{ serve.name }}</h3>
-            <small>{{ serve.intro }}</small>
-          </span>
-        </v-card>
-      </v-hover>
-    </v-col>
-  </v-row>
+  <div>
+    <v-row>
+      <v-col
+        cols="6"
+        md="4"
+        lg="3"
+        v-for="serve in serves"
+        v-bind:key="serve.name"
+        class="text-center"
+      >
+        <v-hover v-slot="{ hover }">
+          <v-card
+            :elevation="hover ? 4 : 0"
+            class="pa-4 rounded-lg transition-swing clickable"
+            @click.native="resolveServe(serve)"
+          >
+            <span>
+              <v-icon
+                class="serve-icon pb-4 mt-1"
+                :color="serve.color ? serve.color : 'primary'"
+                >{{ serve.icon }}</v-icon
+              >
+              <h3>{{ serve.name }}</h3>
+              <small>{{ serve.intro }}</small>
+            </span>
+          </v-card>
+        </v-hover>
+      </v-col>
+    </v-row>
+
+    <CustomDialog :dialog="dnrsDialog" :closeDialog="closeDnrsDialog">
+      <template v-slot:title>
+        宿舍网络报修平台 - 微信端
+      </template>
+      <template v-slot:content>
+        <v-row>
+          <v-col cols="6">
+            <div><strong>沙河校区</strong>的网络用户请扫描此二维码</div>
+            <v-img
+              src="@/assets/dnrsQRCodeShahe.jpg"
+              class="mt-2"
+            />
+          </v-col>
+          <v-col cols="6">
+            <!-- <div><strong>清水河校区</strong>的网络用户请扫描此二维码</div> -->
+            <div><strong>清水河校区</strong>的网络用户二维码即将开放</div>
+            <!-- <v-img
+              src="@/assets/dnrsQRCodeQingshuihe.jpg"
+              class="mt-2"
+            /> -->
+          </v-col>
+        </v-row>
+      </template>
+    </CustomDialog>
+  </div>
 </template>
 
 <script>
+import CustomDialog from '@/components/Model/CustomDialog';
+
 export default {
   name: 'Serves',
+  components: {CustomDialog},
   data: () => ({
+    dnrsDialog: false, // 点击 '宿舍网络报修' 服务后打开 dialog
     serves: [
       {
         name: '开源镜像站',
@@ -49,7 +81,6 @@ export default {
         name: '宿舍网络报修',
         icon: 'fas fa-tools',
         intro: '您的寝室生活救星',
-        link: process.env.VUE_APP_REPAIR_LINK,
       },
       {
         name: '在线文档',
@@ -87,16 +118,21 @@ export default {
     //
   },
   methods: {
-    redirectTo(route, link) {
-      if (route != null && route != '') {
-        this.$router.push(route);
-      } else if (link != null && link != '') {
-        this.$Utils.openExternalLink(link);
-      } else {
-        console.log('跳转失败！请联系我们吐槽。');
-        return false;
+    resolveServe(serve) {
+      switch (serve.name) {
+        case '宿舍网络报修':
+          this.dnrsDialog = true;
+          break;
+        default:
+          if (serve.route != null && serve.route != '') {
+            this.$router.push(serve.route);
+          } else if (serve.link != null && serve.link != '') {
+            this.$Utils.openExternalLink(serve.link);
+          }
       }
-      return true;
+    },
+    closeDnrsDialog() {
+      this.dnrsDialog = false;
     },
   },
 };

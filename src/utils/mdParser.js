@@ -11,8 +11,13 @@ module.exports = function(content, type) {
     const contentInfoItem = {};
     for (let i = 0; i < contentInfoArray.length - 1; i++) {
       const contentInfoParamArray = contentInfoArray[i].split(':');
-      contentInfoItem[contentInfoParamArray[0].trim()] =
-          contentInfoParamArray[1].trim();
+      let contentInfoParamValue = '';
+      for (let n = 1; n < contentInfoParamArray.length; n++) {
+        contentInfoParamValue += contentInfoParamArray[n] + ':';
+      }
+      contentInfoItem[
+          contentInfoParamArray[0].trim()
+      ] = contentInfoParamValue.slice(0, -1).trim(); // 使用 slice() 删除多余的 : 号
     }
 
     // 获取正文字符串
@@ -54,14 +59,19 @@ module.exports = function(content, type) {
       }
     }
 
-    if (result.title != null && result.title != '' &&
-        result.date != null && result.date != '') {
+    if (
+      result.title != null &&
+      result.title != '' &&
+      result.date != null &&
+      result.date != ''
+    ) {
       return result;
     } else {
       console.log('文章的 title 和 date 项不能为空！');
       return null;
     }
-  } else { // 编写者没有正确编写属性内容
+  } else {
+    // 编写者没有正确编写属性内容
     console.log('请正确编写文章属性内容！');
     return null;
   }
