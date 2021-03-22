@@ -31,7 +31,7 @@
 
     <CustomDialog :dialog="dnrsDialog" :closeDialog="closeDnrsDialog">
       <template v-slot:title>
-        宿舍网络报修平台 - 微信端
+        <div class="color-primary font-weight-bold">宿舍网络报修平台 - 微信端</div>
       </template>
       <template v-slot:content>
         <v-row>
