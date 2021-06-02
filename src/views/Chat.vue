@@ -1,23 +1,20 @@
 <template>
   <div>
-    <SimpleNotes title="正在开发中" icon="fas fa-truck"
-        primaryText="CAT ROOM 将是我们的留言板" secondaryText="仍在努力的开发过程中，下次再来看看吧" />
+    <v-row class="content">
+      <v-col cols="12">
+        <Gitalk />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
-import SimpleNotes from '@/components/Model/SimpleNotes';
+import Gitalk from '@/components/Chat/Gitalk';
 
 export default {
   name: 'Chat',
   components: {
-    SimpleNotes,
-  },
-  data: () => ({
-    //
-  }),
-  created() {
-    //
+    Gitalk,
   },
 };
 </script>

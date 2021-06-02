@@ -3,8 +3,8 @@
     <v-row>
       <v-col
         cols="6"
-        md="4"
-        lg="3"
+        sm="4"
+        md="3"
         v-for="serve in serves"
         v-bind:key="serve.name"
         class="text-center"
@@ -12,7 +12,7 @@
         <v-hover v-slot="{ hover }">
           <v-card
             :elevation="hover ? 4 : 0"
-            class="pa-4 rounded-lg transition-swing clickable"
+            class="py-6 px-4 rounded-lg transition-swing clickable"
             @click.native="resolveServe(serve)"
           >
             <span>

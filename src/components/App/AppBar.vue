@@ -103,7 +103,7 @@ export default {
     routes: [
       {name: 'HOME', path: '/'},
       {name: 'BLOG', path: '/blog'},
-      // {name: 'CHAT', path: '/chat'},
+      {name: 'CHAT', path: '/chat'},
     ],
     links: [
       {name: 'MIRRORS', path: process.env.VUE_APP_MIRRORS_LINK},
