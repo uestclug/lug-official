@@ -1,16 +1,4 @@
-/**
- *  Color settings
- *  修改时请同步修改 ../plugins/vuetify.js 中 theme.themes.light 的变量
- */
-$color-primary: #5cbdb9; // Blue Greeny
-$color-secondary: #212121; // grey darken-4
-$color-accent: #ed738d; // Pinky Red
-$color-error: #e22828;
-$color-info: #2196F3;
-$color-success: #4CAF50;
-$color-warning: #ef6602;
-
-$color-snow: snow;
+@import 'color.scss';
 
 /**
  *  Global classes

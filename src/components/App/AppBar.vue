@@ -56,7 +56,7 @@
       </div>
 
       <div class="d-sm-flex d-md-none">
-        <v-menu>
+        <v-menu z-index="11">
           <template v-slot:activator="{ attrs, on }">
             <v-btn
               icon
