@@ -24,10 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build Github pages
-        run: npm run build--github-pages
-        run: cd ./docs
-        run: cp index.html 404.html # Create 404.html file
-        run: cd ../
+        run: npm run build--github-pages; cd ./docs; cp index.html 404.html; cd ../
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
