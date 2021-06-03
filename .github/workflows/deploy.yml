@@ -1,0 +1,38 @@
+name: NU-OFFCIAL Deploy
+
+on:
+  push:
+    branches:
+      - frontend
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install dependencies
+        run: npm install
+      - name: Build Github pages
+        run: npm run build--github-pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_branch: master
+          publish_dir: ./docs
+          allow_empty_commit: true
+          external_repository: uestclug/uestclug.github.io
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          full_commit_message: ${{ github.event.head_commit.message }}

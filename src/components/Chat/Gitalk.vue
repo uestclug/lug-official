@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
 @import '../../styles/color.scss';
-$gt-color-main: $color-primary; // $color-primary
+$gt-color-main: $color-primary;
 $gt-color-btn: #ffffff;
 
 .gt-container {
@@ -42,38 +42,47 @@ $gt-color-btn: #ffffff;
     }
   }
 
-  .gt-link {
-    border-bottom-color: $gt-color-main;
-  }
-
   .gt-svg svg {
     fill: $gt-color-main;
+  }
+
+  .gt-spinner::before {
+    border-color: $gt-color-btn;
+    border-top-color: $gt-color-main;
   }
 
   .gt-btn {
     background-color: $gt-color-main;
     border-color: $gt-color-main;
     color: $gt-color-btn;
-  }
-
-  .gt-btn-preview {
-    background-color: $gt-color-btn;
-    color: $gt-color-main;
-    &:hover {
-      background-color: darken($gt-color-btn, 5%);
-      border-color: lighten($gt-color-main, 20%);
+    &-login {
+      &:hover {
+        background-color: lighten($gt-color-main, 20%);
+        border-color: lighten($gt-color-main, 20%);
+      }
+    }
+    &-preview {
+      background-color: $gt-color-btn;
+      color: $gt-color-main;
+      &:hover {
+        background-color: darken($gt-color-btn, 5%);
+        border-color: lighten($gt-color-main, 20%);
+      }
+    }
+    &-public {
+      &:hover {
+        background-color: lighten($gt-color-main, 20%);
+        border-color: lighten($gt-color-main, 20%);
+      }
     }
   }
 
-  .gt-btn-public {
-    &:hover {
-      background-color: lighten($gt-color-main, 20%);
-      border-color: lighten($gt-color-main, 20%);
-    }
+  .gt-link {
+    border-bottom-color: $gt-color-main;
   }
 
-  .gt-comment-username {
-    color: $gt-color-main;
+  .gt-user .is--poping .gt-ico svg {
+    fill: $gt-color-main;
   }
 
   .gt-popup .gt-action.is--active:before {
@@ -81,6 +90,10 @@ $gt-color-btn: #ffffff;
   }
 
   .gt-header-controls-tip {
+    color: $gt-color-main;
+  }
+
+  .gt-comment-username {
     color: $gt-color-main;
   }
 }
