@@ -1,13 +1,13 @@
 <template>
   <v-app id="app">
-    <AppBar />
-    <v-main>
+    <AppBar style="z-index: 2" />
+    <v-main style="z-index: 1">
       <router-view />
     </v-main>
-    <Footer class="mt-3" />
-    <FloatButton />
-    <Snackbar />
-    <ReaderDialog />
+    <Footer class="mt-3" style="z-index: 1" />
+    <FloatButton style="z-index: 2" />
+    <Snackbar style="z-index: 2" />
+    <ReaderDialog style="z-index: 3" />
   </v-app>
 </template>
 

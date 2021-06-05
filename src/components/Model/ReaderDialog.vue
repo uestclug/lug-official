@@ -6,16 +6,16 @@
       @click:outside="clickOutsideCloseReaderDialog"
     >
       <v-card
-        class="rounded-lg pa-4"
+        class="pa-4 rounded-t-lg rounded-b-0"
         @dblclick="dblClickCloseReaderDialog"
       >
-        <div>
+        <div class="pa-0">
           <v-card-title
             :class="accentColorClass"
           >
             <span>{{ title }}</span>
           </v-card-title>
-          <v-card-subtitle class="pb-0">
+          <v-card-subtitle>
             {{ date }}, {{ author }}
             <div>
               <span v-if="type == 'news'">
@@ -67,13 +67,19 @@
               </v-chip>
             </div>
           </v-card-subtitle>
-        </div>
-        <div>
           <v-card-text>
             <MarkdownIt :content="content" />
           </v-card-text>
         </div>
       </v-card>
+      <v-toolbar class="dialog-bottom-toolbar" elevation="1">
+        <v-spacer />
+        <v-toolbar-items>
+          <v-btn depressed @click="dialog = false"
+            >关闭页面</v-btn
+          >
+        </v-toolbar-items>
+      </v-toolbar>
     </v-dialog>
   </div>
 </template>
@@ -161,3 +167,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.dialog-bottom-toolbar {
+  position: sticky;
+  width: 100%;
+  z-index: 999;
+  bottom: 0;
+}
+</style>

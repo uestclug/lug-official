@@ -20,10 +20,11 @@
           >
             <v-card-title
               :class="newsAccentColorClass"
+              style="display: inline-block;"
             >
               <span class="mr-2">{{ tweetTitle }}</span>
               <v-chip
-                class="rounded-lg clickable"
+                class="rounded-lg clickable mb-1"
                 :color="newsAccent ? newsAccent : 'info'"
                 label
                 small

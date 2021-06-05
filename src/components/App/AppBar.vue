@@ -56,7 +56,7 @@
       </div>
 
       <div class="d-sm-flex d-md-none">
-        <v-menu z-index="11">
+        <v-menu>
           <template v-slot:activator="{ attrs, on }">
             <v-btn
               icon
@@ -118,18 +118,18 @@ export default {
 </script>
 
 <style scoped>
-  .app-bar-title {
-    color: #464646;
-  }
-  .app-bar-title-icon {
-    margin-right: 1rem;
-    margin-bottom: 6px;
-  }
-  .app-bar-title-text {
-    font-size: 18px;
-  }
-  .link-actions {
-    margin-left: 6px;
-    margin-top: 5px;
-  }
+.app-bar-title {
+  color: #464646;
+}
+.app-bar-title-icon {
+  margin-right: 1rem;
+  margin-bottom: 6px;
+}
+.app-bar-title-text {
+  font-size: 18px;
+}
+.link-actions {
+  margin-left: 6px;
+  margin-top: 5px;
+}
 </style>
