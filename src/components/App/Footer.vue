@@ -8,15 +8,20 @@
       dark
       class="footer-content pb-12"
     >
+      <v-img src="/favicon.png" class="footer-bg-icon" width="400px" />
       <v-row class="pt-6 pb-6">
-        <v-col cols="12" sm="12" md="4">
+        <v-col cols="12" sm="8" md="4">
           <v-card-title>ABOUT</v-card-title>
           <v-card-text>
-            <span>电子科技大学 NETUNION 协会，又名电子科技大学网管会，</span>
-            <span>由一群网络技术和开源软件和 Linux 爱好者、技术宅所组成。</span>
             <span
-              >现阶段面向校内提供开源软件镜像、IPTV、宿舍网络在线报修等服务。</span
+              >UESTC LUG 是由电子科技大学 GNU/Linux
+              使用者共同发起并运营的开放性组织</span
             >
+            <span
+              >，旨在宣传自由软件精神，为校内外 GNU/Linux
+              爱好者提供活动的平台和机会，并为校内外用户提供便利。</span
+            >
+            <span>现阶段面向校内提供开源软件镜像等服务。</span>
           </v-card-text>
         </v-col>
         <v-col cols="12" sm="6" md="4">
@@ -81,7 +86,7 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: "Footer",
   data: () => ({
     link: {
       mail: process.env.VUE_APP_MAIL_LINK,
@@ -96,5 +101,16 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
+}
+
+.footer-content {
+  overflow: hidden;
+}
+
+.footer-bg-icon {
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  opacity: 0.25;
 }
 </style>

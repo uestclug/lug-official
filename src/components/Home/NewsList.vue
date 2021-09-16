@@ -1,10 +1,6 @@
 <template>
   <div>
-    <TweetSkeletonLoader
-      class="mt-6"
-      v-if="initLoading"
-      loadingType="news"
-    />
+    <TweetSkeletonLoader class="mt-6" v-if="initLoading" loadingType="news" />
     <TweetCard
       class="mt-6"
       v-for="news in newsItems"
@@ -29,7 +25,7 @@
         :disabled="!loadingAbled"
         :loading="isLoading"
       >
-        {{ loadingAbled ? '加载更多新闻公告' : '没有更多新闻公告啦' }}
+        {{ loadingAbled ? "加载更多新闻公告" : "没有更多新闻公告啦" }}
         <v-icon right small>fas fa-search</v-icon>
       </v-btn>
     </div>
@@ -37,11 +33,11 @@
 </template>
 
 <script>
-import TweetCard from '@/components/Model/TweetCard';
-import TweetSkeletonLoader from '@/components/Model/TweetSkeletonLoader';
+import TweetCard from "@/components/Model/TweetCard";
+import TweetSkeletonLoader from "@/components/Model/TweetSkeletonLoader";
 
 export default {
-  name: 'NewsList',
+  name: "NewsList",
   components: {
     TweetCard,
     TweetSkeletonLoader,
@@ -68,8 +64,11 @@ export default {
 
       const newsCount = this.newsItems.length;
       let pushNewsCount = 0;
-      for (let i = newsCount; i < this.$News.length &&
-          pushNewsCount < this.newsLoadLimit; i++) {
+      for (
+        let i = newsCount;
+        i < this.$News.length && pushNewsCount < this.newsLoadLimit;
+        i++
+      ) {
         this.newsItems.push(this.$News[i]);
         pushNewsCount += 1;
       }
@@ -78,9 +77,9 @@ export default {
       if (this.initLoading) {
         this.initLoading = false;
       } else {
-        this.$Bus.$emit('setSnackbar', {
-          text: '新的新闻已经加载完成！',
-          type: 'info',
+        this.$Bus.$emit("setSnackbar", {
+          text: "新的新闻已经加载完成！",
+          type: "info",
         });
       }
 

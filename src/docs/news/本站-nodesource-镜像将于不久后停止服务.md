@@ -1,7 +1,7 @@
 ---
 title: 本站 nodesource 镜像将于不久后停止服务
 date: 2021-02-06
-author: CharlesYang
+author: Yukari
 tag: mirrors
 accent: warning
 location: NetUnion 沙河办公室

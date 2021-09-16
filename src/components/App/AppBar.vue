@@ -7,36 +7,21 @@
       fixed
       elevate-on-scroll
     >
-      <div
-        class="app-bar-title pt-1 clickable"
-        @click="routeToHome"
-      >
-        <!--<v-icon class="app-bar-title-icon"></v-icon>-->
-        <span class="app-bar-title-text">UESTC NETUNION</span>
+      <v-img class="mx-2" max-width="64px" src="/favicon.png" contain />
+      <div class="app-bar-title pt-1 clickable" @click="routeToHome">
+        <span class="app-bar-title-text"> 电子科技大学 Linux 用户组</span>
       </div>
 
       <v-spacer></v-spacer>
 
       <div class="d-none d-md-flex">
-        <v-btn-toggle
-          color="primary"
-          group
-          dense
-          tile
-          max="1"
-        >
-          <v-btn
-            v-for="route in routes"
-            :key="route.name"
-            :to="route.path"
-          >{{ route.name }}</v-btn>
+        <v-btn-toggle color="primary" group dense tile max="1">
+          <v-btn v-for="route in routes" :key="route.name" :to="route.path">{{
+            route.name
+          }}</v-btn>
         </v-btn-toggle>
 
-        <v-divider
-          inset
-          vertical
-          class="mb-2"
-        ></v-divider>
+        <v-divider inset vertical class="mb-2"></v-divider>
 
         <v-btn
           text
@@ -47,22 +32,15 @@
           :key="link.name"
           :href="link.path"
           target="_blank"
-        >{{ link.name }}
-          <v-icon
-            right
-            small
-          >fas fa-external-link-alt</v-icon>
+          >{{ link.name }}
+          <v-icon right small>fas fa-external-link-alt</v-icon>
         </v-btn>
       </div>
 
       <div class="d-sm-flex d-md-none">
         <v-menu>
           <template v-slot:activator="{ attrs, on }">
-            <v-btn
-              icon
-              v-bind="attrs"
-              v-on="on"
-            >
+            <v-btn icon v-bind="attrs" v-on="on">
               <v-icon>fas fa-ellipsis-v</v-icon>
             </v-btn>
           </template>
@@ -84,10 +62,7 @@
               target="_blank"
             >
               <v-list-item-title v-text="link.name"></v-list-item-title>
-              <v-icon
-                right
-                small
-              >fas fa-external-link-alt</v-icon>
+              <v-icon right small>fas fa-external-link-alt</v-icon>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -98,20 +73,18 @@
 
 <script>
 export default {
-  name: 'AppBar',
+  name: "AppBar",
   data: () => ({
     routes: [
-      {name: 'HOME', path: '/'},
-      {name: 'BLOG', path: '/blog'},
-      {name: 'CHAT', path: '/chat'},
+      { name: "HOME", path: "/" },
+      { name: "BLOG", path: "/blog" },
+      { name: "CHAT", path: "/chat" },
     ],
-    links: [
-      {name: 'MIRRORS', path: process.env.VUE_APP_MIRRORS_LINK},
-    ],
+    links: [{ name: "MIRRORS", path: process.env.VUE_APP_MIRRORS_LINK }],
   }),
   methods: {
     routeToHome() {
-      this.$Bus.$emit('routeTo', '/');
+      this.$Bus.$emit("routeTo", "/");
     },
   },
 };

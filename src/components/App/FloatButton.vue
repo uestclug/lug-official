@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'FloatButton',
+  name: "FloatButton",
   data: () => ({
     scrollVal: 0,
   }),
@@ -30,12 +30,12 @@ export default {
       window.scroll({
         top: 0,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     },
   },
   mounted() {
-    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener("scroll", this.onScroll);
   },
 };
 </script>

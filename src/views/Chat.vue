@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import Gitalk from '@/components/Chat/Gitalk';
+import Gitalk from "@/components/Chat/Gitalk";
 
 export default {
-  name: 'Chat',
+  name: "Chat",
   components: {
     Gitalk,
   },

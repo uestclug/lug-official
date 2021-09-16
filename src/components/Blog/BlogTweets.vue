@@ -7,11 +7,7 @@
       :items="breadcrumbsItems"
     ></v-breadcrumbs>
     -->
-    <TweetSkeletonLoader
-      class="mb-6"
-      v-if="initLoading"
-      loadingType="blog"
-    />
+    <TweetSkeletonLoader class="mb-6" v-if="initLoading" loadingType="blog" />
     <TweetCard
       class="mb-6"
       v-for="blog in blogItems"
@@ -28,14 +24,11 @@
       :blogTags="blog.tags"
     />
     <div>
-      <v-btn
-        class="float-right"
-        color="primary"
-        text
-        disabled
-      >{{ blogItems.length == 0 ?
-          '未找到符合条件的博客文章' :
-          '没有更多博客文章啦'
+      <v-btn class="float-right" color="primary" text disabled
+        >{{
+          blogItems.length == 0
+            ? "未找到符合条件的博客文章"
+            : "没有更多博客文章啦"
         }}<v-icon right small>fas fa-search</v-icon>
       </v-btn>
     </div>
@@ -43,11 +36,11 @@
 </template>
 
 <script>
-import TweetCard from '@/components/Model/TweetCard';
-import TweetSkeletonLoader from '@/components/Model/TweetSkeletonLoader';
+import TweetCard from "@/components/Model/TweetCard";
+import TweetSkeletonLoader from "@/components/Model/TweetSkeletonLoader";
 
 export default {
-  name: 'BlogTweets',
+  name: "BlogTweets",
   components: {
     TweetCard,
     TweetSkeletonLoader,
@@ -58,10 +51,7 @@ export default {
     // 面包屑导航数组
     breadcrumbsItems: [],
   }),
-  props: [
-    'filter',
-    'filterValue',
-  ],
+  props: ["filter", "filterValue"],
   methods: {
     // 获取博客内容
     getBlogTweets() {
@@ -70,8 +60,10 @@ export default {
 
       const filter = this.filter;
       const filterValue = this.filterValue;
-      if (filter && filterValue) { // 博客文章过滤
-        if (filter == 'tag') { // 按照博客的 tag 过滤
+      if (filter && filterValue) {
+        // 博客文章过滤
+        if (filter == "tag") {
+          // 按照博客的 tag 过滤
           for (let i = 0; i < this.$Blogs.length; i++) {
             for (let n = 0; n < this.$Blogs[i].tags.length; n++) {
               if (this.$Blogs[i].tags[n] == filterValue) {
@@ -82,7 +74,8 @@ export default {
           }
 
           this.initLoading = false;
-        } else if (filter == 'id') { // 按照博客的 id 过滤
+        } else if (filter == "id") {
+          // 按照博客的 id 过滤
           for (let i = 0; i < this.$Blogs.length; i++) {
             if (this.$Blogs[i].id == filterValue) {
               this.blogItems.push(this.$Blogs[i]);
@@ -94,7 +87,8 @@ export default {
         } else {
           return;
         }
-      } else { // 按时间顺序获得博客
+      } else {
+        // 按时间顺序获得博客
         this.blogItems = this.$Blogs;
         this.initLoading = false;
       }
@@ -104,7 +98,7 @@ export default {
       if (this.filter && this.filterValue) {
         this.breadcrumbsItems = [
           {
-            text: 'blog',
+            text: "blog",
           },
           {
             text: this.filter,

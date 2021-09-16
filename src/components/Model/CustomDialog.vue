@@ -1,9 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    max-width="600"
-    @click:outside="closeDialog"
-  >
+  <v-dialog v-model="dialog" max-width="600" @click:outside="closeDialog">
     <v-card class="rounded-lg pa-4">
       <v-card-title>
         <slot name="title"></slot>
@@ -24,7 +20,7 @@
 
 <script>
 export default {
-  name: 'CustomDialog',
+  name: "CustomDialog",
   props: {
     dialog: {
       type: Boolean,

@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import AppBar from '@/components/App/AppBar';
-import FloatButton from '@/components/App/FloatButton';
-import Footer from '@/components/App/Footer';
-import Snackbar from '@/components/App/Snackbar';
-import ReaderDialog from '@/components/Model/ReaderDialog';
+import AppBar from "@/components/App/AppBar";
+import FloatButton from "@/components/App/FloatButton";
+import Footer from "@/components/App/Footer";
+import Snackbar from "@/components/App/Snackbar";
+import ReaderDialog from "@/components/Model/ReaderDialog";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     AppBar,
     FloatButton,
@@ -35,17 +35,17 @@ export default {
   },
   created() {
     if (this.$DevMode) {
-      console.log('You are now in DevMode, feel free to develop this website!');
-      console.log('Version: ' + process.env.VUE_APP_VERSION_CODE);
-      console.log('Read blogs:');
+      console.log("You are now in DevMode, feel free to develop this website!");
+      console.log("Version: " + process.env.VUE_APP_VERSION_CODE);
+      console.log("Read blogs:");
       console.log(this.$Blogs);
-      console.log('Read news:');
+      console.log("Read news:");
       console.log(this.$News);
     }
   },
   mounted() {
-    this.$Bus.$on('routeTo', (path) => {
-      this.$router.push({path: path});
+    this.$Bus.$on("routeTo", (path) => {
+      this.$router.push({ path: path });
     });
   },
 };

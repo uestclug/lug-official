@@ -5,7 +5,7 @@ author: Lolipop
 tag: nuofficial
 accent: accent
 location: 电子科技大学
-link: https://github.com/uestclug/nu-official
+link: https://github.com/uestclug/lug-official
 ---
 ## Hello, world
 

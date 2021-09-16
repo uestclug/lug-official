@@ -14,13 +14,10 @@
           v-if="tweetType == 'news'"
           class="mb-0"
         >
-          <span
-            class="clickable"
-            @click="openReaderDialog"
-          >
+          <span class="clickable" @click="openReaderDialog">
             <v-card-title
               :class="newsAccentColorClass"
-              style="display: inline-block;"
+              style="display: inline-block"
             >
               <span class="mr-2">{{ tweetTitle }}</span>
               <v-chip
@@ -28,11 +25,12 @@
                 :color="newsAccent ? newsAccent : 'info'"
                 label
                 small
-              >{{ $Utils.getNewsTagText(newsTag) }}</v-chip>
+                >{{ $Utils.getNewsTagText(newsTag) }}</v-chip
+              >
             </v-card-title>
-            <v-card-subtitle
-              class="pb-0"
-            >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle>
+            <v-card-subtitle class="pb-0"
+              >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle
+            >
           </span>
           <v-card-text>
             <MarkdownIt
@@ -47,7 +45,7 @@
                 label
                 outlined
                 small
-              ><v-icon left x-small>fas fa-map-marker-alt</v-icon>
+                ><v-icon left x-small>fas fa-map-marker-alt</v-icon>
                 {{ tweetLocation }}
               </v-chip>
               <v-chip
@@ -57,21 +55,15 @@
                 label
                 outlined
                 small
-              ><v-icon left x-small>fas fa-link</v-icon>
+                ><v-icon left x-small>fas fa-link</v-icon>
                 相关链接
               </v-chip>
             </div>
           </v-card-text>
         </v-alert>
         <!-- 博客的 tweet 卡片 -->
-        <div
-          v-else-if="tweetType == 'blog'"
-          class="pa-4"
-        >
-          <div
-            v-if="blogTags"
-            class="pl-4 pt-4"
-          >
+        <div v-else-if="tweetType == 'blog'" class="pa-4">
+          <div v-if="blogTags" class="pl-4 pt-4">
             <v-chip
               v-for="blogTag in blogTags"
               v-bind:key="blogTag"
@@ -80,20 +72,17 @@
               color="primary"
               label
               small
-            ><v-icon left x-small>fas fa-tag</v-icon>
+              ><v-icon left x-small>fas fa-tag</v-icon>
               {{ blogTag }}
             </v-chip>
           </div>
-          <span
-            class="clickable"
-            @click="toBlogById(tweetId)"
-          >
-            <v-card-title
-              :class="blogTags ? 'pt-2' : ''"
-            >{{ tweetTitle }}</v-card-title>
-            <v-card-subtitle
-              class="pb-0"
-            >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle>
+          <span class="clickable" @click="toBlogById(tweetId)">
+            <v-card-title :class="blogTags ? 'pt-2' : ''">{{
+              tweetTitle
+            }}</v-card-title>
+            <v-card-subtitle class="pb-0"
+              >{{ tweetDate }}, {{ tweetAuthor }}</v-card-subtitle
+            >
           </span>
           <v-card-text>
             <span>
@@ -110,7 +99,7 @@
                 label
                 outlined
                 small
-              ><v-icon left x-small>fas fa-map-marker-alt</v-icon>
+                ><v-icon left x-small>fas fa-map-marker-alt</v-icon>
                 {{ tweetLocation }}
               </v-chip>
               <v-chip
@@ -120,7 +109,7 @@
                 label
                 outlined
                 small
-              ><v-icon left x-small>fas fa-link</v-icon>
+                ><v-icon left x-small>fas fa-link</v-icon>
                 相关链接
               </v-chip>
             </div>
@@ -132,10 +121,10 @@
 </template>
 
 <script>
-import MarkdownIt from '@/components/Model/MarkdownIt';
+import MarkdownIt from "@/components/Model/MarkdownIt";
 
 export default {
-  name: 'TweetCard',
+  name: "TweetCard",
   data: () => ({
     //
   }),
@@ -144,29 +133,29 @@ export default {
   },
   props: [
     // 推送卡片公用
-    'tweetId', // 编号
-    'tweetTitle', // 题目
-    'tweetAuthor', // 作者
-    'tweetType', // 类型 ('news'/'blog')
-    'tweetDate', // 日期 (例如: '2020-11-02')
-    'tweetContent', // 内容
-    'tweetLocation', // 地点
-    'tweetLink', // 相关链接
+    "tweetId", // 编号
+    "tweetTitle", // 题目
+    "tweetAuthor", // 作者
+    "tweetType", // 类型 ('news'/'blog')
+    "tweetDate", // 日期 (例如: '2020-11-02')
+    "tweetContent", // 内容
+    "tweetLocation", // 地点
+    "tweetLink", // 相关链接
     // 新闻
-    'newsAccent', // 新闻类型 ('info'/'accent'/'warning'/'error')
+    "newsAccent", // 新闻类型 ('info'/'accent'/'warning'/'error')
     // eslint-disable-next-line max-len
-    'newsTag', // 新闻标签 (''/'mirrors'/'iptv'/'repair'/'markdown'/'catroom'/'nuofficial')
+    "newsTag", // 新闻标签 (''/'mirrors'/'iptv'/'repair'/'markdown'/'catroom'/'nuofficial')
     // 博客
-    'blogTags', // 博客标签
-    'blogView', // 博客渲染 (''/'markdown')
+    "blogTags", // 博客标签
+    "blogView", // 博客渲染 (''/'markdown')
   ],
   created() {
     //
   },
   methods: {
     openReaderDialog() {
-      this.$Bus.$emit('setReaderDialog', {
-        type: 'news',
+      this.$Bus.$emit("setReaderDialog", {
+        type: "news",
         title: this.tweetTitle,
         author: this.tweetAuthor,
         date: this.tweetDate,
@@ -178,20 +167,22 @@ export default {
       });
     },
     toBlogByTag(blogTag) {
-      this.$router.push('/blog/tag/' + blogTag);
+      this.$router.push("/blog/tag/" + blogTag);
     },
     toBlogById(blogId) {
-      this.$router.push('/blog/id/' + blogId);
+      this.$router.push("/blog/id/" + blogId);
     },
   },
   computed: {
     newsAccentColorClass() {
-      if (this.newsAccent == 'info' ||
-          this.newsAccent == 'accent' ||
-          this.newsAccent == 'warning' ||
-          this.newsAccent == 'error') {
-        return 'color-' + this.newsAccent;
-      } else return 'color-info';
+      if (
+        this.newsAccent == "info" ||
+        this.newsAccent == "accent" ||
+        this.newsAccent == "warning" ||
+        this.newsAccent == "error"
+      ) {
+        return "color-" + this.newsAccent;
+      } else return "color-info";
     },
   },
 };

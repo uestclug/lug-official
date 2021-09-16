@@ -8,68 +8,39 @@
           outlined
         >
           <v-card-text class="text-center">
-            <v-avatar
-              :color="member.color ? member.color : 'primary'"
-              size="72"
-            >
-              <span class="white--text headline text-h3">{{
-                member.nickname[0]
-              }}</span>
+            <v-avatar color="primary" size="72">
+              <span
+                class="white--text headline text-h3"
+                v-if="!member.avatar_url"
+                >{{ member.name[0] }}</span
+              >
+              <v-img v-else :src="member.avatar_url" />
             </v-avatar>
           </v-card-text>
           <v-card-title class="justify-center pt-0">{{
-            member.nickname
+            member.name
           }}</v-card-title>
           <v-card-subtitle class="text-center">
-            <div>「{{ member.intro }}」</div>
+            <div>「{{ member.bio }}」</div>
             <div>
               <v-chip
-                v-if="member.blog"
+                v-if="'blog' in member"
                 @click="$Utils.openExternalLink(member.blog)"
                 class="ma-1 mt-3"
                 label
                 small
-                :color="member.color ? member.color : 'primary'"
+                color="primary"
               >
-                <v-icon small color="white">
-                  fas fa-blog
-                </v-icon>
+                <v-icon small color="white"> fas fa-blog </v-icon>
               </v-chip>
               <v-chip
-                v-if="member.github"
-                @click="$Utils.openExternalLink(member.github)"
+                @click="$Utils.openExternalLink(member.html_url)"
                 class="ma-1 mt-3"
                 label
                 small
-                :color="member.color ? member.color : 'primary'"
+                color="primary"
               >
-                <v-icon small color="white">
-                  fab fa-github
-                </v-icon>
-              </v-chip>
-              <v-chip
-                v-if="member.gitlab"
-                @click="$Utils.openExternalLink(member.gitlab)"
-                class="ma-1 mt-3"
-                label
-                small
-                :color="member.color ? member.color : 'primary'"
-              >
-                <v-icon small color="white">
-                  fab fa-gitlab
-                </v-icon>
-              </v-chip>
-              <v-chip
-                v-if="member.gitee"
-                @click="$Utils.openExternalLink(member.gitee)"
-                class="ma-1 mt-3"
-                label
-                small
-                :color="member.color ? member.color : 'primary'"
-              >
-                <v-icon small color="white">
-                  fab fa-git
-                </v-icon>
+                <v-icon small color="white"> fab fa-github </v-icon>
               </v-chip>
             </div>
           </v-card-subtitle>
@@ -81,7 +52,7 @@
 
 <script>
 export default {
-  name: 'MemberCard',
-  props: ['member'],
+  name: "MemberCard",
+  props: ["member"],
 };
 </script>

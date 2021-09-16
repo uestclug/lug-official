@@ -1,10 +1,7 @@
 <template>
   <v-hover>
     <template v-slot:default="{ hover }">
-      <v-card
-        :elevation="hover ? 4 : 2"
-        class="rounded-lg transition-swing"
-      >
+      <v-card :elevation="hover ? 4 : 2" class="rounded-lg transition-swing">
         <div class="clickable">
           <div v-if="loadingType == 'news'">
             <v-skeleton-loader
@@ -44,13 +41,13 @@
 
 <script>
 export default {
-  name: 'TweetSkeletonLoader',
+  name: "TweetSkeletonLoader",
   data: () => ({
     //
   }),
   props: [
-    'loadingType', // 加载类型 ('news'/'blog')
-    'isLoading', // 加载中
+    "loadingType", // 加载类型 ('news'/'blog')
+    "isLoading", // 加载中
   ],
 };
 </script>

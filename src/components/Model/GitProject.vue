@@ -1,26 +1,23 @@
 <template>
-  <div>
-  </div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'GitProject',
+  name: "GitProject",
   props: [
-    'projectLink',
-    'projectName',
-    'projectDescription',
-    'projectHomePage',
-    'projectContributors',
-    'projectMainLanguage',
-    'projectForks',
-    'projectStars',
-    'projectIssues',
-    'projectLastUpdatedDate',
+    "projectLink",
+    "projectName",
+    "projectDescription",
+    "projectHomePage",
+    "projectContributors",
+    "projectMainLanguage",
+    "projectForks",
+    "projectStars",
+    "projectIssues",
+    "projectLastUpdatedDate",
   ],
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

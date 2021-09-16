@@ -1,4 +1,4 @@
-# nu-official
+# lug-official
 
 Official page of Netunion. Frontend pages only.
 

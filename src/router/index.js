@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 // import About from '@/views/About.vue';
-import Blog from '@/views/Blog.vue';
-import Home from '@/views/Home.vue';
-import NotFound from '@/views/NotFound.vue';
+import Blog from "@/views/Blog.vue";
+import Home from "@/views/Home.vue";
+import NotFound from "@/views/NotFound.vue";
 
 // 重复跳转相同路由不再报错
 const originalPush = VueRouter.prototype.push;
@@ -16,55 +16,55 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     component: Home,
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import('@/views/About.vue'),
+    path: "/about",
+    name: "about",
+    component: () => import("@/views/About.vue"),
   },
   {
-    path: '/blog',
-    name: 'blog',
+    path: "/blog",
+    name: "blog",
     component: Blog,
   },
   {
-    path: '/blog/:filter/:filterValue',
+    path: "/blog/:filter/:filterValue",
     component: Blog,
     props: true,
   },
   {
-    path: '/project',
-    name: 'project',
-    component: () => import('@/views/Project.vue'),
+    path: "/project",
+    name: "project",
+    component: () => import("@/views/Project.vue"),
   },
   {
-    path: '/chat',
-    name: 'chat',
-    component: () => import('@/views/Chat.vue'),
+    path: "/chat",
+    name: "chat",
+    component: () => import("@/views/Chat.vue"),
   },
   {
-    path: '/_empty',
-    name: '_empty',
+    path: "/_empty",
+    name: "_empty",
   },
   {
-    path: '*',
-    name: 'notfound',
+    path: "*",
+    name: "notfound",
     component: NotFound,
   },
 ];
 
 const Router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     } else {
-      return {x: 0, y: 0};
+      return { x: 0, y: 0 };
     }
   },
 });

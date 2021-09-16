@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import ContentTitle from '@/components/Model/ContentTitle';
-import MemberPalace from '@/components/About/MemberPalace';
+import ContentTitle from "@/components/Model/ContentTitle";
+import MemberPalace from "@/components/About/MemberPalace";
 
 export default {
-  name: 'About',
+  name: "About",
   components: {
     ContentTitle,
     MemberPalace,

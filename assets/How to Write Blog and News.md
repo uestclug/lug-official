@@ -169,7 +169,7 @@ It is recommended that image files be stored in the `assets/pic` directory and r
 建议将图片文件存放在 `assets/pic` 目录下，通过复制图片地址的方式引用。
 
 ``` markdown
-![pic](https://github.com/uestclug/nu-official/blob/frontend/assets/pic/tweet/pic?raw=true)
+![pic](https://github.com/uestclug/lug-official/blob/frontend/assets/pic/tweet/pic?raw=true)
 ```
 
 ## Issues / 已知问题（特性）

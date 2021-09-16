@@ -1,6 +1,10 @@
 <template>
   <div>
-    <ContentTitle class="content" title="线上服务" icon="fas fa-concierge-bell" />
+    <ContentTitle
+      class="content"
+      title="线上服务"
+      icon="fas fa-concierge-bell"
+    />
     <Serves class="content mt-3" />
     <v-row class="content">
       <v-col cols="12" md="6">
@@ -28,15 +32,15 @@
 </template>
 
 <script>
-import BlogList from '@/components/Home/BlogList';
-import ContentTitle from '@/components/Model/ContentTitle';
+import BlogList from "@/components/Home/BlogList";
+import ContentTitle from "@/components/Model/ContentTitle";
 // import Members from '@/components/Home/Members';
-import NewsList from '@/components/Home/NewsList';
-import Recruitment from '@/components/Home/Recruitment';
-import Serves from '@/components/Home/Serves';
+import NewsList from "@/components/Home/NewsList";
+import Recruitment from "@/components/Home/Recruitment";
+import Serves from "@/components/Home/Serves";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     BlogList,
     ContentTitle,

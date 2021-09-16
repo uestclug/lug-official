@@ -1,10 +1,6 @@
 <template>
   <div>
-    <TweetSkeletonLoader
-      class="mt-6"
-      v-if="initLoading"
-      loadingType="blog"
-    />
+    <TweetSkeletonLoader class="mt-6" v-if="initLoading" loadingType="blog" />
     <TweetCard
       class="mt-6"
       v-for="blog in blogItems"
@@ -20,23 +16,19 @@
       :blogTags="blog.tags"
     />
     <div>
-      <v-btn
-        class="mt-2 float-right"
-        color="primary"
-        text
-        to="/blog"
-      >查看所有博客文章<v-icon right small>far fa-hand-point-right</v-icon>
+      <v-btn class="mt-2 float-right" color="primary" text to="/blog"
+        >查看所有博客文章<v-icon right small>far fa-hand-point-right</v-icon>
       </v-btn>
     </div>
   </div>
 </template>
 
 <script>
-import TweetCard from '@/components/Model/TweetCard';
-import TweetSkeletonLoader from '@/components/Model/TweetSkeletonLoader';
+import TweetCard from "@/components/Model/TweetCard";
+import TweetSkeletonLoader from "@/components/Model/TweetSkeletonLoader";
 
 export default {
-  name: 'BlogList',
+  name: "BlogList",
   components: {
     TweetCard,
     TweetSkeletonLoader,

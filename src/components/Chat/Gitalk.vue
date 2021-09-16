@@ -5,31 +5,31 @@
 </template>
 
 <script>
-import 'gitalk/dist/gitalk.css';
-import Gitalk from 'gitalk';
+import "gitalk/dist/gitalk.css";
+import Gitalk from "gitalk";
 
 export default {
-  name: 'Gitalk',
+  name: "Gitalk",
   mounted() {
     const gitalk = new Gitalk({
       clientID: process.env.VUE_APP_GITALK_CLIENT_ID,
       clientSecret: process.env.VUE_APP_GITALK_CLIENT_SECRET,
-      repo: 'nu-official',
-      owner: 'uestclug',
-      admin: ['LolipopJ'],
+      repo: "lug-official",
+      owner: "uestclug",
+      admin: ["LolipopJ"],
       id: location.pathname, // Ensure uniqueness and length less than 50
       distractionFreeMode: true, // Facebook-like distraction free mode
-      language: 'zh-CN',
+      language: "zh-CN",
       perPage: 15,
     });
 
-    gitalk.render('gitalk-container');
+    gitalk.render("gitalk-container");
   },
 };
 </script>
 
 <style lang="scss">
-@import '../../styles/color.scss';
+@import "../../styles/color.scss";
 $gt-color-main: $color-primary;
 $gt-color-btn: #ffffff;
 

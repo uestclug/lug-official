@@ -1,7 +1,7 @@
 ---
 title: UESTC LUG SSO 站点试运行
 date: 2021-01-09
-author: CharlesYang & nonabyte
+author: Yukari & nonabyte
 tag: sso
 accent: accent
 location: NetUnion 沙河办公室

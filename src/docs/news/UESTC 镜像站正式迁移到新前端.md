@@ -1,7 +1,7 @@
 ---
 title: UESTC 镜像站正式迁移到新前端
 date: 2020-11-23
-author: CharlesYang
+author: Yukari
 tag: mirrors
 accent: accent
 location: NetUnion 沙河办公室

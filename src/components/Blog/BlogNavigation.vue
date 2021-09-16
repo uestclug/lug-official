@@ -1,15 +1,8 @@
 <template>
   <div>
-    <v-card
-      class="rounded-lg"
-    >
+    <v-card class="rounded-lg">
       <v-list>
-        <v-list-item
-          link
-          to="/blog"
-          exact
-          color="primary"
-        >
+        <v-list-item link to="/blog" exact color="primary">
           <v-list-item-title>All</v-list-item-title>
         </v-list-item>
 
@@ -42,19 +35,19 @@
 
 <script>
 export default {
-  name: 'BlogNavigation',
+  name: "BlogNavigation",
   data: () => ({
     navItems: [
       {
-        title: 'Tags',
-        icon: 'fas fa-home',
+        title: "Tags",
+        icon: "fas fa-home",
       },
     ],
     tagItems: [],
   }),
   methods: {
     toBlogByTag(blogTag) {
-      return '/blog/tag/' + blogTag;
+      return "/blog/tag/" + blogTag;
     },
     tagSortByBlogCount(a, b) {
       return b.blogCount - a.blogCount;
@@ -80,14 +73,16 @@ export default {
             index = m;
           }
         }
-        if (index == -1) { // tagItems 不包含该 tag 时
+        if (index == -1) {
+          // tagItems 不包含该 tag 时
           tagItems.push({
             name: tags[n],
             blogCount: 1,
           });
-        } else { // 该 tag 存在于 tagItems 时
+        } else {
+          // 该 tag 存在于 tagItems 时
           tagItems[index].blogCount += 1;
-        };
+        }
       }
     }
     tagItems.sort(this.tagSortByBlogCount);

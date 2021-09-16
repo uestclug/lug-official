@@ -12,18 +12,15 @@
 </template>
 
 <script>
-import BlogNavigation from '@/components/Blog/BlogNavigation';
-import BlogTweets from '@/components/Blog/BlogTweets';
+import BlogNavigation from "@/components/Blog/BlogNavigation";
+import BlogTweets from "@/components/Blog/BlogTweets";
 
 export default {
-  name: 'Blog',
+  name: "Blog",
   components: {
     BlogNavigation,
     BlogTweets,
   },
-  props: [
-    'filter',
-    'filterValue',
-  ],
+  props: ["filter", "filterValue"],
 };
 </script>

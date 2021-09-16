@@ -64,4 +64,4 @@
 
 ### 拉取请求
 
-将你添加或修改的信息以 `Pull requests` 的形式提交到[此 Github 项目](https://github.com/uestclug/nu-official/pulls).
+将你添加或修改的信息以 `Pull requests` 的形式提交到[此 Github 项目](https://github.com/uestclug/lug-official/pulls).

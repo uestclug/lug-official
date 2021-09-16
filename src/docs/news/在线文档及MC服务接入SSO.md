@@ -1,7 +1,7 @@
 ---
 title: 在线文档 及 Minecraft 接入 SSO 统一登录服务
 date: 2021-06-02
-author: CharlesYang & nonabyte
+author: Yukari & nonabyte
 tag: sso
 accent: accent
 location: NetUnion 清水河办公室

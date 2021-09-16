@@ -1,4 +1,4 @@
-# NU-OFFICIAL CHANGELOG / NetUnion 官网开发者日志
+# LUG-OFFICIAL CHANGELOG / NetUnion 官网开发者日志
 
 ## 2021-06-02
 
