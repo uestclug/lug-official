@@ -1,4 +1,9 @@
-# LUG-OFFICIAL CHANGELOG / NetUnion 官网开发者日志
+# LUG-OFFICIAL CHANGELOG / UESTC LUG 官网开发者日志
+
+## 2022-03-14
+
+- 使用 `js-yaml` 来解析博客和新闻的信息内容。
+- 更新使用文档。
 
 ## 2021-06-02
 

@@ -4,13 +4,13 @@ Official page of Netunion. Frontend pages only.
 
 ## Write blog and news
 
-See this [document](./assets/How%20to%20Write%20Blog%20and%20News.md).
+See this [document](./assets/how-to-write-blog-and-news.md).
 
 Or you can just imitate well-written [blog](./src/docs/blog) and [news](./src/docs/news).
 
 ## Become the one in members palace
 
-Display your information on the members palace page, see this [document](./assets/Add%20Your%20Info%20to%20Member%20Palace.md).
+Display your information on the members palace page, see this [document](./assets/add-your-info-to-member-palace.md).
 
 ## Todo list
 
@@ -27,6 +27,8 @@ Display your information on the members palace page, see this [document](./asset
 - [ ] Image cache.
 
 ## Project setup
+
+Node.js version `16.x` is recommended for development.
 
 ```bash
 yarn install
